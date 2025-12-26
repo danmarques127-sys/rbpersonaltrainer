@@ -1,0 +1,388 @@
+/* =======================================
+   ADMIN DASHBOARD (RB)
+   ======================================= */
+
+/* BACKGROUND GERAL */
+.admin-dashboard {
+  background: radial-gradient(circle at top left, #151515 0%, #050505 45%, #020202 100%);
+  color: #f5f5f5;
+  padding: 64px 0 56px;
+}
+
+.admin-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* =======================================
+   HERO – TÍTULO + KPIs RESUMO
+   ======================================= */
+
+.admin-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 40px;
+  padding: 24px 26px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(255,122,0,0.16), transparent 55%),
+    linear-gradient(135deg, #171717, #050505);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+.admin-hero-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.admin-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: #b3b3b3;
+  margin: 0;
+}
+
+.admin-title {
+  margin: 0;
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+.admin-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #d4d4d4;
+  max-width: 540px;
+}
+
+/* KPIs à direita */
+.admin-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  min-width: 260px;
+}
+
+.admin-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, #171717, #050505);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5e5;
+}
+
+.admin-pill span {
+  font-weight: 600;
+}
+
+.admin-pill--critical {
+  border-color: rgba(248, 113, 113, 0.9);
+  color: #fecaca;
+}
+
+.admin-pill--ok span {
+  color: #22c55e;
+}
+
+/* =======================================
+   GRID PRINCIPAL
+   ======================================= */
+
+.admin-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.8rem;
+}
+
+/* Painel base */
+.admin-panel {
+  background: radial-gradient(circle at top left, #181818 0%, #101010 55%, #070707 100%);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 1.7rem 1.7rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+.admin-panel-wide {
+  grid-column: 1 / -1;
+}
+
+/* Cabeçalho do painel */
+.admin-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.1rem;
+}
+
+.admin-panel-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #b3b3b3;
+  margin: 0 0 0.25rem 0;
+}
+
+.admin-panel-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
+/* Corpo do painel */
+.admin-panel-body {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #dddddd;
+}
+
+/* Split interno (texto + mini métricas, etc.) */
+.admin-panel-body--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 1.6rem;
+}
+
+/* =======================================
+   MINI KPIs
+   ======================================= */
+
+.admin-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.admin-mini-box {
+  padding: 0.85rem 0.95rem;
+  border-radius: 16px;
+  background: #131313;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.admin-mini-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #b3b3b3;
+  margin: 0 0 0.25rem 0;
+}
+
+.admin-mini-value {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+/* =======================================
+   TABELAS (usuários, convites, logs)
+   ======================================= */
+
+.admin-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: #101010;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+  font-size: 0.88rem;
+}
+
+.admin-table thead {
+  background: linear-gradient(90deg, #181818, #111111);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.admin-table th {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.admin-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Badges de status */
+.admin-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.admin-badge--active {
+  background: rgba(34, 197, 94, 0.12);
+  color: #4ade80;
+}
+
+.admin-badge--pending {
+  background: rgba(234, 179, 8, 0.12);
+  color: #facc15;
+}
+
+.admin-badge--blocked {
+  background: rgba(248, 113, 113, 0.12);
+  color: #fca5a5;
+}
+
+/* =======================================
+   ACTIONS / LINKS
+   ======================================= */
+
+.admin-inline-box {
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Link estilo CTA */
+.admin-panel-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ff7a00;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.admin-panel-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34%;
+  height: 2px;
+  background: #ff7a00;
+  transition: width 0.2s ease;
+}
+
+.admin-panel-link:hover::after {
+  width: 100%;
+}
+
+/* Botão primário (reaproveita estilo RB) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, #ff7a00, #ffb347);
+  color: #020617;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    filter 0.12s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
+}
+
+/* =======================================
+   RESPONSIVO
+   ======================================= */
+
+@media (max-width: 960px) {
+  .admin-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .admin-hero-right {
+    align-items: flex-start;
+  }
+
+  .admin-main-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-panel-body--split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .admin-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .admin-shell {
+    padding: 0 20px;
+  }
+
+  .admin-title {
+    font-size: 1.8rem;
+  }
+
+  .admin-mini-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .btn-primary {
+    width: 100%;
+    justify-content: center;
+  }
+}

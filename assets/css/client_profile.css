@@ -1,0 +1,393 @@
+/* =======================================
+   CLIENT PROFILE – LAYOUT GERAL (PREMIUM)
+   Alinhado com o novo Client Dashboard
+   ======================================= */
+
+/* Fundo geral da área de cliente */
+.client-dashboard {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding: 96px 0 56px; /* espaço pro header fixo + margem inferior */
+}
+
+/* Container central */
+.client-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* =======================================
+   HERO – AVATAR + NOME + STATUS
+   ======================================= */
+
+.client-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.8rem;
+  margin-bottom: 44px;
+  padding: 22px 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #181820, #111118);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.70);
+}
+
+.client-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* Avatar premium com borda laranja */
+.client-avatar-wrapper {
+  flex-shrink: 0;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  padding: 3px;
+  background: radial-gradient(circle at 0 0, #ffb86c, #ff7a00 45%, #111 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.80);
+}
+
+.client-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+}
+
+.client-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.client-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.client-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: #b5b5c5;
+}
+
+.client-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.client-subtitle {
+  margin: 0;
+  font-size: 0.96rem;
+  color: #d6d6e0;
+  max-width: 520px;
+}
+
+/* Status à direita do hero */
+.client-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+  min-width: 220px;
+}
+
+/* Pill genérico */
+.client-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(135deg, #171720, #101018);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5e5;
+}
+
+.client-pill span {
+  font-weight: 600;
+}
+
+.client-pill--status {
+  border-color: rgba(0, 210, 120, 0.9);
+  color: #00d278;
+}
+
+.client-pill--status span {
+  color: #00d278;
+}
+
+/* =======================================
+   GRID DOS CARDS PRINCIPAIS – PERFIL
+   ======================================= */
+
+.client-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colunas iguais */
+  gap: 1.7rem;
+  align-items: stretch;
+  grid-auto-rows: 1fr; /* cada linha ajusta pela altura do maior card */
+}
+
+/* Cartão base */
+.client-panel {
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Header do card */
+.client-panel-header {
+  padding: 1.25rem 1.6rem 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.client-panel-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #ababba;
+}
+
+.client-panel-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #f8f8ff;
+}
+
+/* Corpo do card */
+.client-panel-body {
+  padding: 1.1rem 1.6rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4e0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+
+/* Rodapé do card (links) */
+.client-panel-footer {
+  padding: 0 1.6rem 0.9rem;
+  margin-top: auto;
+}
+
+.client-panel-link {
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ff7a00;
+  padding-bottom: 3px;
+}
+
+.client-panel-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32%;
+  height: 2px;
+  background: #ff7a00;
+  transition: width 0.22s ease;
+}
+
+.client-panel-link:hover::after {
+  width: 100%;
+}
+
+.client-panel-link.subtle {
+  color: #ffb86c;
+}
+
+.client-panel-link.subtle::after {
+  background: #ffb86c;
+}
+
+/* =======================================
+   "TABELAS" DE INFORMAÇÕES (LABEL x VALUE)
+   ======================================= */
+
+.profile-section-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 520px;   /* largura máxima da “tabela” */
+  margin: 0 auto;     /* centraliza dentro do card */
+}
+
+/* Cada linha de informação */
+.form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: flex-start;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+}
+
+/* Label da informação (coluna esquerda) */
+.form-label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5f5;
+}
+
+/* Valor (coluna direita) */
+.profile-value {
+  display: block;
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.75rem;
+  background: rgba(15, 15, 20, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.94);
+  font-size: 0.9rem;
+  min-height: 2.35rem;
+  line-height: 1.4;
+}
+
+/* Permite textos multilinha (observações etc.) */
+.form-row .profile-value pre,
+.form-row .profile-value span {
+  white-space: pre-line;
+}
+
+/* Linha específica da foto do perfil:
+   mantém label à esquerda e foto à direita,
+   mas sem o retângulo de fundo. */
+.form-row--avatar {
+  align-items: center; /* centraliza verticalmente label e foto */
+}
+
+.form-row--avatar .profile-value {
+  background: none;
+  border: none;
+  padding: 0;
+  min-height: 0;
+}
+
+.form-row--avatar .client-avatar-wrapper {
+  margin-top: 0;
+}
+
+/* =======================================
+   MENSAGENS (ERRO / SUCESSO) – se usar
+   ======================================= */
+
+.form-error,
+.form-success {
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.form-error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.6);
+  color: rgb(252, 165, 165);
+}
+
+.form-success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.6);
+  color: rgb(190, 242, 100);
+}
+
+.form-error-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+/* =======================================
+   DIVISOR DE SEÇÃO (se usar)
+   ======================================= */
+
+.section-divider {
+  margin-top: 2.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+/* =======================================
+   RESPONSIVO
+   ======================================= */
+
+@media (max-width: 960px) {
+  .client-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .client-hero-right {
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .client-main-grid {
+    grid-template-columns: minmax(0, 1fr); /* empilha cards */
+    gap: 1.8rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .client-shell {
+    padding: 0 20px;
+  }
+
+  .client-avatar-wrapper {
+    width: 72px;
+    height: 72px;
+  }
+
+  .client-title {
+    font-size: 1.8rem;
+  }
+
+  /* Label em cima, valor embaixo — mobile */
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.footer-cta-button--secondary {
+  background: transparent;
+  color: #ff7a00;
+  border: 1px solid rgba(255, 122, 0, 0.6);
+}
+
+.footer-cta-button--secondary:hover {
+  background: rgba(255, 122, 0, 0.08);
+  border-color: #ff7a00;
+}

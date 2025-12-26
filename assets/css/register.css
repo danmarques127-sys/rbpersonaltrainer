@@ -1,0 +1,169 @@
+/* ==========================================================
+   REGISTER PAGE – RB Personal Trainer
+   Estilo alinhado ao tema premium (Profile / Dashboard / Clients)
+   ========================================================== */
+
+/* ---------- MAIN WRAPPER ---------- */
+.register-main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+  color: #f7f7ff;
+}
+
+/* ---------- CARD ---------- */
+.register-wrapper {
+  width: 100%;
+  max-width: 520px;
+}
+
+.register-card {
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 32px 28px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9);
+  color: #f7f7ff;
+}
+
+/* ---------- TITLES ---------- */
+.register-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  margin: 0 0 6px;
+  color: #9ea2c5;               /* mesmo tom dos labels do profile */
+}
+
+.register-title {
+  font-size: 1.7rem;
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: #ffffff;
+}
+
+.register-subtitle {
+  font-size: 0.9rem;
+  margin-bottom: 22px;
+  color: rgba(226, 232, 255, 0.88);
+}
+
+/* ---------- LABELS + INPUTS ---------- */
+.register-label {
+  display: block;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  margin-bottom: 4px;
+  color: #9ea2c5;               /* label igual ao restante do sistema */
+}
+
+.register-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(15, 15, 20, 0.96);
+  color: #f7f7ff;
+  font-size: 0.95rem;
+  margin-bottom: 16px;
+  transition:
+    border-color 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease;
+}
+
+.register-input::placeholder {
+  color: #777a88;
+}
+
+.register-input:focus {
+  outline: none;
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.5);
+  background: rgba(18, 18, 26, 0.98);
+}
+
+/* ---------- BUTTON (CTA PRINCIPAL) – PADRÃO RB (outline laranja) ---------- */
+.register-button {
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid #ff7a00;
+  color: #ff7a00;
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  cursor: pointer;
+  margin-top: 6px;
+
+  box-shadow: none;
+  transition:
+    transform 0.16s ease,
+    box-shadow 0.16s ease,
+    background 0.16s ease,
+    color 0.16s ease;
+}
+
+.register-button:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 122, 0, 0.12); /* leve glow */
+  box-shadow: 0 0 18px rgba(255, 122, 0, 0.35);
+}
+
+/* ---------- LINK DE LOGIN ---------- */
+.register-login-hint {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  text-align: center;
+  color: rgba(226, 232, 255, 0.8);
+}
+
+.register-login-hint a {
+  color: #ff7a00;               /* mesmo laranja das CTAs */
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.register-login-hint a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- MOBILE ---------- */
+@media (max-width: 650px) {
+  .register-main {
+    padding: 60px 16px;
+  }
+
+  .register-card {
+    padding: 24px 20px;
+    border-radius: 20px;
+  }
+
+  .register-title {
+    font-size: 1.45rem;
+  }
+}
+
+/* ===== PATCH – Ícone do calendário branco ===== */
+
+/* Chrome, Edge, Safari */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) invert(1);   /* transforma em branco */
+  opacity: 0.9;
+}
+
+/* Ao passar o mouse */
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+}
+
+/* Firefox */
+input[type="date"] {
+  color-scheme: dark;  /* força ícone claro no Firefox */
+}

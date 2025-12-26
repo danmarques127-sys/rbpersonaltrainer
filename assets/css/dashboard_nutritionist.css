@@ -1,0 +1,383 @@
+/* =======================================
+   NUTRITIONIST DASHBOARD (RB)
+   (reutiliza as mesmas classes .coach-*)
+   ======================================= */
+
+/* BACKGROUND GERAL */
+.coach-dashboard {
+  background: radial-gradient(circle at top left, #151515 0%, #050505 45%, #020202 100%);
+  color: #f5f5f5;
+  padding: 64px 0 56px;
+}
+
+.coach-shell {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ========================
+   HERO: AVATAR + NOME + STATUS
+   ======================== */
+
+.coach-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.5rem;
+  margin-bottom: 40px;
+  padding: 24px 26px;
+  border-radius: 24px;
+  background:
+    radial-gradient(circle at top left, rgba(255,122,0,0.16), transparent 55%),
+    linear-gradient(135deg, #171717, #050505);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.85),
+    0 0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+.coach-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* AVATAR */
+.coach-avatar-wrapper {
+  flex-shrink: 0;
+}
+
+.coach-avatar {
+  width: 82px;
+  height: 82px;
+  border-radius: 999px;
+  padding: 2px;
+  background: radial-gradient(circle at 0 0, #ffb86c, #ff7a00 45%, #111 100%);
+  box-shadow:
+    0 0 0 4px rgba(0, 0, 0, 0.9),
+    0 12px 30px rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coach-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+/* TEXTO DO HERO */
+.coach-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coach-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: #b3b3b3;
+  margin: 0;
+}
+
+.coach-title {
+  margin: 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+.coach-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  color: #d4d4d4;
+  max-width: 520px;
+}
+
+/* STATUS PILLs */
+.coach-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+  min-width: 260px;
+}
+
+.coach-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: linear-gradient(135deg, #171717, #050505);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5e5;
+}
+
+.coach-pill span {
+  font-weight: 600;
+}
+
+.coach-pill--alert {
+  border-color: rgba(255, 122, 0, 0.9);
+  color: #ffb86c;
+}
+
+.coach-pill--alert span {
+  color: #ffb86c;
+}
+
+/* ========================
+   GRID PRINCIPAL
+   ======================== */
+
+.coach-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.8rem;
+}
+
+/* PAINEL BASE */
+.coach-panel {
+  background: radial-gradient(circle at top left, #181818 0%, #101010 55%, #070707 100%);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  padding: 1.7rem 1.7rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+.coach-panel-wide {
+  grid-column: 1 / -1;
+}
+
+/* HEADER DO PAINEL */
+.coach-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.15rem;
+}
+
+.coach-panel-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #b3b3b3;
+  margin: 0 0 0.25rem 0;
+}
+
+.coach-panel-title {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
+/* CORPO DO PAINEL */
+.coach-panel-body {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #dddddd;
+}
+
+.coach-panel-body p {
+  margin: 0 0 0.6rem 0;
+  max-width: 520px;
+}
+
+.coach-panel-body--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 1.6rem;
+}
+
+.coach-panel-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #b3b3b3;
+  margin: 0 0 0.35rem 0;
+}
+
+.coach-panel-main {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+/* MINI BOXES (3 COLUNAS) */
+.coach-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.coach-mini-box {
+  padding: 0.85rem 0.95rem;
+  border-radius: 16px;
+  background: #131313;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.coach-mini-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #b3b3b3;
+  margin: 0 0 0.25rem 0;
+}
+
+.coach-mini-value {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+/* LISTAS (CLIENTES, MENSAGENS, etc.) */
+.coach-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.coach-list-item {
+  padding: 0.55rem 0.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.coach-list-item:last-child {
+  border-bottom: none;
+}
+
+.coach-list-title {
+  margin: 0 0 0.18rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+.coach-list-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #b5b5b5;
+  max-width: 380px;
+  word-wrap: break-word;
+}
+
+/* LINHA INLINE (CHECK-INS) */
+.coach-inline-box {
+  margin-top: 0.95rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* LINKS (CTA) */
+.coach-panel-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ff7a00;
+  position: relative;
+  padding-bottom: 3px;
+}
+
+.coach-panel-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 34%;
+  height: 2px;
+  background: #ff7a00;
+  transition: width 0.2s ease;
+}
+
+.coach-panel-link:hover::after {
+  width: 100%;
+}
+
+.coach-panel-link.subtle {
+  color: #ffb86c;
+}
+
+.coach-panel-link.subtle::after {
+  background: #ffb86c;
+}
+
+/* SEPARADOR FINAL */
+.section-divider {
+  margin-top: 36px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.14);
+}
+
+/* ========================
+   RESPONSIVO
+   ======================== */
+
+@media (max-width: 960px) {
+  .coach-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .coach-hero-right {
+    align-items: flex-start;
+  }
+
+  .coach-main-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coach-panel-body--split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coach-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .coach-shell {
+    padding: 0 20px;
+  }
+
+  .coach-avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .coach-title {
+    font-size: 1.9rem;
+  }
+
+  .coach-mini-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

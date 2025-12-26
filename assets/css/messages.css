@@ -1,0 +1,308 @@
+/* ===========================================
+   MESSAGES – PREMIUM DARK (RB STANDARD)
+   Cor/Background/Traços no padrão do dashboard
+   CTAs: texto laranja + borda (sem background)
+   =========================================== */
+
+:root {
+  --rb-bg-0: #050506;
+  --rb-bg-1: #07070c;
+  --rb-bg-2: #0b0c12;
+  --rb-card-1: #17171f;
+  --rb-card-2: #101018;
+
+  --rb-text: rgba(255, 255, 255, 0.92);
+  --rb-muted: rgba(214, 214, 224, 0.82);
+  --rb-dim: rgba(181, 181, 197, 0.75);
+
+  --rb-line-1: rgba(255, 255, 255, 0.06);
+  --rb-line-2: rgba(255, 255, 255, 0.09);
+
+  --rb-orange: #ff7a00;
+  --rb-orange-soft: #ffb86c;
+
+  --rb-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+  --rb-shadow-soft: 0 14px 28px rgba(0, 0, 0, 0.65);
+
+  --rb-radius-lg: 14px;
+  --rb-radius-md: 12px;
+  --rb-radius-sm: 10px;
+
+  --rb-focus: rgba(255, 122, 0, 0.35);
+}
+
+/* Base page */
+body {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+  color: var(--rb-text);
+}
+
+/* Espaço pro header fixo (se o seu header.css for fixed) */
+.msg-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 96px 32px 56px;
+}
+
+/* =========================
+   USER HEADER (top card)
+   ========================= */
+.msg-user-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 18px 20px;
+  border-radius: var(--rb-radius-lg);
+  background: linear-gradient(145deg, var(--rb-card-1), var(--rb-card-2));
+  border: 1px solid var(--rb-line-1);
+  box-shadow: var(--rb-shadow);
+  margin-bottom: 16px;
+}
+
+.msg-user-header img {
+  width: 62px;
+  height: 62px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(255, 122, 0, 0.55);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.75);
+}
+
+.msg-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.msg-user-name {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.msg-user-subtitle {
+  font-size: 0.92rem;
+  color: var(--rb-muted);
+}
+
+/* =========================
+   TOP BAR (folders + CTA)
+   ========================= */
+.msg-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin: 16px 0 14px;
+}
+
+.msg-folders {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.msg-folder-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(10, 10, 14, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.86rem;
+  letter-spacing: 0.02em;
+  transition: transform 0.12s ease, border 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.msg-folder-link:hover {
+  transform: translateY(-1px);
+  background: rgba(14, 14, 20, 0.75);
+  border-color: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.msg-folder-link.active {
+  border-color: rgba(255, 122, 0, 0.55);
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.15);
+  color: #ffffff;
+}
+
+/* CTA principal (New message) – sem background */
+.msg-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 122, 0, 0.75);
+  background: transparent;
+  color: var(--rb-orange);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  transition: transform 0.12s ease, box-shadow 0.15s ease, border 0.15s ease, color 0.15s ease;
+}
+
+.msg-btn-primary:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 122, 0, 0.95);
+  box-shadow: 0 0 0 3px var(--rb-focus);
+  color: #ff9a3b;
+}
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+.msg-empty {
+  margin-top: 12px;
+  padding: 16px 18px;
+  border-radius: var(--rb-radius-md);
+  background: rgba(10, 10, 14, 0.55);
+  border: 1px dashed rgba(255, 255, 255, 0.12);
+  color: var(--rb-muted);
+}
+
+/* =========================
+   LIST (rows)
+   ========================= */
+.msg-row-wrapper {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.msg-row-link {
+  text-decoration: none;
+}
+
+/* Card da mensagem */
+.msg-row {
+  border-radius: var(--rb-radius-sm);
+  background: linear-gradient(145deg, rgba(12, 12, 18, 0.92), rgba(6, 7, 12, 0.96));
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.55);
+}
+
+.msg-row:hover {
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+.msg-row-unread {
+  border-color: rgba(255, 122, 0, 0.45);
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.18), 0 12px 24px rgba(0, 0, 0, 0.60);
+}
+
+/* Conteúdo interno (seu inline já define display/padding; aqui refinamos tipografia) */
+.msg-row-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.msg-row-subject {
+  font-size: 0.95rem;
+  font-weight: 650;
+  color: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.msg-row-snippet {
+  font-size: 0.86rem;
+  color: var(--rb-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.msg-row-date {
+  font-size: 0.78rem;
+  color: rgba(181, 181, 197, 0.78);
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+/* =========================
+   ACTIONS (right column)
+   ========================= */
+.msg-row-actions {
+  padding-top: 2px;
+}
+
+/* Botões em forma de link (sem azul) */
+.msg-row-action-btn {
+  color: rgba(214, 214, 224, 0.70);
+}
+
+.msg-row-action-btn:hover {
+  color: #ffffff;
+}
+
+.msg-row-action-danger {
+  color: rgba(255, 122, 0, 0.95) !important;
+}
+
+.msg-row-action-danger:hover {
+  color: #ff9a3b !important;
+}
+
+/* Small buttons (empty trash) */
+.msg-small-btn {
+  background: transparent;
+}
+
+.msg-small-btn:hover {
+  box-shadow: 0 0 0 3px var(--rb-focus);
+}
+
+/* =========================
+   BADGES (já tem inline, mas garante que não “quebra”)
+   ========================= */
+.msg-badge,
+.msg-nav-badge {
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.45);
+}
+
+/* =========================
+   RESPONSIVO
+   ========================= */
+@media (max-width: 900px) {
+  .msg-container {
+    padding: 96px 20px 56px;
+  }
+
+  .msg-top-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .msg-btn-primary {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .msg-user-header {
+    padding: 16px;
+  }
+
+  .msg-user-header img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .msg-user-name {
+    font-size: 1.15rem;
+  }
+}

@@ -1,0 +1,503 @@
+/* =========================================================
+   CLIENT WORKOUTS (COACH VIEW) - RB THEME
+   Matches: header.css / footer.css / your HTML classes
+   ========================================================= */
+
+/* ---------- Theme Tokens ---------- */
+:root{
+  --rb-bg-0:#06070a;
+  --rb-bg-1:#0a0b10;
+  --rb-bg-2:#0d0f16;
+
+  --rb-card: rgba(16, 18, 26, 0.72);
+  --rb-card-2: rgba(18, 20, 30, 0.62);
+
+  --rb-border: rgba(255,255,255,0.10);
+  --rb-border-soft: rgba(255,255,255,0.08);
+
+  --rb-text-main: rgba(255,255,255,0.92);
+  --rb-text-muted: rgba(255,255,255,0.62);
+  --rb-text-label: rgba(255,255,255,0.50);
+
+  --rb-accent: #ff8a00;
+  --rb-accent-strong:#ff6a00;
+
+  --rb-shadow-1: 0 14px 40px rgba(0,0,0,0.55);
+  --rb-shadow-2: 0 22px 70px rgba(0,0,0,0.65);
+  --rb-glow: 0 0 0 1px rgba(255,138,0,0.10), 0 0 40px rgba(255,138,0,0.10);
+
+  --rb-radius-xl: 22px;
+  --rb-radius-lg: 18px;
+  --rb-radius-md: 14px;
+
+  --rb-gap: 18px;
+}
+
+/* ---------- Page Background ---------- */
+html, body { height: 100%; }
+
+body{
+  margin:0;
+  color: var(--rb-text-main);
+  background:
+    radial-gradient(1200px 600px at 50% 20%, rgba(255, 138, 0, 0.14), rgba(0, 0, 0, 0) 55%),
+    radial-gradient(900px 480px at 20% 40%, rgba(100, 120, 255, 0.06), rgba(0, 0, 0, 0) 55%),
+    linear-gradient(180deg, var(--rb-bg-0) 0%, var(--rb-bg-1) 35%, var(--rb-bg-2) 100%);
+  overflow-x:hidden;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+}
+
+/* subtle noise overlay */
+body::before{
+  content:"";
+  position: fixed;
+  inset: 0;
+  pointer-events:none;
+  opacity:0.06;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* ---------- Generic Links ---------- */
+a{ color: inherit; text-decoration:none; }
+
+/* ---------- Main Shell ---------- */
+.coach-dashboard{
+  padding: 28px 0 40px;
+}
+
+.coach-shell{
+  width: min(1200px, calc(100% - 40px));
+  margin: 0 auto;
+}
+
+/* ---------- Container Card (wk-container) ---------- */
+.wk-container{
+  border-radius: var(--rb-radius-xl);
+  padding: 22px;
+  background:
+    radial-gradient(700px 240px at 35% 20%, rgba(255,138,0,0.12), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid var(--rb-border-soft);
+  box-shadow: var(--rb-shadow-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.wk-container::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+/* ---------- Client Header Row ---------- */
+.coach-client-header-row{
+  padding: 14px 14px;
+  border-radius: var(--rb-radius-xl);
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+.coach-client-avatar{
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  box-shadow: 0 0 0 6px rgba(255,138,0,0.04);
+}
+
+.coach-client-name{
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,0.95) !important;
+}
+
+.coach-client-meta{
+  color: var(--rb-text-label) !important;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-size: 10px !important;
+}
+
+/* ---------- Section Titles ---------- */
+.coach-section{
+  margin-top: 18px;
+  padding-top: 8px;
+}
+
+.coach-section-title{
+  margin: 10px 0 6px !important;
+  font-size: 14px !important;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65) !important;
+}
+
+.coach-section-sub{
+  margin: 0 0 12px !important;
+  font-size: 12px !important;
+  color: var(--rb-text-muted) !important;
+}
+
+/* orange trace line like screenshot */
+.coach-section::before{
+  content:"";
+  display:block;
+  height: 1px;
+  width: 100%;
+  margin: 8px 0 14px;
+  background: linear-gradient(90deg, rgba(255,138,0,0), rgba(255,138,0,0.35), rgba(255,138,0,0));
+  opacity: 0.9;
+}
+
+/* ---------- Empty Text ---------- */
+.wk-empty{
+  margin: 0;
+  color: var(--rb-text-muted);
+  background: rgba(0,0,0,0.14);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--rb-radius-lg);
+  padding: 14px 16px;
+}
+
+/* ---------- Buttons (matches your classes) ---------- */
+.wk-btn-primary,
+.wk-btn-secondary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: 170ms ease;
+  user-select:none;
+  cursor:pointer;
+}
+
+.wk-btn-secondary{
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.88);
+}
+
+.wk-btn-secondary:hover{
+  border-color: rgba(255,138,0,0.35);
+  background: rgba(255,138,0,0.06);
+  color: #fff;
+  box-shadow: var(--rb-glow);
+}
+
+.wk-btn-primary{
+  border: 1px solid rgba(255,138,0,0.35);
+  background: rgba(255,138,0,0.10);
+  color: #fff;
+  box-shadow: var(--rb-glow);
+}
+
+.wk-btn-primary:hover{
+  background: rgba(255,138,0,0.14);
+}
+
+/* keep your tw sizes */
+.tw-btn-small{ padding: 9px 14px !important; }
+
+/* ---------- Photos Grid ---------- */
+.wk-photo-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--rb-gap);
+}
+
+@media (max-width: 1100px){
+  .wk-photo-grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 700px){
+  .wk-photo-grid{ grid-template-columns: 1fr; }
+}
+
+.wk-photo-card{
+  border-radius: var(--rb-radius-xl);
+  background:
+    radial-gradient(560px 220px at 20% 12%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--rb-shadow-1);
+  overflow:hidden;
+  position:relative;
+}
+
+.wk-photo-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.wk-photo-thumb-wrapper{
+  width:100%;
+  aspect-ratio: 1 / 1;
+  background: rgba(0,0,0,0.25);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow:hidden;
+}
+
+.wk-photo-thumb-wrapper img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  display:block;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+.wk-photo-info{
+  padding: 14px 16px 16px;
+}
+
+.wk-photo-date{
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 8px;
+}
+
+.wk-photo-meta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--rb-text-muted);
+}
+
+.wk-photo-meta span{
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.18);
+}
+
+.wk-photo-notes{
+  margin-top: 10px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.70);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 10px;
+}
+
+/* ---------- Plans Grid ---------- */
+.wk-plan-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--rb-gap);
+}
+
+@media (max-width: 900px){
+  .wk-plan-grid{ grid-template-columns: 1fr; }
+}
+
+.wk-plan-card{
+  border-radius: var(--rb-radius-xl);
+  padding: 18px 18px;
+  background:
+    radial-gradient(560px 220px at 20% 12%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--rb-shadow-1);
+  position: relative;
+  overflow:hidden;
+}
+
+.wk-plan-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+/* Plan header */
+.wk-plan-header{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 10px;
+}
+
+.wk-plan-name{
+  font-size: 18px;
+  font-weight: 750;
+  color: rgba(255,255,255,0.93);
+}
+
+/* Status Pills */
+.wk-plan-status{
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.16);
+  color: rgba(255,255,255,0.78);
+}
+
+.wk-plan-status-active{
+  border-color: rgba(255,138,0,0.35);
+  background: rgba(255,138,0,0.08);
+  color: rgba(255,138,0,0.95);
+  box-shadow: var(--rb-glow);
+}
+
+.wk-plan-status-draft{
+  border-color: rgba(255,255,255,0.14);
+  background: rgba(0,0,0,0.18);
+}
+
+.wk-plan-status-archived{
+  opacity: 0.75;
+}
+
+/* Description & meta */
+.wk-plan-desc{
+  font-size: 13px;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.74);
+  margin: 0 0 12px;
+}
+
+.wk-plan-meta{
+  display:flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--rb-text-muted);
+}
+
+.wk-plan-meta span{
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.18);
+}
+
+/* Preview area */
+.wk-plan-preview{
+  margin-top: 12px !important;
+  padding-top: 12px !important;
+  border-top: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+.wk-plan-preview-title{
+  font-size: 10px !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.60) !important;
+}
+
+.wk-plan-preview-list{
+  margin: 10px 0 0 !important;
+  padding-left: 18px !important;
+  color: rgba(255,255,255,0.86) !important;
+}
+
+.wk-plan-preview-list li{
+  margin: 6px 0 !important;
+  line-height: 1.25 !important;
+}
+
+.wk-plan-preview-meta{
+  color: rgba(255,255,255,0.55) !important;
+}
+
+/* Actions row */
+.tw-plan-actions-coach{
+  margin-top: 14px !important;
+  display:flex;
+  gap: 10px;
+}
+/* =========================================================
+   FIX: remove yellow glow / match dashboard background
+   Put this at the END of client_workouts.css
+   ========================================================= */
+
+/* 1) BACKGROUND da página: neutro, sem “banho” amarelo */
+body{
+  background:
+    radial-gradient(900px 520px at 50% 10%, rgba(255,255,255,0.04), rgba(0,0,0,0) 60%),
+    radial-gradient(900px 480px at 20% 45%, rgba(100, 120, 255, 0.06), rgba(0,0,0,0) 55%),
+    radial-gradient(900px 480px at 80% 55%, rgba(100, 120, 255, 0.04), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, #06070a 0%, #0a0b10 35%, #0d0f16 100%) !important;
+}
+
+/* mantém o noise, mas um pouco mais suave */
+body::before{
+  opacity: 0.045 !important;
+}
+
+/* 2) CARD principal (wk-container): remove o radial laranja grande */
+.wk-container{
+  background:
+    radial-gradient(560px 260px at 20% 10%, rgba(255,255,255,0.07), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  box-shadow: 0 22px 70px rgba(0,0,0,0.65) !important;
+}
+
+/* 3) remove qualquer “laranja” da linha traço das seções (se quiser 100% neutro) */
+.coach-section::before{
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.10), rgba(255,255,255,0)) !important;
+  opacity: 1 !important;
+}
+
+/* 4) glow laranja: mais discreto (fica só no hover e pills) */
+:root{
+  --rb-glow: 0 0 0 1px rgba(255,138,0,0.08), 0 0 26px rgba(255,138,0,0.08) !important;
+}
+
+/* 5) Evita que cards internos peguem tonalidade “quente” */
+.wk-photo-card,
+.wk-plan-card,
+.coach-client-header-row,
+.wk-empty{
+  background:
+    radial-gradient(520px 220px at 20% 12%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015)) !important;
+}
+/* ===== FIX select branco (texto invisível) ===== */
+
+/* Select fechado */
+select {
+  background-color: #050811;
+  color: #ffffff;
+  border: 1px solid #2c3345;
+}
+
+/* Opções do dropdown */
+select option {
+  background-color: #050811;
+  color: #ffffff;
+}
+
+/* Hover / selecionado */
+select option:hover,
+select option:checked {
+  background-color: #0f172a;
+  color: #ff7a00;
+}
+
+/* Focus (quando clica) */
+select:focus {
+  outline: none;
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.4);
+}

@@ -1,0 +1,575 @@
+/* =======================================
+   CLIENT PROFILE EDIT – LAYOUT PREMIUM
+   Mesmo padrão do Client Profile (view)
+   ======================================= */
+
+/* Fundo geral da área de cliente */
+.client-dashboard {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding: 96px 0 56px; /* espaço pro header fixo + margem inferior */
+}
+
+/* Container central */
+.client-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* =======================================
+   HERO – AVATAR + NOME + STATUS
+   ======================================= */
+
+.client-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.8rem;
+  margin-bottom: 44px;
+  padding: 22px 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #181820, #111118);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.70);
+}
+
+.client-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* Avatar premium com borda laranja */
+.client-avatar-wrapper {
+  flex-shrink: 0;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  padding: 3px;
+  background: radial-gradient(circle at 0 0, #ffb86c, #ff7a00 45%, #111 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.80);
+}
+
+.client-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+}
+
+.client-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.client-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.client-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: #b5b5c5;
+}
+
+.client-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.client-subtitle {
+  margin: 0;
+  font-size: 0.96rem;
+  color: #d6d6e0;
+  max-width: 520px;
+}
+
+/* Status à direita do hero */
+.client-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+  min-width: 220px;
+}
+
+/* Pill genérico */
+.client-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(135deg, #171720, #101018);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5e5;
+}
+
+.client-pill span {
+  font-weight: 600;
+}
+
+.client-pill--status {
+  border-color: rgba(0, 210, 120, 0.9);
+  color: #00d278;
+}
+
+.client-pill--status span {
+  color: #00d278;
+}
+
+/* =======================================
+   GRID PRINCIPAL – 2 CARDS EDIT
+   ======================================= */
+
+.client-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.7rem;
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+/* Cartão base */
+.client-panel {
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* Versão wide para mensagens (erro/sucesso) */
+.client-panel-wide {
+  grid-column: 1 / -1;
+}
+
+/* Header do card */
+.client-panel-header {
+  padding: 1.25rem 1.6rem 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.client-panel-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #ababba;
+}
+
+.client-panel-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #f8f8ff;
+}
+
+/* Corpo do card */
+.client-panel-body {
+  padding: 1.1rem 1.6rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4e0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  flex-grow: 1;
+}
+
+/* Rodapé do card (se precisar) */
+.client-panel-footer {
+  padding: 0 1.6rem 0.9rem;
+  margin-top: auto;
+}
+
+/* =======================================
+   FORM – CAMPOS EDIT
+   ======================================= */
+
+.profile-form {
+  width: 100%;
+}
+
+/* Linhas de campo alinhadas em “tabela” */
+.form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: flex-start;
+  column-gap: 1.1rem;
+  row-gap: 0.35rem;
+}
+
+/* Label */
+.form-label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #a7a7b5;
+}
+
+/* Inputs, selects, textareas */
+.profile-form input[type="text"],
+.profile-form input[type="email"],
+.profile-form input[type="number"],
+.profile-form input[type="date"],
+.profile-form input[type="file"],
+.profile-form select,
+.profile-form textarea {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: rgba(15, 15, 15, 0.95);
+  color: #ffffff;
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+.profile-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.profile-form ::placeholder {
+  color: rgba(245, 245, 245, 0.35);
+}
+
+/* Foco */
+.profile-form input:focus,
+.profile-form select:focus,
+.profile-form textarea:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.45);
+  background: #101010;
+}
+
+/* File input (avatar) um pouco melhor */
+.profile-form input[type="file"] {
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+/* Bloco de upload de avatar dentro do card */
+.form-row-avatar {
+  align-items: center;
+}
+
+/* =======================================
+   AÇÕES DO FORM
+   ======================================= */
+
+.profile-form-actions {
+  margin-top: 1.2rem;
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* Botão primário */
+/* Botão primário – padrão RB CTA (texto + borda laranja, sem fundo) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid #ff7a00;
+  background: transparent;
+  color: #ff7a00;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    background 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 122, 0, 0.12); /* leve glow */
+  box-shadow: 0 0 18px rgba(255, 122, 0, 0.35);
+  border-color: #ff9a33;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
+}
+
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.06);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.75);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.8);
+}
+
+/* Botão secundário */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  transition:
+    background 0.12s ease,
+    color 0.12s ease,
+    border-color 0.12s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+/* =======================================
+   MENSAGENS (ERRO / SUCESSO)
+   ======================================= */
+
+.form-error,
+.form-success {
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.6);
+  color: rgb(252, 165, 165);
+}
+
+.form-success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.6);
+  color: rgb(190, 242, 100);
+}
+
+.form-error-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* =======================================
+   RESPONSIVO
+   ======================================= */
+
+@media (max-width: 960px) {
+  .client-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .client-hero-right {
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .client-main-grid {
+    grid-template-columns: minmax(0, 1fr); /* empilha cards */
+    gap: 1.8rem;
+  }
+
+  .profile-form-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .client-shell {
+    padding: 0 20px;
+  }
+
+  .client-avatar-wrapper {
+    width: 72px;
+    height: 72px;
+  }
+
+  .client-title {
+    font-size: 1.8rem;
+  }
+
+  /* Label em cima, campo embaixo */
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* ====== CORRIGE OS BOTÕES QUE ESTICARAM ====== */
+
+.profile-form-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.2rem 0;
+  height: auto !important;     /* impede esticar */
+}
+
+.profile-form-actions .btn-primary,
+.profile-form-actions .btn-secondary {
+  height: auto !important;
+  padding: 0.65rem 1.6rem !important;
+  border-radius: 999px !important;
+  flex: 0 0 auto !important;    /* impede crescer */
+}
+
+/* remove QUALQUER interferência herdada */
+.profile-form-actions * {
+  max-height: 60px;
+  min-height: 40px;
+}
+/* =======================================
+   PATCH DE CORREÇÃO — GRID + BOTÕES
+   ======================================= */
+
+/* Corrige o grid para que a linha dos botões
+   não ocupe altura gigante */
+.client-main-grid {
+  align-items: flex-start !important;
+}
+
+/* Ajusta a área dos botões para ficar
+   próxima aos cards e sem esticar */
+.profile-form-actions {
+  grid-column: 1 / -1 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+  gap: 0.9rem !important;
+  margin-top: 1.4rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* Evita qualquer herança de height estranha */
+.profile-form-actions .btn-primary,
+.profile-form-actions .btn-secondary {
+  height: auto !important;
+  min-height: 42px !important;
+  max-height: 48px !important;
+  flex: 0 0 auto !important;
+  padding: 0.65rem 1.6rem !important;
+  border-radius: 999px !important;
+}
+
+/* Garante que não fiquem grudados na borda do grid */
+.profile-form-actions * {
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+/* Remover sublinhado do botão NEW GOAL */
+a.btn-flat {
+  text-decoration: none;
+}
+
+a.btn-flat:hover,
+a.btn-flat:focus {
+  text-decoration: none;
+}
+/* Forçar botão NEW GOAL sem sublinhado */
+.client-main--goals a.btn-flat,
+.client-main--goals a.btn-flat:hover,
+.client-main--goals a.btn-flat:focus,
+.client-main--goals a.btn-flat:active,
+.client-main--goals a.btn-flat:visited {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+/* Forçar o CTA NEW GOAL sem underline */
+.goals-bottom-cta-right a.btn-flat {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+
+/* Garante que no hover/focus também não volte */
+.goals-bottom-cta-right a.btn-flat:hover,
+.goals-bottom-cta-right a.btn-flat:focus,
+.goals-bottom-cta-right a.btn-flat:active,
+.goals-bottom-cta-right a.btn-flat:visited {
+  text-decoration: none !important;
+  border-bottom: none !important;
+}
+/* PATCH: reduzir espaço entre o conteúdo e o footer na página de edição de perfil */
+.client-dashboard {
+  padding-bottom: 24px !important; /* em vez de 56px; ajuste se quiser mais/menos */
+}
+.client-dashboard {
+  min-height: unset !important;
+  padding-bottom: 10px !important;
+}
+/* FIX FINAL — impedir que o grid force todos os cards a terem a mesma altura */
+.client-main-grid {
+  grid-auto-rows: auto !important;
+  align-items: flex-start !important;
+}
+/* Ícone do calendário branco */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: brightness(0) invert(1);
+}
+.footer-cta-button--secondary {
+  background: transparent;
+  color: #ff7a00;
+  border: 1px solid rgba(255, 122, 0, 0.6);
+}
+
+.footer-cta-button--secondary:hover {
+  background: rgba(255, 122, 0, 0.08);
+  border-color: #ff7a00;
+}

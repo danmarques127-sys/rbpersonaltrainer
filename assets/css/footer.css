@@ -1,0 +1,323 @@
+/* ================== FOOTER ================== */
+.site-footer {
+  background: radial-gradient(circle at top left, #1b1b1b 0, #050505 55%, #000 100%);
+  color: #ffffff;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: 0;
+}
+
+/* CTA SUPERIOR */
+.footer-cta {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(90deg, rgba(255, 122, 0, 0.12), rgba(0, 0, 0, 0.6));
+}
+
+.footer-cta-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 24px 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-cta-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin: 0 0 4px;
+}
+
+.footer-cta-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+  max-width: 520px;
+}
+
+/* CTA como link-botão com borda laranja, sem fundo/brilho */
+.footer-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.8rem;
+  border-radius: 999px;
+  border: 1px solid #ffb86c;           /* borda laranja RB */
+  background: transparent;             /* sem fundo */
+  color: #ffb86c;                      /* texto laranja RB */
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: none;                    /* sem brilho */
+  white-space: nowrap;
+  transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+}
+
+.footer-cta-button:hover {
+  background: rgba(255, 184, 108, 0.08); /* leve filme laranja */
+  color: #ffb86c;
+  transform: translateY(-1px);
+}
+
+/* ================== BLOCO PRINCIPAL ================== */
+.footer-main {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 32px 24px 28px;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.9fr 1.3fr; /* BRAND | NAV | LEGAL | CONTACT */
+  gap: 2.5rem;
+}
+
+.footer-col {
+  min-width: 0;
+}
+
+/* LOGO UM POUCO MAIOR */
+.footer-logo img {
+  height: 84px;
+  width: auto;
+  margin-bottom: 18px;
+}
+
+/* TEXTO JUSTIFICADO */
+.footer-text {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  opacity: 0.8;
+  text-align: justify;
+  text-justify: inter-word;
+  max-width: 420px;
+  margin: 0;
+}
+
+.footer-heading {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  opacity: 0.8;
+  margin: 0 0 12px;
+}
+
+/* ================== NAV LINKS ================== */
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-links li + li {
+  margin-top: 6px;
+}
+
+.footer-links a {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.footer-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #ff7a00, #ffb86c);
+  transition: width 0.22s ease;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+/* ================== LEGAL – MESMO EFEITO DO NAV ================== */
+.footer-legal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-legal-list li + li {
+  margin-top: 6px;
+}
+
+.footer-legal-list a {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.7;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.footer-legal-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #ff7a00, #ffb86c);
+  transition: width 0.22s ease;
+}
+
+.footer-legal-list a:hover::after {
+  width: 100%;
+  opacity: 1;
+}
+
+/* ================== CONTACT ================== */
+.footer-contact-block {
+  margin-bottom: 18px;
+}
+
+.footer-contact-text {
+  margin-bottom: 10px;
+}
+
+.footer-contact-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.86rem;
+}
+
+.footer-contact-list li {
+  margin-bottom: 6px;
+}
+
+.footer-contact-label {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+/* Email com estilo combinando (sem azul padrão) */
+.footer-email-link {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.footer-email-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, #ff7a00, #ffb86c);
+  transition: width 0.22s ease;
+}
+
+.footer-email-link:hover::after {
+  width: 100%;
+}
+
+/* ================== SOCIAL – ÍCONES EM LINHA ================== */
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-social-icons {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Ícones no laranja do botão, sem brilho */
+.social-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  border: 1px solid #ffb86c;            /* borda laranja clara */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #ff7a00;                  /* laranja RB sólido */
+  box-shadow: none;                     /* sem glow */
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-1px);
+  background: #ff8f2a;                  /* leve clareada no hover */
+}
+
+.social-icon img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: brightness(0) invert(1);      /* deixa o ícone branco por cima do laranja */
+  transition: filter 0.2s ease;
+}
+
+.social-icon:hover img {
+  filter: brightness(0.95) invert(1);
+}
+
+/* ================== BARRA INFERIOR ================== */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 24px 18px;
+  text-align: center;
+}
+
+.footer-bottom-text {
+  max-width: 1180px;
+  margin: 0 auto;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.65;
+}
+
+/* ================== RESPONSIVO ================== */
+@media (max-width: 900px) {
+  .footer-cta-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-cta-button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .footer-text {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 540px) {
+  .footer-cta-inner {
+    padding: 20px 18px 22px;
+  }
+
+  .footer-main {
+    padding: 24px 18px 24px;
+  }
+
+  .footer-bottom {
+    padding: 12px 18px 16px;
+  }
+}

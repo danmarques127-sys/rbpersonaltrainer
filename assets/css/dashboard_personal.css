@@ -1,0 +1,416 @@
+/* =======================================
+   PERSONAL / COACH DASHBOARD (RB)
+   Visual alinhado ao Coach Professional Profile
+   (mesmo fundo e estilo de cards do print)
+   ======================================= */
+
+/* FUNDO GLOBAL – igual às outras páginas premium */
+body {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%) !important;
+  color: #f5f5f5;
+}
+
+/* WRAPPER GERAL (sem background próprio) */
+.coach-dashboard {
+  padding: 56px 0 64px;
+}
+
+.coach-shell {
+  max-width: 1120px;             /* mesmo range do client/profile */
+  margin: 0 auto;
+  padding: 0 24px;               /* padding lateral mais contido */
+}
+
+/* ========================
+   HERO: AVATAR + NOME + STATUS
+   ======================== */
+
+.coach-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 32px;
+  padding: 20px 22px;
+  border-radius: 26px;
+
+  /* Card premium LIMPO, sem glow laranja */
+  background: linear-gradient(145deg, #17171f, #101018);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.9);
+  position: relative;
+  overflow: hidden;
+}
+
+.coach-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* AVATAR */
+.coach-avatar-wrapper {
+  flex-shrink: 0;
+}
+
+.coach-avatar {
+  width: 76px;
+  height: 76px;
+  border-radius: 999px;
+  padding: 3px;
+  background: linear-gradient(145deg, #ff7a00, #ffcf88);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.coach-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+/* TEXTO DO HERO */
+.coach-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.coach-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.75rem;
+  color: #9ea2c5;
+  margin: 0;
+}
+
+.coach-title {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.coach-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.95rem;
+  color: #9ea2c5;
+  max-width: 480px;
+}
+
+/* STATUS PILLs */
+.coach-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  min-width: 220px;
+}
+
+.coach-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 6, 11, 0.75);
+  backdrop-filter: blur(14px);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #c9ccf0;
+}
+
+.coach-pill span {
+  font-weight: 600;
+}
+
+.coach-pill--alert {
+  border-color: rgba(255, 122, 0, 0.9);
+  color: #ffb86c;
+}
+
+.coach-pill--alert span {
+  color: #ffb86c;
+}
+
+/* ========================
+   GRID PRINCIPAL
+   ======================== */
+
+.coach-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+/* PAINEL BASE – cards iguais ao profile */
+.coach-panel {
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 1.5rem 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 55px rgba(0, 0, 0, 0.85);
+  position: relative;
+  overflow: hidden;
+}
+
+.coach-panel-wide {
+  grid-column: 1 / -1;
+}
+
+/* leve glow opcional para painéis com classe extra */
+.coach-panel--highlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(255, 122, 0, 0.22), transparent 60%);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.coach-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* HEADER DO PAINEL */
+.coach-panel-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.coach-panel-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.7rem;
+  color: #9ea2c5;
+  margin: 0 0 0.2rem 0;
+}
+
+.coach-panel-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f7f7ff;
+}
+
+/* CORPO DO PAINEL */
+.coach-panel-body {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #dde0ff;
+}
+
+.coach-panel-body p {
+  margin: 0 0 0.55rem 0;
+  max-width: 520px;
+}
+
+.coach-panel-body--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 1.4rem;
+}
+
+.coach-panel-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #9ea2c5;
+  margin: 0 0 0.3rem 0;
+}
+
+.coach-panel-main {
+  margin: 0 0 0.5rem 0;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+/* MINI BOXES (3 COLUNAS) */
+.coach-mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.coach-mini-box {
+  padding: 0.8rem 0.9rem;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #17171f, #101018);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.85);
+}
+
+.coach-mini-label {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #9ea2c5;
+  margin: 0 0 0.2rem 0;
+}
+
+.coach-mini-value {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+.coach-mini-value--muted {
+  color: #9b9b9b;
+}
+
+/* LISTAS (CLIENTES, MENSAGENS, etc.) */
+.coach-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.coach-list-item {
+  padding: 0.5rem 0.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.coach-list-item:last-child {
+  border-bottom: none;
+}
+
+.coach-list-title {
+  margin: 0 0 0.15rem 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fdfdfd;
+}
+
+.coach-list-meta {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #b5b5b5;
+  max-width: 360px;
+  word-wrap: break-word;
+}
+
+/* LINHA INLINE (CHECK-INS) */
+.coach-inline-box {
+  margin-top: 0.9rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* LINKS (CTA) – laranja unificado em TODOS */
+.coach-panel-link {
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ff7a00;
+  position: relative;
+  padding-bottom: 3px;
+  white-space: nowrap;
+}
+
+.coach-panel-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 32%;
+  height: 2px;
+  background: #ff7a00;
+  transition: width 0.2s ease;
+}
+
+.coach-panel-link:hover::after {
+  width: 100%;
+}
+
+/* subtle agora usa o MESMO laranja dos demais */
+.coach-panel-link.subtle {
+  color: #ff7a00;
+}
+
+.coach-panel-link.subtle::after {
+  background: #ff7a00;
+}
+
+/* SEPARADOR FINAL */
+.section-divider {
+  margin-top: 32px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+/* ========================
+   RESPONSIVO
+   ======================== */
+
+@media (max-width: 960px) {
+  .coach-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .coach-hero-right {
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .coach-main-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coach-panel-body--split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coach-mini-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .coach-shell {
+    padding: 0 18px;
+  }
+
+  .coach-avatar {
+    width: 68px;
+    height: 68px;
+  }
+
+  .coach-title {
+    font-size: 1.7rem;
+  }
+
+  .coach-mini-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .coach-panel {
+    padding: 1.25rem 1.15rem 1.1rem;
+  }
+}

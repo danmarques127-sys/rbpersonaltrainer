@@ -1,0 +1,587 @@
+/* ==========================================================
+   RB PERSONAL TRAINER — CLIENT GOALS (FULL CSS)
+   File: client_goals.css
+   - Background dark + radial glow
+   - Goals layout: list + aside
+   - CTA: orange text, transparent bg, orange outline
+   ========================================================== */
+
+:root{
+  --bg-0:#06070a;
+  --bg-1:#0b0c11;
+  --bg-2:#0f0f15;
+
+  --card: rgba(255,255,255,0.06);
+  --card2: rgba(255,255,255,0.045);
+  --border: rgba(255,255,255,0.10);
+  --border2: rgba(255,255,255,0.07);
+
+  --text:#e9e9ee;
+  --muted: rgba(255,255,255,0.70);
+  --muted2: rgba(255,255,255,0.52);
+
+  --orange:#ff8a00;
+  --orangeSoft: rgba(255,138,0,0.12);
+
+  --green:#27d17f;
+  --greenSoft: rgba(39,209,127,0.12);
+
+  --red:#ff5b6e;
+  --redSoft: rgba(255,91,110,0.12);
+
+  --yellow:#ffbd66;
+  --yellowSoft: rgba(255,189,102,0.12);
+
+  --shadow: 0 14px 44px rgba(0,0,0,0.65);
+  --shadow2: 0 10px 30px rgba(0,0,0,0.55);
+
+  --radius: 18px;
+  --radius2: 14px;
+}
+
+/* ==========================================================
+   PAGE BASE
+   ========================================================== */
+
+body.client-dashboard.client-goals-page{
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background:
+    radial-gradient(
+      circle at top,
+      var(--bg-2) 0%,
+      var(--bg-1) 40%,
+      var(--bg-0) 100%
+    );
+  color: var(--text);
+  min-height: 100vh;
+}
+
+/* Evita “sumir tudo” por herança de CSS antigo */
+body.client-dashboard.client-goals-page main,
+body.client-dashboard.client-goals-page .client-shell,
+body.client-dashboard.client-goals-page .client-section{
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Links seguem o padrão do layout */
+body.client-dashboard.client-goals-page a{
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Box model consistente */
+*{
+  box-sizing: border-box;
+}
+
+
+/* ==========================================================
+   MAIN WRAPPER
+   ========================================================== */
+
+.client-main.client-main--goals{
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 32px 26px 72px 26px;
+}
+
+/* “shell” apenas para alinhamento — sem “height:100%” travando */
+.client-shell{
+  width: 100%;
+}
+
+/* ==========================================================
+   SECTION HEADER (My Goals)
+   ========================================================== */
+
+.client-section--goals{
+  width: 100%;
+}
+
+.section-header{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 18px;
+  margin: 22px 0 20px 0;
+}
+
+.section-title{
+  margin: 0;
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.section-subtitle{
+  margin: 8px 0 0 0;
+  max-width: 720px;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+/* ==========================================================
+   LAYOUT: LIST + ASIDE
+   ========================================================== */
+
+.goals-layout{
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 18px;
+  align-items: start;
+}
+
+/* Left column */
+.goals-column--list{
+  min-width: 0; /* evita overflow quebrar grid */
+}
+
+/* Right column */
+.goals-column--aside{
+  position: sticky;
+  top: 92px; /* abaixo do header sticky */
+  align-self: start;
+}
+
+/* Se seu header NÃO for sticky, ainda funciona */
+@media (max-width: 980px){
+  .goals-column--aside{
+    position: static;
+    top: auto;
+  }
+}
+
+/* ==========================================================
+   CATEGORY BLOCKS (Weight, Nutrition, etc)
+   ========================================================== */
+
+.goals-block{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow2);
+  padding: 16px 16px 8px 16px;
+  margin-bottom: 14px;
+}
+
+.goals-block-header{
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  padding: 6px 4px 10px 4px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.goals-block-title{
+  margin: 0;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+}
+
+.goals-block-count{
+  font-size: 12px;
+  color: rgba(255,255,255,0.60);
+}
+
+/* Empty state */
+.goals-empty{
+  margin: 0 0 10px 0;
+  padding: 14px 14px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.20);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.74);
+  font-size: 13px;
+}
+
+/* ==========================================================
+   GOALS GRID + CARD
+   ========================================================== */
+
+.goals-grid{
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding: 6px 2px 12px 2px;
+}
+
+@media (max-width: 1100px){
+  .goals-grid{ grid-template-columns: 1fr; }
+}
+
+.goal-card{
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 16px;
+  padding: 14px 14px 12px 14px;
+  box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 176px;
+}
+
+.goal-card-header{
+  display:flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.goal-card-title{
+  margin: 0;
+  font-size: 16px;
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.goal-card-type{
+  margin: 4px 0 0 0;
+  font-size: 12px;
+  color: rgba(255,255,255,0.62);
+}
+
+.goal-card-status{
+  flex: 0 0 auto;
+}
+
+/* Badge status */
+.goal-status-badge{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.86);
+}
+
+.goal-status-badge::before{
+  content:"";
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.55);
+}
+
+/* Variantes por status */
+.goal-status-badge--active{
+  border-color: rgba(39,209,127,0.35);
+  background: var(--greenSoft);
+  color: var(--green);
+}
+.goal-status-badge--active::before{
+  background: var(--green);
+  box-shadow: 0 0 0 3px rgba(39,209,127,0.18);
+}
+
+.goal-status-badge--completed{
+  border-color: rgba(255,189,102,0.35);
+  background: var(--yellowSoft);
+  color: var(--yellow);
+}
+.goal-status-badge--completed::before{
+  background: var(--yellow);
+  box-shadow: 0 0 0 3px rgba(255,189,102,0.18);
+}
+
+.goal-status-badge--paused{
+  border-color: rgba(255,91,110,0.35);
+  background: var(--redSoft);
+  color: var(--red);
+}
+.goal-status-badge--paused::before{
+  background: var(--red);
+  box-shadow: 0 0 0 3px rgba(255,91,110,0.18);
+}
+
+/* Body */
+.goal-card-body{
+  display:flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.goal-card-description{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.74);
+}
+
+.goal-card-meta{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+@media (max-width: 520px){
+  .goal-card-meta{ grid-template-columns: 1fr; }
+}
+
+.goal-meta-item{
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  padding: 10px 10px;
+}
+
+.goal-meta-label{
+  display:block;
+  font-size: 11px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.52);
+  margin-bottom: 6px;
+}
+
+.goal-meta-value{
+  font-size: 13px;
+  color: rgba(255,255,255,0.88);
+}
+
+/* Progress bar (placeholder) */
+.goal-progress{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.goal-progress-bar{
+  flex: 1 1 auto;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+}
+
+.goal-progress-fill{
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: rgba(255,138,0,0.85);
+}
+
+.goal-progress-label{
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: rgba(255,255,255,0.70);
+}
+
+/* Footer CTA */
+.goal-card-footer{
+  margin-top: auto;
+  padding-top: 6px;
+  display:flex;
+  justify-content: flex-end;
+}
+
+/* ==========================================================
+   CTA STYLE (as you asked)
+   - Orange text
+   - No background
+   - Orange outline
+   ========================================================== */
+
+.goal-details-cta,
+.btn-flat{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--orange);
+  border: 1px solid var(--orange);
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: .02em;
+  transition: background .2s ease, box-shadow .2s ease, transform .15s ease;
+  cursor: pointer;
+}
+
+.goal-details-cta:hover,
+.btn-flat:hover{
+  background: var(--orangeSoft);
+  box-shadow: 0 0 0 2px rgba(255,138,0,0.22);
+  transform: translateY(-1px);
+}
+
+.goal-details-cta:active,
+.btn-flat:active{
+  transform: translateY(0);
+  box-shadow: 0 0 0 1px rgba(255,138,0,0.30);
+}
+
+/* Botão “New Goal” no canto direito do aside */
+.goals-bottom-cta-right{
+  margin-top: 12px;
+  display:flex;
+  justify-content: flex-end;
+}
+
+/* ==========================================================
+   ASIDE CARDS (Overview + Recent History)
+   ========================================================== */
+
+.goals-summary-card,
+.goals-history-card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow2);
+  padding: 16px 16px 14px 16px;
+  margin-bottom: 12px;
+}
+
+.goals-summary-title,
+.goals-history-title{
+  margin: 0 0 12px 0;
+  font-size: 12px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.86);
+}
+
+.goals-summary-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:grid;
+  gap: 8px;
+}
+
+.goals-summary-list li{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 10px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.78);
+}
+
+.goals-summary-list li strong{
+  color: rgba(255,255,255,0.92);
+  font-weight: 900;
+}
+
+/* Recent History list */
+.goals-history-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display:grid;
+  gap: 10px;
+}
+
+.goals-history-item{
+  padding: 10px 10px;
+  border-radius: 14px;
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.goals-history-main{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.goals-history-goal{
+  font-size: 13px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.92);
+}
+
+.goals-history-date{
+  font-size: 12px;
+  color: rgba(255,255,255,0.55);
+}
+
+.goals-history-extra{
+  margin-top: 8px;
+  display:flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.goals-history-value{
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--orange);
+}
+
+.goals-history-note{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.35;
+}
+
+/* ==========================================================
+   SCROLLBAR
+   ========================================================== */
+
+::-webkit-scrollbar{ width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb{
+  background: rgba(255,255,255,0.18);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover{
+  background: rgba(255,255,255,0.24);
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+@media (max-width: 980px){
+  .client-main.client-main--goals{
+    padding: 22px 14px 60px 14px;
+  }
+
+  .goals-layout{
+    grid-template-columns: 1fr;
+  }
+
+  .section-title{
+    font-size: 28px;
+  }
+}
+
+/* ==========================================================
+   DEBUG SAFETY NET (caso CSS antigo estivesse escondendo)
+   - força o conteúdo do goals a aparecer
+   ========================================================== */
+.client-goals-page .client-section--goals,
+.client-goals-page .goals-layout,
+.client-goals-page .goals-column,
+.client-goals-page .goals-block,
+.client-goals-page .goal-card{
+  visibility: visible !important;
+  opacity: 1 !important;
+}

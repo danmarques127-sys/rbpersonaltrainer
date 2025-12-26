@@ -1,0 +1,657 @@
+/* =======================================
+   COACH / PERSONAL PROFILE – EDIT FORM
+   Premium RB – alinhado ao Client Profile
+   ======================================= */
+
+/* BACKGROUND GERAL DA ÁREA LOGADA */
+.client-dashboard {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding: 96px 0 56px; /* espaço pro header fixo + margem inferior */
+}
+
+/* Container central */
+.client-shell {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ===============================
+   HERO EDIT (TÍTULO DA PÁGINA)
+   =============================== */
+
+.client-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2.8rem;
+  margin-bottom: 44px;
+  padding: 22px 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #181820, #111118);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.70);
+}
+
+.client-hero-left {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+/* Avatar premium com borda laranja */
+.client-avatar-wrapper {
+  flex-shrink: 0;
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  padding: 3px;
+  background: radial-gradient(circle at 0 0, #ffb86c, #ff7a00 45%, #111 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.80);
+}
+
+.client-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #111;
+}
+
+.client-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.client-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.client-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.75rem;
+  color: #b5b5c5;
+}
+
+.client-title {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.client-subtitle {
+  margin: 0;
+  font-size: 0.96rem;
+  color: #d6d6e0;
+  max-width: 520px;
+}
+
+/* Caso use uma variação específica para a página de edição */
+.client-hero--edit .client-title {
+  font-size: 1.9rem;
+}
+
+/* Status / info à direita do hero (se precisar) */
+.client-hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+  min-width: 220px;
+}
+
+/* Pill genérico */
+.client-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 1.05rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: linear-gradient(135deg, #171720, #101018);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5e5;
+}
+
+.client-pill span {
+  font-weight: 600;
+}
+
+.client-pill--status {
+  border-color: rgba(0, 210, 120, 0.9);
+  color: #00d278;
+}
+
+.client-pill--status span {
+  color: #00d278;
+}
+
+/* ===============================
+   ALERTAS (SUCESSO / ERRO)
+   =============================== */
+
+.client-alert {
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 18px;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.client-alert--success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.6);
+  color: rgb(190, 242, 100);
+}
+
+.client-alert--error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.6);
+  color: rgb(252, 165, 165);
+}
+
+/* ===============================
+   GRID DO FORM (CARDS)
+   =============================== */
+
+.client-main-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)); /* 2 colunas iguais */
+  gap: 1.7rem;
+  align-items: stretch;
+  grid-auto-rows: 1fr; /* altura pela maior coluna */
+}
+
+/* para o formulário especificamente (se tiver um grid separado) */
+.client-form-grid {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.7rem;
+  align-items: stretch;
+}
+
+/* Cartão base */
+.client-panel {
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* HEADER DO PAINEL */
+.client-panel-header {
+  padding: 1.25rem 1.6rem 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+}
+
+.client-panel-eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.7rem;
+  color: #ababba;
+}
+
+.client-panel-title {
+  margin: 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #f8f8ff;
+}
+
+/* CORPO DO PAINEL */
+.client-panel-body {
+  padding: 1.1rem 1.6rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #d4d4e0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-grow: 1;
+}
+
+/* FOOTER DO PAINEL (para botões do form) */
+.client-panel-footer {
+  padding: 0.9rem 1.6rem 1rem;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.client-panel-footer--actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* Link de rodapé / links estilo "EDIT EXPERIENCE & SPECIALTIES" */
+.client-panel-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffb86c;
+  padding-bottom: 3px;
+}
+
+.client-panel-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 26%; /* sublinhado curto no estado normal */
+  height: 2px;
+  background: #ffb86c;
+  transition: width 0.22s ease;
+}
+
+.client-panel-link:hover::after {
+  width: 100%; /* cresce até o fim da palavra */
+}
+
+.client-panel-link.subtle {
+  color: #ffb86c;
+}
+
+.client-panel-link.subtle::after {
+  background: #ffb86c;
+}
+
+/* ===============================
+   GRID INTERNO / FORM ROWS
+   =============================== */
+
+.profile-section-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  max-width: 520px;
+  margin: 0 auto; /* centralizado no card */
+}
+
+/* Cada linha de informação / campo do formulário */
+.form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  align-items: flex-start;
+  column-gap: 1rem;
+  row-gap: 0.25rem;
+}
+
+/* Para campos que precisam ocupar toda a largura (se precisar) */
+.form-row--full {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+/* Avatar dentro de um row específico */
+.form-row--avatar {
+  align-items: center;
+}
+
+/* Label da informação (coluna esquerda) */
+.form-label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5f5;
+}
+
+/* ===============================
+   INPUTS / SELECT / TEXTAREA
+   =============================== */
+
+.form-input,
+.form-select,
+.form-textarea,
+.form-input-file {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(15, 15, 20, 0.96);
+  padding: 0.6rem 0.8rem;
+  font-size: 0.9rem;
+  color: #f5f5ff;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+  font-family: inherit;
+}
+
+.form-input-file {
+  padding: 0.45rem 0.8rem;
+  cursor: pointer;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+  color: #777a88;
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #ff7a00 50%),
+    linear-gradient(135deg, #ff7a00 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus,
+.form-input-file:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.5);
+  background: rgba(18, 18, 26, 0.98);
+}
+
+/* Texto de ajuda abaixo do input */
+.form-help {
+  margin: 0.25rem 0 0;
+  font-size: 0.75rem;
+  color: #9fa0b2;
+}
+
+/* ===============================
+   BOTÕES DO FORM
+   =============================== */
+
+.client-primary-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  cursor: pointer;
+  background: linear-gradient(135deg, #ff7a00, #ffb86c);
+  color: #111;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.7);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+.client-primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.85);
+  filter: brightness(1.03);
+}
+
+.client-primary-button:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.75);
+}
+
+/* Link secundário (ex: RETURN)
+   com o mesmo efeito de sublinhado animado */
+.client-secondary-link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #ffb86c;
+  padding-bottom: 3px;
+  opacity: 1;
+}
+
+.client-secondary-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 24%; /* sublinhado curto no estado normal */
+  height: 2px;
+  background: #ffb86c;
+  transition: width 0.22s ease;
+}
+
+.client-secondary-link:hover::after {
+  width: 100%; /* anima até o fim do texto */
+}
+
+/* ===============================
+   GRID DE FOTOS DO COACH
+   =============================== */
+
+.coach-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.coach-photo-card {
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.45rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65);
+}
+
+.coach-photo-thumb {
+  border-radius: 10px;
+  overflow: hidden;
+  max-height: 160px;
+}
+
+.coach-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.coach-photo-caption {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #e5e5f5;
+}
+
+.coach-photo-delete {
+  align-self: flex-start;
+  margin-top: 0.05rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #f97373;
+  text-decoration: none;
+}
+
+.coach-photo-delete:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   MENSAGENS (ERRO / SUCESSO) – extras
+   =============================== */
+
+.form-error,
+.form-success {
+  font-size: 0.9rem;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+
+.form-error {
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.6);
+  color: rgb(252, 165, 165);
+}
+
+.form-success {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.6);
+  color: rgb(190, 242, 100);
+}
+
+.form-error-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+/* =======================================
+   DIVISOR DE SEÇÃO (se usar)
+   ======================================= */
+
+.section-divider {
+  margin-top: 2.5rem;
+  border-top: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+/* =======================================
+   OVERRIDES ESPECÍFICOS DO FORM
+   (para garantir consistência dentro do card)
+   ======================================= */
+
+.client-panel .form-input,
+.client-panel .form-select,
+.client-panel .form-textarea,
+.client-panel .form-input-file {
+  background: rgba(15, 15, 20, 0.96) !important;
+  color: #f5f5ff !important;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: none !important;
+}
+
+.client-panel .form-input::placeholder,
+.client-panel .form-textarea::placeholder {
+  color: #777a88 !important;
+}
+
+.client-panel .form-input:focus,
+.client-panel .form-select:focus,
+.client-panel .form-textarea:focus,
+.client-panel .form-input-file:focus {
+  border-color: #ff7a00 !important;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.5) !important;
+  background: rgba(18, 18, 26, 0.98) !important;
+}
+
+/* Select com setinha laranja dentro do painel */
+.client-panel .form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #ff7a00 50%),
+    linear-gradient(135deg, #ff7a00 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+/* Corrige fundo branco do autofill do Chrome/Opera */
+.client-panel .form-input:-webkit-autofill,
+.client-panel .form-textarea:-webkit-autofill,
+.client-panel .form-select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px #111118 inset !important;
+  -webkit-text-fill-color: #f5f5ff !important;
+}
+
+/* Só pra garantir que o texto do option não fique estranho */
+.client-panel .form-select option {
+  background: #111118;
+  color: #f5f5ff;
+}
+
+/* ===============================
+   RESPONSIVO
+   =============================== */
+
+@media (max-width: 960px) {
+  .client-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .client-hero-right {
+    align-items: flex-start;
+    min-width: 0;
+  }
+
+  .client-main-grid,
+  .client-form-grid {
+    grid-template-columns: minmax(0, 1fr); /* empilha cards */
+    gap: 1.8rem;
+  }
+
+  .client-shell {
+    padding: 0 24px;
+  }
+
+  /* aqui vem a mágica: botões extremos no mobile */
+  .client-panel-footer--actions {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .client-shell {
+    padding: 0 20px;
+  }
+
+  .client-avatar-wrapper {
+    width: 72px;
+    height: 72px;
+  }
+
+  .client-title {
+    font-size: 1.8rem;
+  }
+
+  /* Label em cima, input embaixo — mobile */
+  .form-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

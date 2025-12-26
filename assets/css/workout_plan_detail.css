@@ -1,0 +1,492 @@
+/* ============================================
+   RB Personal Trainer - Workout Plan Detail
+   Página: workout_plan_detail.php
+   Arquivo: workout_plan_detail.css
+   Visual: dark premium + CTA laranja
+   ============================================ */
+
+/* Fundo global consistente */
+body {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%) !important;
+  color: #f5f5f5;
+}
+
+/* ----------------------
+   CONTAINER PRINCIPAL
+   ---------------------- */
+.wk-container {
+  max-width: 1180px;
+  margin: 96px auto 56px;
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.85);
+  padding: 40px 32px 48px;
+}
+
+/* ----------------------
+   USER HEADER (top)
+   ---------------------- */
+.wk-user-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wk-user-header img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+.wk-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.wk-user-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.wk-user-subtitle {
+  font-size: 0.85rem;
+  color: #b9bdd0;
+}
+
+/* ----------------------
+   PLAN HEADER
+   ---------------------- */
+.wk-plan-detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 6px;
+  margin-bottom: 14px;
+}
+
+.wk-plan-detail-title {
+  font-size: 1.55rem;
+  font-weight: 650;
+  color: #ffffff;
+  margin: 0 0 6px;
+}
+
+.wk-plan-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: #c8cbe0;
+}
+
+.wk-plan-detail-meta span {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wk-plan-detail-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Description box */
+.wk-plan-detail-desc {
+  margin: 10px 0 22px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(10, 10, 14, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #d7d8e6;
+  line-height: 1.45;
+}
+
+/* ----------------------
+   BUTTONS
+   ---------------------- */
+.wk-btn-primary,
+.wk-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 10px 16px;
+  font-size: 0.88rem;
+  font-weight: 650;
+  border: 1px solid transparent;
+  transition: transform 0.12s ease, box-shadow 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+  white-space: nowrap;
+}
+
+/* Primary = Laranja */
+.wk-btn-primary {
+  background: linear-gradient(135deg, #ff7a00, #ff9f1a);
+  color: #ffffff;
+  border-color: rgba(255, 122, 0, 0.85);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.45);
+}
+
+.wk-btn-primary:hover {
+  background: linear-gradient(135deg, #ff8f1f, #ffb347);
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.18);
+}
+
+/* Secondary = Dark premium */
+.wk-btn-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5f5ff;
+  border-color: rgba(255, 255, 255, 0.10);
+}
+
+.wk-btn-secondary:hover {
+  border-color: #ff7a00;
+  background: rgba(255, 122, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+/* ----------------------
+   SESSION LIST
+   ---------------------- */
+.wk-session-list {
+  margin-top: 14px;
+}
+
+.wk-empty {
+  margin-top: 18px;
+  color: #b9bdd0;
+  font-size: 0.95rem;
+}
+
+/* Card de sessão */
+.wk-session-card {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  padding: 16px 16px;
+  margin-bottom: 14px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #17171f, #101018);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+}
+
+.wk-session-main {
+  min-width: 0;
+}
+
+.wk-session-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.wk-session-title {
+  font-size: 1.05rem;
+  font-weight: 650;
+  color: #ffffff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wk-session-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #111118;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 6px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Meta row */
+.wk-session-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  color: #bfc3d6;
+  font-size: 0.85rem;
+  margin-bottom: 10px;
+}
+
+.wk-session-status {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Status variants */
+.wk-session-status-none {
+  color: #b9bdd0;
+}
+
+.wk-session-status-completed {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.25);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.wk-session-status-missed {
+  color: #fb7185;
+  border-color: rgba(251, 113, 133, 0.25);
+  background: rgba(251, 113, 133, 0.08);
+}
+
+.wk-session-status-partial {
+  color: #fbbf24;
+  border-color: rgba(251, 191, 36, 0.22);
+  background: rgba(251, 191, 36, 0.08);
+}
+
+/* Notes */
+.wk-session-notes {
+  margin: 10px 0 10px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  background: rgba(10, 10, 14, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: #d7d8e6;
+  line-height: 1.45;
+}
+
+/* ----------------------
+   EXERCISES LIST
+   ---------------------- */
+.wk-exercise-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wk-exercise-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.wk-exercise-name {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  color: #ffb27a; /* destaque laranja */
+  font-weight: 650;
+  font-size: 0.95rem;
+  line-height: 1.2;
+}
+
+.wk-exercise-name:hover {
+  color: #ffffff;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 122, 0, 0.6);
+}
+
+.wk-exercise-meta {
+  font-size: 0.82rem;
+  color: #b9bdd0;
+  white-space: nowrap;
+}
+
+.wk-exercise-empty {
+  margin-top: 10px;
+  padding: 12px 12px;
+  border-radius: 12px;
+  border: 1px dashed rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.02);
+  color: #b9bdd0;
+}
+
+/* Actions column */
+.wk-session-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding-top: 4px;
+}
+
+/* ----------------------
+   EXERCISE MODAL
+   ---------------------- */
+.wk-ex-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: none; /* JS mostra como flex */
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 9999;
+}
+
+.wk-ex-modal {
+  width: min(760px, 100%);
+  border-radius: 18px;
+  background: linear-gradient(145deg, #17171f, #101018);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.85);
+  overflow: hidden;
+}
+
+.wk-ex-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.wk-ex-modal-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.wk-ex-modal-close {
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  transition: border-color 0.18s ease, background 0.18s ease, transform 0.12s ease;
+}
+
+.wk-ex-modal-close:hover {
+  border-color: #ff7a00;
+  background: rgba(255, 122, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+.wk-ex-modal-body {
+  padding: 16px;
+  color: #d7d8e6;
+  line-height: 1.45;
+}
+
+.wk-ex-tagline {
+  font-size: 0.82rem;
+  color: #b9bdd0;
+  margin-bottom: 10px;
+}
+
+.wk-ex-modal-video {
+  margin-top: 14px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.wk-ex-modal-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display: block;
+}
+
+/* ----------------------
+   RESPONSIVO
+   ---------------------- */
+@media (max-width: 900px) {
+  .wk-container {
+    margin: 84px 16px 40px;
+    padding: 24px 16px 32px;
+  }
+
+  .wk-plan-detail-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wk-session-card {
+    grid-template-columns: 1fr;
+  }
+
+  .wk-session-actions {
+    justify-content: flex-start;
+    padding-top: 0;
+  }
+
+  .wk-exercise-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .wk-exercise-meta {
+    white-space: normal;
+  }
+}
+/* =========================================
+   CTA PADRÃO RB – OUTLINE LARANJA (SEM BG)
+   Corrige o "Start workout"
+   ========================================= */
+
+/* Override do botão primário APENAS nessa tela */
+.wk-session-actions .wk-btn-primary {
+  background: transparent !important;
+  color: #ff7a00 !important;
+  border: 1.5px solid #ff7a00 !important;
+
+  box-shadow: none !important;
+  font-weight: 600;
+  padding: 10px 18px;
+  border-radius: 999px;
+
+  transition:
+    color 0.18s ease,
+    border-color 0.18s ease,
+    background 0.18s ease,
+    transform 0.12s ease;
+}
+
+/* Hover elegante (sem virar botão sólido) */
+.wk-session-actions .wk-btn-primary:hover {
+  color: #ff9a2f !important;
+  border-color: #ff9a2f !important;
+  background: rgba(255, 122, 0, 0.08) !important;
+  transform: translateY(-1px);
+}
+
+/* Active / click */
+.wk-session-actions .wk-btn-primary:active {
+  transform: translateY(0);
+  background: rgba(255, 122, 0, 0.12) !important;
+}
+
+/* Remove qualquer glow residual */
+.wk-session-actions .wk-btn-primary:focus {
+  outline: none;
+  box-shadow: none;
+}

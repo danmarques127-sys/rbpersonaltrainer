@@ -1,0 +1,533 @@
+/* =========================================================
+   PRIVACY PAGE (MAIN) — MATCH RB HOME STYLE
+   - Dark + orange accent
+   - Works with: #main-content OR .site-main
+   - Designed to load AFTER global.css
+========================================================= */
+
+/* ---------- Tokens (same palette from Home / About) ---------- */
+:root {
+  --rb-black: #000;
+  --rb-bg: #050505;
+  --rb-bg2: #111;
+  --rb-panel: #151515;
+  --rb-panel2: #1c2120;
+
+  --rb-white: #ffffff;
+  --rb-white-90: rgba(255, 255, 255, 0.9);
+  --rb-white-80: rgba(255, 255, 255, 0.8);
+  --rb-white-75: rgba(255, 255, 255, 0.75);
+  --rb-white-70: rgba(255, 255, 255, 0.7);
+  --rb-white-65: rgba(255, 255, 255, 0.65);
+  --rb-line: rgba(255, 255, 255, 0.12);
+  --rb-line2: rgba(255, 255, 255, 0.14);
+
+  --rb-orange: #ff7a00;
+  --rb-orange2: #ffb86c;
+
+  --rb-radius: 16px;
+  --rb-radius-lg: 22px;
+
+  --rb-container: 1180px;
+  --rb-pad: 24px;
+
+  --rb-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  --rb-glow: 0 0 26px rgba(255, 122, 0, 0.45);
+}
+
+/* =========================================================
+   Base / helpers
+========================================================= */
+
+#main-content,
+.site-main {
+  background: var(--rb-bg);
+  color: var(--rb-white);
+  min-height: 60vh;
+}
+
+#main-content .container,
+.site-main .container {
+  max-width: var(--rb-container);
+  margin: 0 auto;
+  padding: 0 var(--rb-pad);
+}
+
+#main-content section,
+.site-main section {
+  padding: 72px 0 64px;
+  background: var(--rb-bg);
+}
+
+/* =========================================================
+   Headings and text
+========================================================= */
+
+#main-content h1,
+#main-content h2,
+.site-main h1,
+.site-main h2 {
+  margin: 0;
+  color: var(--rb-white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+#main-content h1,
+.site-main h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+#main-content h2,
+.site-main h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+#main-content h3,
+.site-main h3 {
+  margin: 0;
+  color: var(--rb-white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+#main-content p,
+.site-main p {
+  color: var(--rb-white-90);
+  opacity: 0.93;
+  line-height: 1.75;
+  margin: 0 0 10px 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#main-content ul,
+.site-main ul {
+  margin: 0 0 10px;
+  padding-left: 18px;
+  line-height: 1.8;
+  color: var(--rb-white-90);
+  opacity: 0.93;
+}
+
+#main-content li,
+.site-main li {
+  margin: 6px 0;
+}
+
+/* Strong highlight */
+#main-content strong,
+#main-content b,
+.site-main strong,
+.site-main b {
+  color: var(--rb-orange);
+  font-weight: 600;
+}
+
+@media (hover: hover) {
+  #main-content strong:hover,
+  .site-main strong:hover {
+    text-shadow: 0 0 6px rgba(255, 122, 0, 0.35);
+  }
+}
+
+/* =========================================================
+   Buttons — reuse Home button language
+========================================================= */
+
+#main-content .btn,
+#main-content .btn-outline,
+.site-main .btn,
+.site-main .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: var(--rb-white);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  background: transparent;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+  white-space: nowrap;
+}
+
+#main-content .btn:hover,
+#main-content .btn-outline:hover,
+.site-main .btn:hover,
+.site-main .btn-outline:hover {
+  background: var(--rb-white);
+  color: #000;
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+#main-content .btn-secondary,
+.site-main .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.55);
+  opacity: 0.95;
+}
+
+/* =========================================================
+   Privacy Hero (your HTML uses .page-hero)
+========================================================= */
+
+#main-content .page-hero,
+.site-main .page-hero {
+  background: var(--rb-panel2);
+  padding-top: 56px;
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+#main-content .page-subtitle,
+.site-main .page-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  margin-top: 12px;
+  max-width: 860px;
+}
+
+#main-content .policy-meta,
+.site-main .policy-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+#main-content .meta-item,
+.site-main .meta-item {
+  border: 1px solid var(--rb-line);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 999px;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+#main-content .meta-label,
+.site-main .meta-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rb-white-80);
+  opacity: 0.9;
+}
+
+#main-content .meta-value,
+.site-main .meta-value {
+  font-size: 0.9rem;
+  color: var(--rb-white);
+  font-weight: 700;
+}
+
+/* =========================================================
+   Layout TOC + content (your HTML uses .policy-layout)
+========================================================= */
+
+#main-content .policy-layout,
+.site-main .policy-layout {
+  display: grid;
+  grid-template-columns: 330px 1fr;
+  gap: 1.2rem;
+  align-items: start;
+}
+
+@media (max-width: 980px) {
+  #main-content .policy-layout,
+  .site-main .policy-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Cards base */
+#main-content .toc-card,
+#main-content .policy-content,
+#main-content .contact-card,
+.site-main .toc-card,
+.site-main .policy-content,
+.site-main .contact-card {
+  background: var(--rb-panel);
+  border: 1px solid var(--rb-line);
+  border-radius: var(--rb-radius);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+@media (hover: hover) {
+  #main-content .toc-card:hover,
+  #main-content .policy-content:hover,
+  #main-content .contact-card:hover,
+  .site-main .toc-card:hover,
+  .site-main .policy-content:hover,
+  .site-main .contact-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(255, 122, 0, 0.25);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.18);
+  }
+}
+
+/* TOC */
+#main-content .toc-card,
+.site-main .toc-card {
+  padding: 18px;
+  position: sticky;
+  top: 16px;
+}
+
+@media (max-width: 980px) {
+  #main-content .toc-card,
+  .site-main .toc-card {
+    position: static;
+  }
+}
+
+#main-content .toc-title,
+.site-main .toc-title {
+  margin: 0 0 10px;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rb-white);
+}
+
+#main-content .toc-list a,
+.site-main .toc-list a {
+  color: var(--rb-white-90);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+  width: fit-content;
+  transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+#main-content .toc-list a:hover,
+.site-main .toc-list a:hover {
+  color: var(--rb-orange);
+  border-color: rgba(255, 122, 0, 0.6);
+}
+
+/* Content */
+#main-content .policy-content,
+.site-main .policy-content {
+  padding: 28px;
+}
+
+/* Blocks */
+#main-content .policy-block,
+.site-main .policy-block {
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+#main-content .policy-block:first-child,
+.site-main .policy-block:first-child {
+  padding-top: 0;
+}
+
+#main-content .policy-block:last-child,
+.site-main .policy-block:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* Notes */
+#main-content .policy-note,
+.site-main .policy-note {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border: 1px solid rgba(255, 122, 0, 0.35);
+  background: rgba(255, 122, 0, 0.08);
+  border-radius: var(--rb-radius);
+  color: var(--rb-white-90);
+  opacity: 0.95;
+}
+
+#main-content .policy-note a,
+.site-main .policy-note a {
+  color: var(--rb-white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  transition: border-color .2s ease, color .2s ease;
+}
+
+#main-content .policy-note a:hover,
+.site-main .policy-note a:hover {
+  color: var(--rb-orange);
+  border-color: rgba(255,122,0,0.6);
+}
+
+/* Contact rows */
+#main-content .contact-card,
+.site-main .contact-card {
+  margin-top: 14px;
+  padding: 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+#main-content .contact-row,
+.site-main .contact-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 10px;
+  align-items: center;
+}
+
+@media (max-width: 560px) {
+  #main-content .contact-row,
+  .site-main .contact-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+#main-content .contact-label,
+.site-main .contact-label {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rb-white-80);
+  opacity: 0.9;
+}
+
+#main-content .contact-value a,
+.site-main .contact-value a {
+  color: var(--rb-white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  transition: border-color .2s ease, color .2s ease;
+}
+
+#main-content .contact-value a:hover,
+.site-main .contact-value a:hover {
+  color: var(--rb-orange);
+  border-color: rgba(255,122,0,0.6);
+}
+
+/* Bottom CTA */
+#main-content .policy-bottom-cta,
+.site-main .policy-bottom-cta {
+  margin-top: 22px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* =========================================================
+   Mobile polishing
+========================================================= */
+
+@media (max-width: 900px) {
+  #main-content section,
+  .site-main section {
+    padding: 62px 0 56px;
+  }
+}
+
+@media (max-width: 768px) {
+  #main-content .container,
+  .site-main .container {
+    padding: 0 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  #main-content section,
+  .site-main section {
+    padding: 58px 0 52px;
+  }
+
+  #main-content h2,
+  .site-main h2 {
+    font-size: 1.65rem;
+  }
+}
+
+/* =========================================================
+   Focus accessibility
+========================================================= */
+
+#main-content a:focus,
+.site-main a:focus {
+  outline: none;
+}
+
+#main-content a:focus-visible,
+.site-main a:focus-visible {
+  outline: 2px solid rgba(255, 122, 0, 0.75);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+/* =========================================
+   PRIVACY — FLAT (REMOVE BIG CARD LOOK)
+   Paste at the END of privacy.css
+========================================= */
+
+/* Remove card look from main content + toc + contact */
+.site-main .policy-content,
+.site-main .toc-card,
+.site-main .contact-card,
+#main-content .policy-content,
+#main-content .toc-card,
+#main-content .contact-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Give content a clean max-width feel without “box” */
+.site-main .policy-content,
+#main-content .policy-content {
+  padding: 0 !important; /* remove big inner padding from the card */
+}
+
+/* Keep sections readable with subtle separators */
+.site-main .policy-block,
+#main-content .policy-block {
+  padding: 26px 0 !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10) !important;
+}
+
+/* Optional: make TOC look like a simple list (no card) */
+.site-main .policy-toc,
+#main-content .policy-toc {
+  padding: 0 !important;
+}
+
+/* If you still want TOC to stand out a little, use a tiny left border */
+.site-main .toc-card,
+#main-content .toc-card {
+  padding: 0 !important;
+}
+
+.site-main .toc-list,
+#main-content .toc-list {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+
+/* Smooth overall page background (no contrast blocks) */
+.site-main .page-hero,
+#main-content .page-hero {
+  background: var(--rb-bg) !important;  /* remove panel2 hero contrast */
+  border-bottom: 2px solid var(--rb-orange) !important;
+}

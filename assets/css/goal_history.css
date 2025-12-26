@@ -1,0 +1,312 @@
+/* =======================================
+   GOAL HISTORY – PREMIUM (RB STYLE)
+   Página: Goal History (client_goal_history / goal_history)
+   Alinhado com global.css + header.css + footer.css
+   ======================================= */
+
+/* ---------- Base do painel (igual ao padrão premium) ---------- */
+.client-dashboard {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+  color: #f5f5f5;
+  min-height: 100vh;
+  padding: 96px 0 56px; /* espaço pro header + respiro inferior */
+}
+
+/* wrapper principal do conteúdo dessa página */
+.goal-history-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+/* ---------- Cabeçalho da página ---------- */
+.page-header {
+  margin: 0 0 22px;
+  padding: 22px 26px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #181820, #111118);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.70);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 650;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+}
+
+.page-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #d6d6e0;
+  max-width: 680px;
+  line-height: 1.55;
+}
+
+/* botão "Back to Goals" premium */
+.back-btn {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  padding: 0.8rem 1.15rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 184, 108, 0.85);
+  background: transparent;
+  color: #ffb86c;
+
+  box-shadow: none;
+  transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+}
+
+.back-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 184, 108, 0.08);
+  border-color: rgba(255, 184, 108, 1);
+}
+
+/* ---------- Container da lista ---------- */
+.history-container {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+/* vazio */
+.empty-history {
+  margin: 0;
+  padding: 18px 20px;
+  border-radius: 12px;
+  background: linear-gradient(145deg, #17171f, #101018);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  color: rgba(255, 255, 255, 0.86);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+}
+
+/* ---------- Card do goal (full) ---------- */
+.goal-card-full {
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+  overflow: hidden;
+}
+
+/* Header do goal: título + status */
+.goal-header {
+  padding: 18px 20px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.goal-header h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 650;
+  color: #f8f8ff;
+  line-height: 1.3;
+}
+
+/* pill base */
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.42rem 0.95rem;
+  border-radius: 999px;
+
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  background: linear-gradient(135deg, #171720, #101018);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.9);
+  white-space: nowrap;
+}
+
+/* status variants (classe vem do PHP: status-active / completed / paused etc.) */
+.status-pill.status-active {
+  border-color: rgba(0, 210, 120, 0.95);
+  color: #00d278;
+}
+
+.status-pill.status-completed {
+  border-color: rgba(70, 180, 255, 0.95);
+  color: rgba(170, 220, 255, 0.95);
+}
+
+.status-pill.status-paused {
+  border-color: rgba(255, 184, 108, 0.95);
+  color: #ffb86c;
+}
+
+.status-pill.status-canceled {
+  border-color: rgba(248, 113, 113, 0.75);
+  color: rgba(252, 165, 165, 0.95);
+}
+
+/* Meta do goal */
+.goal-meta {
+  padding: 14px 20px 16px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px 18px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.10);
+}
+
+.goal-meta p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #d4d4e0;
+}
+
+/* label forte "Period / Values" */
+.goal-meta strong {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(229, 229, 245, 0.95);
+  margin-right: 8px;
+}
+
+/* ---------- Progress list ---------- */
+.progress-list {
+  padding: 16px 20px 18px;
+}
+
+.progress-list h3 {
+  margin: 0 0 12px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(171, 171, 186, 0.95);
+}
+
+.no-progress {
+  margin: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(15, 15, 20, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.84);
+}
+
+/* item do log */
+.progress-item {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(15, 15, 20, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.92);
+  margin-bottom: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 10px 14px;
+}
+
+.progress-item strong {
+  color: #ffb86c; /* destaque do valor */
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.progress-date {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: rgba(214, 214, 224, 0.72);
+  white-space: nowrap;
+  margin-top: 2px;
+}
+
+/* nota ocupa linha inteira */
+.progress-note {
+  grid-column: 1 / -1;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(214, 214, 224, 0.9);
+  padding-top: 2px;
+  border-top: 1px dashed rgba(255, 255, 255, 0.10);
+  margin-top: 2px;
+}
+
+/* remove margem do último item */
+.progress-item:last-child {
+  margin-bottom: 0;
+}
+
+/* ---------- Ajustes pequenos de tipografia / links ---------- */
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 960px) {
+  .goal-history-main {
+    padding: 0 20px;
+  }
+
+  .goal-meta {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .goal-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-pill {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .client-dashboard {
+    padding: 92px 0 48px;
+  }
+
+  .page-header {
+    padding: 18px 18px;
+  }
+
+  .page-header h1 {
+    font-size: 1.65rem;
+  }
+
+  .goal-header,
+  .goal-meta,
+  .progress-list {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .progress-item {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .progress-date {
+    white-space: normal;
+  }
+}

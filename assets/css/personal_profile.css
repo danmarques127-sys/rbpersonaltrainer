@@ -1,0 +1,491 @@
+/* =========================================================
+   COACH / CLIENT PROFILE PAGE
+   Dark theme + premium cards (padrão dos prints)
+   ========================================================= */
+
+/* ---------- Tokens básicos ---------- */
+
+:root {
+  /* Mesmo background global das páginas Messages / Clients / Workouts */
+  --rb-body-bg: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+  --rb-shell-max: 1200px;
+
+  /* Cards alinhados com o restante do sistema */
+  --rb-card-bg: linear-gradient(145deg, #17171f, #101018);
+  --rb-card-bg-soft: linear-gradient(145deg, #17171f, #101018);
+  --rb-card-border: rgba(255, 255, 255, 0.07);
+
+  --rb-text-main: #f7f7ff;
+  --rb-text-muted: #9ea2c5;
+  --rb-text-soft: #74789b;
+
+  --rb-accent: #ff7a00;
+  --rb-accent-soft: rgba(255, 122, 0, 0.17);
+  --rb-accent-strong: #ff9a33;
+
+  --rb-success: #21d689;
+
+  --rb-radius-lg: 26px;
+  --rb-radius-xl: 32px;
+  --rb-radius-pill: 999px;
+
+  --rb-shadow-card: 0 28px 80px rgba(0, 0, 0, 0.9);
+  --rb-shadow-soft: 0 20px 55px rgba(0, 0, 0, 0.85);
+
+  --rb-gap-lg: 2rem;
+  --rb-gap-md: 1.4rem;
+  --rb-gap-sm: 1rem;
+}
+
+/* ---------- Fundo geral do main ---------- */
+
+body {
+  background: var(--rb-body-bg);
+  color: var(--rb-text-main);
+}
+
+main.client-dashboard {
+  padding: 5.5rem 1.5rem 3.5rem;
+}
+
+.client-shell {
+  max-width: var(--rb-shell-max);
+  margin: 0 auto;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.client-hero {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: var(--rb-gap-lg);
+  padding: 2rem 2.4rem;
+  margin-bottom: 2.8rem;
+
+  border-radius: var(--rb-radius-xl);
+  background: var(--rb-card-bg); /* uniforme com os cards premium */
+  border: 1px solid var(--rb-card-border);
+  box-shadow: var(--rb-shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow laranja suave, igual vibe premium das outras páginas */
+.client-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top right, rgba(255, 122, 0, 0.22), transparent 55%);
+  opacity: 0.85;
+  pointer-events: none;
+}
+
+.client-hero-left,
+.client-hero-right {
+  position: relative;
+  z-index: 1;
+}
+
+.client-hero-left {
+  display: flex;
+  align-items: center;
+  gap: var(--rb-gap-md);
+}
+
+/* Avatar circular com borda laranja */
+
+.client-avatar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.client-avatar {
+  width: 92px;
+  height: 92px;
+  border-radius: 999px;
+  padding: 3px;
+  background: linear-gradient(145deg, var(--rb-accent), #ffcf88);
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.95);
+}
+
+.client-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
+  display: block;
+}
+
+/* Textos do hero */
+
+.client-hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.client-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  color: var(--rb-text-soft);
+}
+
+.client-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.client-subtitle {
+  font-size: 0.95rem;
+  max-width: 440px;
+  color: var(--rb-text-muted);
+}
+
+/* Pill de status no hero */
+
+.client-hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.client-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem 1rem;
+  border-radius: var(--rb-radius-pill);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(5, 6, 11, 0.75);
+  backdrop-filter: blur(14px);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--rb-text-soft);
+}
+
+.client-pill span {
+  padding: 0.15rem 0.85rem;
+  border-radius: var(--rb-radius-pill);
+  font-weight: 600;
+}
+
+.client-pill--status span {
+  background: linear-gradient(135deg, #30da97, #8bfad3);
+  color: #04110b;
+}
+
+/* =========================================================
+   GRID PRINCIPAL – CARDS
+   ========================================================= */
+
+.client-main-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.5fr);
+  gap: var(--rb-gap-lg);
+  margin-bottom: 3rem;
+}
+
+.client-panel {
+  background: var(--rb-card-bg-soft);
+  border-radius: var(--rb-radius-lg);
+  border: 1px solid var(--rb-card-border);
+  box-shadow: var(--rb-shadow-soft);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Em vez de backgrounds totalmente diferentes,
+   só nuances de glow, mantendo o mesmo card base */
+
+.client-panel--personal::before,
+.client-panel--training::before,
+.client-panel--body::before,
+.client-panel--health::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.client-panel--personal::before {
+  background: radial-gradient(circle at top left, rgba(255, 122, 0, 0.24), transparent 60%);
+}
+
+.client-panel--training::before {
+  background: radial-gradient(circle at top right, rgba(96, 165, 250, 0.26), transparent 60%);
+}
+
+.client-panel--body::before {
+  background: radial-gradient(circle at top, rgba(244, 114, 182, 0.22), transparent 60%);
+}
+
+.client-panel--health::before {
+  background: radial-gradient(circle at top, rgba(52, 211, 153, 0.20), transparent 60%);
+}
+
+/* Conteúdo dos cards por cima do glow */
+.client-panel > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Cabeçalho do card */
+
+.client-panel-header {
+  padding: 1.25rem 1.8rem 0.45rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.client-panel-eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.7rem;
+  color: var(--rb-text-soft);
+}
+
+.client-panel-title {
+  font-size: 1.05rem;
+  margin-top: 0.25rem;
+  color: var(--rb-text-main);
+}
+
+/* Link do header/footer */
+
+.client-panel-link {
+  font-size: 0.85rem;
+  color: var(--rb-accent-strong);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.client-panel-link.subtle {
+  opacity: 0.85;
+}
+
+.client-panel-link:hover {
+  text-decoration: underline;
+}
+
+/* Corpo */
+
+.client-panel-body {
+  padding: 0.3rem 1.8rem 1.6rem;
+}
+
+.client-panel-footer {
+  padding: 0.6rem 1.8rem 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+/* =========================================================
+   Layout interno dos campos
+   ========================================================= */
+
+.profile-section-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 2.2fr);
+  gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.form-row--avatar {
+  align-items: center;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--rb-text-soft);
+  padding-top: 0.25rem;
+}
+
+.profile-value {
+  font-size: 0.94rem;
+  color: var(--rb-text-main);
+  line-height: 1.6;
+}
+
+.profile-value a {
+  color: var(--rb-accent-strong);
+  text-decoration: none;
+}
+
+.profile-value a:hover {
+  text-decoration: underline;
+}
+
+/* Quando valor é “Not provided” (texto simples) */
+.profile-value,
+.profile-value p {
+  margin: 0;
+}
+
+/* =========================================================
+   Fotos do portfólio
+   ========================================================= */
+
+.coach-photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.9rem;
+}
+
+.coach-photo-card {
+  background: rgba(8, 9, 18, 0.95);
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.85);
+}
+
+.coach-photo-thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.coach-photo-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.coach-photo-caption {
+  font-size: 0.8rem;
+  color: var(--rb-text-muted);
+  padding: 0.6rem 0.75rem 0.8rem;
+}
+
+/* =========================================================
+   Footer CTA (barra laranja acima do footer)
+   ========================================================= */
+
+.footer-cta {
+  max-width: var(--rb-shell-max);
+  margin: 0 auto 2.6rem;
+}
+
+.footer-cta-inner {
+  border-radius: 20px;
+  padding: 1.6rem 1.9rem;
+  background: linear-gradient(135deg, #ff7a00, #ffb25c);
+  color: #1a1006;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  box-shadow: 0 22px 55px rgba(0, 0, 0, 0.85);
+}
+
+.footer-cta-eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.footer-cta-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  max-width: 620px;
+}
+
+.footer-cta-button {
+  align-self: flex-start;
+  margin-top: 0.3rem;
+  padding: 0.5rem 1.4rem;
+  border-radius: var(--rb-radius-pill);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #1a1006;
+}
+
+.footer-cta-button:hover {
+  background: rgba(0, 0, 0, 0.18);
+}
+
+/* =========================================================
+   Responsividade
+   ========================================================= */
+
+@media (max-width: 1024px) {
+  main.client-dashboard {
+    padding: 4.8rem 1.25rem 3rem;
+  }
+
+  .client-hero {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.6rem 1.7rem;
+  }
+
+  .client-hero-right {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 0.8rem;
+  }
+
+  .client-main-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 720px) {
+  .client-hero {
+    padding: 1.4rem 1.3rem;
+    border-radius: 22px;
+  }
+
+  .client-title {
+    font-size: 1.5rem;
+  }
+
+  .client-main-grid {
+    gap: 1.4rem;
+  }
+
+  .client-panel-header,
+  .client-panel-body,
+  .client-panel-footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    padding-top: 0;
+  }
+
+  .footer-cta-inner {
+    padding: 1.4rem 1.3rem;
+  }
+}

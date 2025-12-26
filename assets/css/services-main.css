@@ -1,0 +1,1175 @@
+/* =========================================================
+   SERVICES PAGE (MAIN) — MATCH RB ABOUT/HOME STYLE
+   - Dark + orange accent
+   - Loads AFTER global.css
+   - Header/Footer already styled elsewhere
+========================================================= */
+
+/* ---------- Tokens (same palette from About/Home) ---------- */
+:root {
+  --rb-black: #000;
+  --rb-bg: #050505;
+  --rb-bg2: #111;
+  --rb-panel: #151515;
+  --rb-panel2: #1c2120;
+
+  --rb-white: #ffffff;
+  --rb-white-90: rgba(255, 255, 255, 0.9);
+  --rb-white-80: rgba(255, 255, 255, 0.8);
+  --rb-white-75: rgba(255, 255, 255, 0.75);
+  --rb-white-70: rgba(255, 255, 255, 0.7);
+  --rb-white-65: rgba(255, 255, 255, 0.65);
+
+  --rb-line: rgba(255, 255, 255, 0.12);
+  --rb-line2: rgba(255, 255, 255, 0.14);
+
+  --rb-orange: #ff7a00;
+  --rb-orange2: #ffb86c;
+
+  --rb-radius: 16px;
+  --rb-radius-lg: 22px;
+
+  --rb-container: 1180px;
+  --rb-pad: 24px;
+
+  --rb-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  --rb-glow: 0 0 26px rgba(255, 122, 0, 0.45);
+}
+
+/* =========================================================
+   Base / container
+========================================================= */
+
+.services-main {
+  background: var(--rb-bg);
+  color: var(--rb-white);
+}
+
+.services-main .svc-container {
+  max-width: var(--rb-container);
+  margin: 0 auto;
+  padding: 0 var(--rb-pad);
+}
+
+.services-main .svc-section,
+.services-main .svc-cta {
+  padding: 72px 0 64px;
+  background: var(--rb-bg);
+}
+
+.services-main .svc-section-alt {
+  padding: 72px 0 64px;
+  background: var(--rb-panel2); /* like About (Our Story gray block) */
+  border-top: 2px solid var(--rb-orange);
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+/* Eyebrow */
+.services-main .svc-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 10px 0;
+  color: var(--rb-white-80);
+}
+
+/* Headings (uppercase like About) */
+.services-main h1,
+.services-main h2 {
+  margin: 0;
+  color: var(--rb-white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.services-main h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+  margin-bottom: 12px;
+}
+
+.services-main h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.services-main h3 {
+  margin: 0 0 10px;
+  font-size: 1.04rem;
+  color: var(--rb-orange);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Text blocks like About: justified + readable */
+.services-main .svc-lead,
+.services-main .svc-subhead,
+.services-main p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.services-main .svc-subhead {
+  margin-bottom: 22px;
+}
+
+/* Strong highlight like About */
+.services-main strong,
+.services-main b {
+  color: var(--rb-orange);
+  font-weight: 600;
+}
+
+.services-main h1 strong,
+.services-main h2 strong,
+.services-main h3 strong {
+  font-weight: 700;
+}
+
+@media (hover:hover){
+  .services-main strong:hover{
+    text-shadow: 0 0 6px rgba(255, 122, 0, 0.35);
+  }
+}
+
+/* =========================================================
+   Premium divider (optional utility)
+========================================================= */
+.services-main .svc-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 122, 0, 0),
+    rgba(255, 122, 0, 0.85),
+    rgba(255, 122, 0, 0)
+  );
+  margin: 0;
+  opacity: 1;
+}
+
+/* =========================================================
+   Buttons (outline pill like About)
+========================================================= */
+
+.services-main .svc-actions{
+  display:flex;
+  align-items:center;
+  gap: 1.2rem;
+  flex-wrap:wrap;
+  margin-top: 18px;
+}
+
+.services-main .svc-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.7);
+  color: var(--rb-white);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration:none;
+  background: transparent;
+  transition:
+    background .22s ease,
+    color .22s ease,
+    box-shadow .22s ease,
+    transform .18s ease;
+  white-space:nowrap;
+}
+
+.services-main .svc-btn:hover{
+  background: var(--rb-white);
+  color: #000;
+  box-shadow: 0 0 22px rgba(255,255,255,0.25);
+  transform: translateY(-1px);
+}
+
+.services-main .svc-btn-primary{
+  border-color: rgba(255,255,255,0.7);
+}
+
+.services-main .svc-btn-ghost{
+  border-color: rgba(255,255,255,0.25);
+  opacity: .85;
+}
+
+.services-main .svc-btn-ghost:hover{
+  opacity: 1;
+}
+
+.services-main .svc-btn-full{
+  width: 100%;
+  margin-top: 14px;
+}
+
+/* =========================================================
+   Hero (premium block like About)
+========================================================= */
+
+.services-main .svc-hero{
+  background: var(--rb-panel2);
+  padding: 72px 0 64px;
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+.services-main .svc-bullets{
+  margin: 18px 0 0;
+  padding: 0;
+  list-style:none;
+  display:grid;
+  gap: .8rem;
+  max-width: 760px;
+}
+
+.services-main .svc-bullets li{
+  position:relative;
+  padding-left: 22px;
+  color: var(--rb-white-90);
+  opacity: .9;
+  font-size: .92rem;
+  line-height: 1.55;
+  text-align: left; /* bullets stay clean */
+}
+
+.services-main .svc-bullets li::before{
+  content: "✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color: var(--rb-orange);
+  font-weight:700;
+}
+
+/* =========================================================
+   Card base (same behavior as About cards)
+========================================================= */
+
+.services-main .svc-card{
+  background: var(--rb-panel);
+  border: 1px solid var(--rb-line);
+  border-radius: var(--rb-radius);
+  transition:
+    transform .22s ease,
+    box-shadow .22s ease,
+    background .22s ease,
+    border-color .22s ease;
+  padding: 22px;
+}
+
+.services-main .svc-card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 122, 0, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255,255,255,0.18);
+}
+
+/* =========================================================
+   Grids
+========================================================= */
+
+.services-main .svc-steps{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 18px;
+}
+
+.services-main .svc-step-num{
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 2px solid var(--rb-orange);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(0,0,0,0.7);
+  color: var(--rb-white);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.services-main .svc-inline-links{
+  display:flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+.services-main .svc-inline-links a{
+  text-decoration:none;
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+  padding-bottom: 2px;
+  color: var(--rb-white-90);
+  opacity: .9;
+  transition: color .2s ease, border-color .2s ease;
+}
+
+.services-main .svc-inline-links a:hover{
+  color: var(--rb-orange);
+  border-color: rgba(255,122,0,0.65);
+}
+
+/* Two-col panels */
+.services-main .svc-two-col{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  margin-top: 18px;
+}
+
+.services-main .svc-list{
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display:grid;
+  gap: .8rem;
+}
+
+.services-main .svc-list li{
+  position:relative;
+  padding-left: 22px;
+  color: var(--rb-white-90);
+  opacity: .9;
+  font-size: .92rem;
+  line-height: 1.55;
+  text-align: left;
+}
+
+.services-main .svc-list li::before{
+  content:"✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color: var(--rb-orange);
+  font-weight: 700;
+}
+
+/* =========================================================
+   Plans
+========================================================= */
+
+.services-main .svc-plans{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 18px;
+}
+
+.services-main .svc-plan-head{
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+  padding-bottom: 14px;
+  margin-bottom: 14px;
+}
+
+.services-main .svc-plan-tag{
+  margin: 0 0 8px;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rb-white-80);
+  opacity: .85;
+}
+
+.services-main .svc-plan h3{
+  margin: 0 0 10px;
+  font-size: 2.1rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--rb-white);
+}
+
+.services-main .svc-plan h3 .svc-plan-mo{
+  font-size: 0.95rem;
+  opacity: .75;
+  font-weight: 700;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.services-main .svc-checklist{
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display:grid;
+  gap: .7rem;
+}
+
+.services-main .svc-checklist li{
+  position: relative;
+  padding-left: 22px;
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--rb-white-90);
+  opacity: .9;
+  text-align: left;
+}
+
+.services-main .svc-checklist li::before{
+  content: "✓";
+  position:absolute;
+  left:0;
+  top:0;
+  color: var(--rb-orange);
+  font-weight: 700;
+}
+
+.services-main .svc-fit{
+  margin-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.10);
+  padding-top: 14px;
+}
+
+.services-main .svc-fit-title{
+  margin: 0 0 6px;
+  font-weight: 800;
+  opacity: .9;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  font-size: .85rem;
+  color: var(--rb-white-80);
+}
+
+.services-main .svc-promo{
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,122,0,0.40);
+  background: rgba(255,122,0,0.06);
+  line-height: 1.55;
+}
+
+.services-main .svc-disclaimer{
+  margin: 16px 0 0;
+  opacity: .85;
+  line-height: 1.6;
+  text-align: left;
+}
+
+/* =========================================================
+   Compare table (clean like editorial)
+========================================================= */
+
+.services-main .svc-compare{
+  padding: 0;
+  overflow: hidden;
+}
+
+.services-main .svc-compare-row{
+  display:grid;
+  grid-template-columns: 1.3fr repeat(3, 1fr);
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.services-main .svc-compare-row:last-child{
+  border-bottom: 0;
+}
+
+.services-main .svc-compare-cell{
+  padding: 14px 14px;
+  line-height: 1.4;
+  color: var(--rb-white-90);
+  opacity: .92;
+  text-align: left;
+}
+
+.services-main .svc-compare-head .svc-compare-cell{
+  font-weight: 800;
+  opacity: .95;
+  color: var(--rb-white);
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  font-size: .86rem;
+}
+
+.services-main .svc-compare-label{
+  color: var(--rb-white-80);
+}
+
+/* =========================================================
+   Coaches
+========================================================= */
+
+.services-main .svc-coaches{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 18px;
+}
+
+.services-main .svc-coach-top{
+  display:flex;
+  gap: 12px;
+  align-items:center;
+  margin-bottom: 10px;
+}
+
+.services-main .svc-avatar{
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: radial-gradient(circle at top left, #181818 0, #050505 55%, #000 100%);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.45);
+}
+
+.services-main .svc-coach-meta{
+  margin: 0;
+  opacity: 0.78;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rb-white-80);
+  line-height: 1.45;
+  text-align: left;
+}
+
+.services-main .svc-coach-desc{
+  margin: 0 0 10px;
+}
+
+.services-main .svc-mini{
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+  display:grid;
+  gap: .6rem;
+}
+
+.services-main .svc-mini li{
+  position: relative;
+  padding-left: 18px;
+  font-size: .92rem;
+  line-height: 1.55;
+  color: var(--rb-white-90);
+  opacity: .9;
+  text-align: left;
+}
+
+.services-main .svc-mini li::before{
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(255,255,255,0.55);
+  font-weight: 700;
+}
+
+/* =========================================================
+   FAQ (match About FAQ behavior but using <details>)
+========================================================= */
+
+.services-main .svc-faq{
+  display: grid;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.services-main details.svc-card{
+  padding: 16px 0 10px;
+  background: transparent; /* like About faq */
+  border: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-radius: 0;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.services-main details.svc-card:hover{
+  background: transparent !important;
+  border-color: rgba(255,255,255,0.08) !important;
+}
+
+.services-main details.svc-card summary{
+  list-style: none;
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 6px 32px 6px 0;
+
+  font-size: 1.04rem;
+  color: var(--rb-white);
+  letter-spacing: 0.02em;
+  transition: color .25s ease;
+  text-align: left;
+}
+
+.services-main details.svc-card summary::-webkit-details-marker{ display:none; }
+
+.services-main details.svc-card summary:hover{
+  color: var(--rb-orange);
+}
+
+.services-main details.svc-card summary::after{
+  content:"+";
+  font-size: 1.1rem;
+  color: var(--rb-orange);
+  transition: transform .25s ease;
+}
+
+.services-main details.svc-card[open] summary::after{
+  transform: rotate(45deg);
+}
+
+/* orange speed line when open */
+.services-main details.svc-card{
+  position: relative;
+}
+
+.services-main details.svc-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:0;
+  height:2px;
+  background: linear-gradient(90deg, var(--rb-orange), var(--rb-orange2));
+  transition: width .25s ease;
+}
+
+.services-main details.svc-card[open]::before{
+  width: 80px;
+}
+
+.services-main .svc-faq-body{
+  padding-right: 32px;
+  margin-top: 10px;
+  color: rgba(255,255,255,0.8);
+  font-size: .92rem;
+  line-height: 1.65;
+  text-align: justify;
+}
+
+/* =========================================================
+   CTA final
+========================================================= */
+
+.services-main .svc-cta{
+  background: var(--rb-bg);
+  padding: 80px 0 90px;
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 900px){
+  .services-main .svc-section,
+  .services-main .svc-section-alt,
+  .services-main .svc-cta{
+    padding: 62px 0 56px;
+  }
+
+  .services-main .svc-container{
+    padding: 0 18px;
+  }
+
+  .services-main .svc-steps{
+    grid-template-columns: 1fr;
+  }
+
+  .services-main .svc-two-col{
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .services-main .svc-plans{
+    grid-template-columns: 1fr;
+  }
+
+  .services-main .svc-coaches{
+    grid-template-columns: 1fr;
+  }
+
+  .services-main .svc-compare-row{
+    grid-template-columns: 1fr;
+  }
+
+  .services-main .svc-compare-head{
+    display: none;
+  }
+
+  .services-main .svc-compare-cell{
+    padding: 10px 14px;
+  }
+}
+
+@media (max-width: 540px){
+  .services-main h2{
+    font-size: 1.65rem;
+  }
+
+  .services-main .svc-hero{
+    padding: 64px 0 56px;
+  }
+}
+/* =========================================================
+   HOW IT WORKS — Mobile Carousel (car style like About)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* respiro pra não cortar e não colar na próxima section */
+  .services-main #how-it-works {
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-bottom: 70px;
+  }
+
+  /* TRACK vira palco do carrossel */
+  .services-main #how-it-works .svc-steps {
+    position: relative;
+    height: 280px;          /* suficiente pra card + num + texto */
+    margin: 42px auto 10px; /* desce cards (não invade título) */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+
+    /* ignora grid no mobile */
+    grid-template-columns: none;
+  }
+
+  /* Cards viram stack absoluto */
+  .services-main #how-it-works .svc-step {
+    position: absolute;
+
+    width: 86%;
+    max-width: 360px;
+
+    transition:
+      transform 0.45s cubic-bezier(.22,.61,.36,1),
+      opacity 0.45s ease;
+
+    opacity: 0;
+    pointer-events: none;
+
+    height: 240px; /* altura uniforme */
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Centro */
+  .services-main #how-it-works .svc-step.is-active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  /* Anterior (esq) */
+  .services-main #how-it-works .svc-step.is-prev {
+    transform: translateX(-65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  /* Próximo (dir) */
+  .services-main #how-it-works .svc-step.is-next {
+    transform: translateX(65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  /* Dots */
+  .services-main #how-it-works .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .services-main #how-it-works .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,122,0,.30);
+    border: 1px solid rgba(255,122,0,.55);
+    cursor: pointer;
+  }
+
+  .services-main #how-it-works .carousel-dot.is-active {
+    background: var(--rb-orange);
+    box-shadow: 0 0 10px rgba(255,122,0,.55);
+    transform: scale(1.2);
+  }
+
+  /* Arrows (igual About) */
+  .services-main #how-it-works .carousel-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 220px;
+    margin: -2px auto 0;
+    position: relative;
+    top: -18px;
+
+    z-index: 6;
+    pointer-events: auto;
+  }
+
+  .services-main #how-it-works .carousel-arrows .carousel-arrow {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid var(--rb-orange) !important;
+
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75) !important;
+    color: var(--rb-orange) !important;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+
+    padding: 0 !important;
+    cursor: pointer;
+
+    box-shadow: none;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .services-main #how-it-works .carousel-arrows .carousel-arrow:hover,
+  .services-main #how-it-works .carousel-arrows .carousel-arrow:active {
+    background: rgba(255, 122, 0, 0.12) !important;
+    box-shadow: 0 0 14px rgba(255, 122, 0, 0.45);
+    transform: scale(1.05);
+  }
+
+  .services-main #how-it-works .carousel-arrows .carousel-arrow:focus {
+    outline: none;
+  }
+
+  /* estabilidade */
+  .services-main #how-it-works .svc-step {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Desktop: esconder dots/arrows (grid normal) */
+@media (min-width: 901px) {
+  .services-main #how-it-works .carousel-dots,
+  .services-main #how-it-works .carousel-arrows {
+    display: none !important;
+  }
+}
+/* =========================================================
+   PATCH — Contact link (orange + animated underline)
+========================================================= */
+
+.services-main .svc-note a {
+  color: var(--rb-orange);
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* underline “loading” */
+.services-main .svc-note a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;              /* distância do sublinhado */
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rb-orange), var(--rb-orange2));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+  opacity: 0.95;
+}
+
+.services-main .svc-note a:hover::after,
+.services-main .svc-note a:focus-visible::after {
+  transform: scaleX(1);
+}
+
+/* opcional: glow suave no hover */
+@media (hover:hover){
+  .services-main .svc-note a:hover{
+    text-shadow: 0 0 8px rgba(255,122,0,0.25);
+  }
+}
+/* =========================================================
+   PATCH — spacing between checklist and Contact paragraph
+========================================================= */
+
+/* Dá respiro entre a lista de checks e o texto de contato */
+.services-main #choose .svc-list {
+  margin-bottom: 16px;
+}
+
+/* Ajuste fino no parágrafo do Contact */
+.services-main #choose .svc-note {
+  margin-top: 6px;
+  line-height: 1.65;
+}
+
+/* Opcional: deixa o texto um pouco mais “editorial” */
+.services-main #choose .svc-note {
+  opacity: 0.92;
+}
+/* =========================================================
+   PLANS — Mobile Carousel (car style like About)
+========================================================= */
+@media (max-width: 900px) {
+
+  .services-main #plans {
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-bottom: 70px;
+  }
+
+  .services-main #plans .svc-plans {
+    position: relative;
+    height: 560px;          /* 🔑 cards de plano são mais altos */
+    margin: 42px auto 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+
+    /* ignora grid no mobile */
+    grid-template-columns: none;
+  }
+
+  .services-main #plans .svc-plan {
+    position: absolute;
+
+    width: 86%;
+    max-width: 380px;
+
+    transition:
+      transform 0.45s cubic-bezier(.22,.61,.36,1),
+      opacity 0.45s ease;
+
+    opacity: 0;
+    pointer-events: none;
+
+    height: 520px;          /* 🔑 altura uniforme */
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+  }
+
+  .services-main #plans .svc-plan.is-active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  .services-main #plans .svc-plan.is-prev {
+    transform: translateX(-65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  .services-main #plans .svc-plan.is-next {
+    transform: translateX(65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  /* Dots */
+  .services-main #plans .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+    position: relative;
+    z-index: 5;
+  }
+
+  .services-main #plans .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,122,0,.30);
+    border: 1px solid rgba(255,122,0,.55);
+    cursor: pointer;
+  }
+
+  .services-main #plans .carousel-dot.is-active {
+    background: var(--rb-orange);
+    box-shadow: 0 0 10px rgba(255,122,0,.55);
+    transform: scale(1.2);
+  }
+
+  /* Arrows */
+  .services-main #plans .carousel-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 220px;
+    margin: -2px auto 0;
+    position: relative;
+    top: -18px;
+
+    z-index: 6;
+    pointer-events: auto;
+  }
+
+  .services-main #plans .carousel-arrows .carousel-arrow {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid var(--rb-orange) !important;
+
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75) !important;
+    color: var(--rb-orange) !important;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+
+    padding: 0 !important;
+    cursor: pointer;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .services-main #plans .carousel-arrows .carousel-arrow:hover,
+  .services-main #plans .carousel-arrows .carousel-arrow:active {
+    background: rgba(255, 122, 0, 0.12) !important;
+    box-shadow: 0 0 14px rgba(255, 122, 0, 0.45);
+    transform: scale(1.05);
+  }
+
+  .services-main #plans .carousel-arrows .carousel-arrow:focus {
+    outline: none;
+  }
+
+  /* estabilidade */
+  .services-main #plans .svc-plan {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Desktop: esconder dots/arrows */
+@media (min-width: 901px) {
+  .services-main #plans .carousel-dots,
+  .services-main #plans .carousel-arrows {
+    display: none !important;
+  }
+}
+/* =========================================================
+   FIX DEFINITIVO — PLANS carousel: sem fade ao tocar (mobile)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* 1) Mata o "hover sticky" do mobile só nos Plans */
+  .services-main #plans .svc-plan:hover,
+  .services-main #plans .svc-plan:active,
+  .services-main #plans .svc-plan:focus {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--rb-panel) !important;
+    border-color: var(--rb-line) !important;
+  }
+
+  /* 2) Remove transição de opacity (isso causa fade na sensação do toque) */
+  .services-main #plans .svc-plan {
+    transition: transform 0.45s cubic-bezier(.22,.61,.36,1) !important;
+  }
+
+  /* 3) Prev/Next sólidos (sem opacidade e sem scale) */
+  .services-main #plans .svc-plan.is-prev,
+  .services-main #plans .svc-plan.is-next {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .services-main #plans .svc-plan.is-prev {
+    transform: translateX(-65%) !important;
+  }
+
+  .services-main #plans .svc-plan.is-next {
+    transform: translateX(65%) !important;
+  }
+
+  .services-main #plans .svc-plan.is-active {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+  }
+}
+/* =========================================================
+   FIX — Plans carousel: não cortar cards longos (mobile)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* palco do carrossel: deixa crescer com o card ativo */
+  .services-main #plans .svc-plans{
+    height: auto !important;
+    min-height: 620px;          /* ajuste base; pode subir se quiser */
+    padding-bottom: 18px;
+  }
+
+  /* o card não pode ser "fixo" nem cortar conteúdo */
+  .services-main #plans .svc-plan{
+    height: auto !important;
+    min-height: 520px;          /* mantém padrão bonito pros menores */
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* garante que o conteúdo interno não fique preso */
+  .services-main #plans .svc-plan .svc-plan-head,
+  .services-main #plans .svc-plan .svc-checklist,
+  .services-main #plans .svc-plan .svc-fit,
+  .services-main #plans .svc-plan .svc-promo{
+    overflow: visible;
+  }
+}

@@ -1,0 +1,42 @@
+<?php
+// /scripts/create_admin.php
+declare(strict_types=1);
+
+require_once __DIR__ . '/../core/bootstrap.php';
+
+$pdo = getPDO();
+
+// DADOS DO ADMIN
+$username      = 'lordmarques026';
+$name          = 'RB System Admin';
+$email         = 'dan.marques127@gmail.com'; // uso interno apenas
+$plainPassword = 'Will741852963@';           // rode 1x e DEPOIS apague este arquivo
+
+// Gera o hash seguro
+$passwordHash = password_hash($plainPassword, PASSWORD_DEFAULT);
+
+// Evita duplicar (por username)
+$check = $pdo->prepare("SELECT id FROM users WHERE username = ? LIMIT 1");
+$check->execute([$username]);
+$exists = $check->fetchColumn();
+
+if ($exists) {
+    echo "Já existe um usuário com username '{$username}' (id: {$exists}). Nada foi inserido.";
+    exit;
+}
+
+$stmt = $pdo->prepare("
+    INSERT INTO users (name, username, email, password_hash, role, status)
+    VALUES (:name, :username, :email, :password_hash, :role, :status)
+");
+
+$stmt->execute([
+    ':name'          => $name,
+    ':username'      => $username,
+    ':email'         => $email,
+    ':password_hash' => $passwordHash,
+    ':role'          => 'admin',
+    ':status'        => 'active',
+]);
+
+echo "Admin criado com sucesso: {$username}";

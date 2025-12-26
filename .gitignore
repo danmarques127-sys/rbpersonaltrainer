@@ -1,0 +1,23 @@
+﻿# --- Secrets / env ---
+.env
+.env.*
+core/.env
+trainer/.env
+
+# --- Logs ---
+*.log
+error_log
+*.pid
+
+# --- OS / Editor ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# --- Dependency dirs (se tiver) ---
+vendor/
+node_modules/
+
+# --- Uploads (se existir pasta de uploads) ---
+uploads/

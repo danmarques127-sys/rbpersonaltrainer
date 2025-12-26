@@ -1,0 +1,846 @@
+/* =========================================================
+   TESTIMONIALS PAGE (MAIN) — MATCH RB HOME STYLE
+   - Dark + orange accent
+   - Designed to load AFTER global.css
+========================================================= */
+
+/* ---------- Tokens (same palette from Home / About) ---------- */
+:root {
+  --rb-black: #000;
+  --rb-bg: #050505;
+  --rb-bg2: #111;
+  --rb-panel: #151515;
+  --rb-panel2: #1c2120;
+
+  --rb-white: #ffffff;
+  --rb-white-90: rgba(255, 255, 255, 0.9);
+  --rb-white-80: rgba(255, 255, 255, 0.8);
+  --rb-white-75: rgba(255, 255, 255, 0.75);
+  --rb-white-70: rgba(255, 255, 255, 0.7);
+  --rb-white-65: rgba(255, 255, 255, 0.65);
+  --rb-line: rgba(255, 255, 255, 0.12);
+  --rb-line2: rgba(255, 255, 255, 0.14);
+
+  --rb-orange: #ff7a00;
+  --rb-orange2: #ffb86c;
+
+  --rb-radius: 16px;
+  --rb-radius-lg: 22px;
+
+  --rb-container: 1180px;
+  --rb-pad: 24px;
+
+  --rb-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  --rb-glow: 0 0 26px rgba(255, 122, 0, 0.45);
+}
+
+/* =========================================================
+   Base / helpers
+========================================================= */
+
+#main-content {
+  background: var(--rb-bg);
+  color: var(--rb-white);
+}
+
+#main-content .container {
+  max-width: var(--rb-container);
+  margin: 0 auto;
+  padding: 0 var(--rb-pad);
+}
+
+#main-content section {
+  padding: 72px 0 64px;
+  background: var(--rb-bg);
+}
+
+/* Eyebrow and headings — match Home feel */
+#main-content .eyebrow,
+#main-content .section-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 10px 0;
+  color: var(--rb-white-80);
+}
+
+#main-content h1,
+#main-content h2 {
+  margin: 0;
+  color: var(--rb-white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+#main-content h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+#main-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+#main-content h3 {
+  margin: 0;
+  color: var(--rb-white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+#main-content .section-intro,
+#main-content .subheadline,
+#main-content .lead {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Section header helper */
+#main-content .section-header {
+  max-width: 920px;
+}
+
+/* CTA row */
+#main-content .cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+/* =========================================================
+   Buttons — reuse Home button language
+========================================================= */
+
+#main-content .btn,
+#main-content .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: var(--rb-white);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  background: transparent;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+  white-space: nowrap;
+}
+
+#main-content .btn:hover,
+#main-content .btn-outline:hover {
+  background: var(--rb-white);
+  color: #000;
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+#main-content .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.55);
+  opacity: 0.95;
+}
+
+#main-content .btn-ghost {
+  border-color: rgba(255, 255, 255, 0.25);
+  opacity: 0.85;
+}
+
+#main-content .btn-ghost:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   Premium divider (same as Home)
+========================================================= */
+#main-content .section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 122, 0, 0),
+    rgba(255, 122, 0, 0.85),
+    rgba(255, 122, 0, 0)
+  );
+  margin: 0;
+  opacity: 1;
+}
+
+/* =========================================================
+   Grid helpers
+========================================================= */
+#main-content .grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+#main-content .grid.testimonial-cards {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+#main-content .grid.library-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#main-content .grid.transformation-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+#main-content .grid.video-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #main-content section {
+    padding: 62px 0 56px;
+  }
+
+  #main-content .grid.testimonial-cards {
+    grid-template-columns: 1fr;
+  }
+
+  #main-content .grid.library-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #main-content .grid.transformation-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #main-content .grid.video-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #main-content .grid.library-cards,
+  #main-content .grid.transformation-grid,
+  #main-content .grid.video-cards {
+    grid-template-columns: 1fr;
+  }
+
+  #main-content .cta-row {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================================
+   Card base (match WHY TRAIN cards)
+========================================================= */
+#main-content .testimonial-card,
+#main-content .library-card,
+#main-content .transformation-card,
+#main-content .video-card,
+#main-content .trust-item {
+  background: var(--rb-panel);
+  border: 1px solid var(--rb-line);
+  border-radius: var(--rb-radius);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+#main-content .testimonial-card:hover,
+#main-content .library-card:hover,
+#main-content .transformation-card:hover,
+#main-content .video-card:hover,
+#main-content .trust-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 122, 0, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Padding for text cards */
+#main-content .testimonial-card,
+#main-content .library-card,
+#main-content .trust-item {
+  padding: 28px;
+}
+
+/* =========================================================
+   Strong highlight (RB style)
+========================================================= */
+#main-content strong,
+#main-content b {
+  color: #ff7a00;
+  font-weight: 600;
+}
+
+#main-content h1 strong,
+#main-content h2 strong,
+#main-content h3 strong {
+  font-weight: 700;
+}
+
+@media (hover: hover) {
+  #main-content strong:hover {
+    text-shadow: 0 0 6px rgba(255, 122, 0, 0.35);
+  }
+}
+
+/* =========================================================
+   Testimonials Hero
+========================================================= */
+#main-content .testimonials-hero {
+  background: var(--rb-panel2);
+  padding-top: 56px;
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+#main-content .testimonials-hero .container {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+#main-content .testimonials-hero .section-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#main-content .testimonials-hero .subheadline {
+  max-width: 680px;
+  margin-top: 12px;
+}
+
+#main-content .testimonials-hero .microtrust {
+  margin-top: 14px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--rb-white-80);
+  opacity: 0.9;
+  text-align: left;
+}
+
+#main-content .testimonials-hero .microtrust a {
+  color: var(--rb-white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  transition: border-color .2s ease, color .2s ease;
+}
+
+#main-content .testimonials-hero .microtrust a:hover {
+  color: var(--rb-orange);
+  border-color: rgba(255,122,0,0.6);
+}
+
+#main-content .testimonials-hero .hero-media {
+  border-radius: var(--rb-radius-lg);
+  border: 1px solid var(--rb-line2);
+  background: radial-gradient(circle at top left, #181818 0, #050505 50%, #000 100%);
+  overflow: hidden;
+  box-shadow: var(--rb-shadow);
+  min-height: 360px;
+}
+
+#main-content .testimonials-hero .hero-media img,
+#main-content .testimonials-hero .hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  transition: transform .6s cubic-bezier(.22,.61,.36,1);
+}
+
+@media (hover: hover) {
+  #main-content .testimonials-hero .hero-media:hover img,
+  #main-content .testimonials-hero .hero-media:hover video {
+    transform: scale(1.08);
+  }
+}
+
+@media (max-width: 900px) {
+  #main-content .testimonials-hero .container {
+    grid-template-columns: 1fr;
+  }
+  #main-content .testimonials-hero .hero-media {
+    min-height: 240px;
+  }
+}
+
+/* =========================================================
+   Trust Bar
+========================================================= */
+#main-content .testimonials-trust {
+  background: var(--rb-bg);
+}
+
+#main-content .trust-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.2rem;
+  margin-top: 6px;
+}
+
+#main-content .trust-item .trust-title {
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--rb-white);
+  margin: 0 0 10px;
+  line-height: 1.35;
+}
+
+#main-content .trust-item .trust-text {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+#main-content .results-disclaimer {
+  margin: 18px 0 0 0;
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.78);
+  opacity: 0.95;
+  max-width: 980px;
+}
+
+@media (max-width: 900px) {
+  #main-content .trust-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* =========================================================
+   Featured Testimonials
+========================================================= */
+#main-content .testimonials-featured {
+  background: var(--rb-panel2);
+  border-top: 2px solid var(--rb-orange);
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+#main-content .testimonial-card {
+  position: relative;
+  overflow: hidden;
+}
+
+#main-content .testimonial-card::before {
+  content: "“";
+  position: absolute;
+  top: 16px;
+  left: 18px;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: rgba(255, 122, 0, 0.25);
+  font-weight: 800;
+  pointer-events: none;
+}
+
+#main-content .testimonial-quote {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  color: var(--rb-white-90);
+  opacity: 0.93;
+  text-align: justify;
+  text-justify: inter-word;
+  padding-top: 18px;
+}
+
+#main-content .testimonial-meta {
+  margin: 16px 0 0 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--rb-white-80);
+  opacity: 0.9;
+}
+
+/* Dots placeholder (will be controlled by JS if you later add carousel) */
+#main-content .carousel-dots {
+  display: none;
+}
+
+/* =========================================================
+   Filters (Reviews by Goal)
+========================================================= */
+#main-content .testimonials-library {
+  background: var(--rb-bg);
+}
+
+#main-content .filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+#main-content .filter-btn {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--rb-white);
+  padding: 10px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.18s ease,
+    box-shadow 0.2s ease;
+}
+
+#main-content .filter-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 122, 0, 0.6);
+  box-shadow: 0 0 12px rgba(255, 122, 0, 0.18);
+}
+
+#main-content .filter-btn.is-active {
+  background: rgba(255, 122, 0, 0.14);
+  border-color: rgba(255, 122, 0, 0.8);
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.24);
+}
+
+#main-content .library-card .testimonial-quote {
+  padding-top: 0;
+}
+
+#main-content .testimonial-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 14px 0 0;
+}
+
+#main-content .tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 122, 0, 0.35);
+  background: rgba(255, 122, 0, 0.08);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#main-content .library-note {
+  margin: 16px 0 0;
+  max-width: 920px;
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--rb-white-80);
+  opacity: 0.92;
+}
+
+#main-content .library-note a {
+  color: var(--rb-white);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+  transition: border-color .2s ease, color .2s ease;
+}
+
+#main-content .library-note a:hover {
+  color: var(--rb-orange);
+  border-color: rgba(255,122,0,0.6);
+}
+
+/* =========================================================
+   Transformations (Before & After)
+========================================================= */
+#main-content .testimonials-transformations {
+  background: var(--rb-panel2);
+  border-top: 2px solid var(--rb-orange);
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+#main-content .transformation-card {
+  padding: 0;
+  overflow: hidden;
+  background: var(--rb-panel);
+}
+
+#main-content .transformation-media {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #000;
+}
+
+#main-content .transformation-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: scale(1.05);
+  transition: transform 0.5s cubic-bezier(.22,.61,.36,1);
+}
+
+@media (hover: hover) {
+  #main-content .transformation-card:hover .transformation-media img {
+    transform: scale(1.1);
+  }
+}
+
+#main-content .transformation-meta {
+  margin: 0;
+  padding: 14px 16px 16px;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  color: var(--rb-white-90);
+  opacity: 0.92;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  #main-content .transformation-media {
+    height: 200px;
+  }
+}
+
+@media (max-width: 600px) {
+  #main-content .transformation-media {
+    height: 210px;
+  }
+}
+
+/* =========================================================
+   Video Testimonials
+========================================================= */
+#main-content .testimonials-videos {
+  background: var(--rb-bg);
+}
+
+#main-content .video-card {
+  overflow: hidden;
+  padding: 0;
+  background: var(--rb-panel);
+}
+
+/* Prevent "jump" on hover for video cards (videos are heavy; keep stable) */
+#main-content .testimonials-videos .video-card,
+#main-content .testimonials-videos .video-card:hover {
+  transform: none;
+}
+
+#main-content .testimonials-videos .video-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+#main-content .video-thumb {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #000;
+  border-top-left-radius: var(--rb-radius);
+  border-top-right-radius: var(--rb-radius);
+}
+
+#main-content .video-thumb video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transform: none !important;
+  transition: none !important;
+  background: #000;
+}
+
+#main-content .video-card h3 {
+  margin: 0;
+  padding: 14px 16px 0;
+  font-size: 1.02rem;
+  color: var(--rb-white);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+#main-content .video-card .meta {
+  margin: 0;
+  padding: 8px 16px 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  color: var(--rb-white-80);
+}
+
+#main-content .video-card .snippet {
+  margin: 0;
+  padding: 10px 16px 18px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  text-align: justify;
+}
+
+@media (max-width: 900px) {
+  #main-content .video-thumb {
+    height: 160px;
+  }
+}
+
+/* =========================================================
+   FAQ — match Home FAQ behavior but using <details>
+========================================================= */
+#main-content .testimonials-faq {
+  background: var(--rb-bg);
+  padding: 80px 0 90px;
+}
+
+#main-content .faq-list {
+  max-width: 860px;
+  margin: 32px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (min-width: 900px) {
+  #main-content .faq-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.4rem;
+    row-gap: 10px;
+    max-width: 1180px;
+  }
+}
+
+#main-content .faq-item {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 0 10px;
+  background: transparent;
+}
+
+#main-content .faq-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rb-orange), var(--rb-orange2));
+  transition: width 0.25s ease;
+}
+
+#main-content .faq-item[open]::before {
+  width: 80px;
+}
+
+#main-content .faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 6px 32px 6px 0;
+
+  font-size: 1.04rem;
+  color: var(--rb-white);
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+#main-content .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+#main-content .faq-item summary:hover {
+  color: var(--rb-orange);
+}
+
+#main-content .faq-item summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--rb-orange);
+  transition: transform 0.25s ease;
+}
+
+#main-content .faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+#main-content .faq-answer {
+  padding-right: 32px;
+}
+
+#main-content .faq-answer p {
+  margin: 8px 0 0 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* =========================================================
+   Small mobile polishing
+========================================================= */
+@media (max-width: 768px) {
+  #main-content .container {
+    padding: 0 18px;
+  }
+}
+
+@media (max-width: 540px) {
+  #main-content section {
+    padding: 58px 0 52px;
+  }
+
+  #main-content h2 {
+    font-size: 1.65rem;
+  }
+}
+
+/* =========================================================
+   Optional: smoother focus accessibility
+========================================================= */
+#main-content a:focus,
+#main-content button:focus,
+#main-content summary:focus {
+  outline: none;
+}
+
+#main-content a:focus-visible,
+#main-content button:focus-visible,
+#main-content summary:focus-visible {
+  outline: 2px solid rgba(255, 122, 0, 0.75);
+  outline-offset: 3px;
+  border-radius: 6px;
+}

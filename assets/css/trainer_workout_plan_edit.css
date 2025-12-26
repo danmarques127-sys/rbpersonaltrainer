@@ -1,0 +1,596 @@
+/* =========================================================
+   TRAINER WORKOUT PLAN EDIT - RB DARK (NO ORANGE GLOW)
+   File: trainer_workout_plan_edit.css
+   Goal: Same dark/clean dashboard style from your prints
+   - No orange radial glow in backgrounds
+   - White/neutral highlights
+   - Orange only as small accent (buttons/links/hover), not lighting
+   ========================================================= */
+
+/* -----------------------
+   0) Tokens (fallback)
+   (Se global.css já tem variáveis, isso só complementa)
+------------------------ */
+:root{
+  --rb-bg-0: #06070a;
+  --rb-bg-1: #0a0b10;
+  --rb-bg-2: #0d0f16;
+
+  --rb-card: rgba(16, 18, 26, 0.72);
+  --rb-card-2: rgba(18, 20, 30, 0.62);
+
+  --rb-line: rgba(255,255,255,0.08);
+  --rb-line-2: rgba(255,255,255,0.12);
+
+  --rb-text-main: rgba(255,255,255,0.92);
+  --rb-text-muted: rgba(255,255,255,0.62);
+  --rb-text-label: rgba(255,255,255,0.56);
+
+  /* Accent: keep brand orange, but DO NOT use it as page glow */
+  --rb-accent: #ff8a00;
+  --rb-accent-2: #ff6a00;
+  --rb-accent-soft: rgba(255,138,0,0.14);
+
+  --rb-shadow-1: 0 14px 40px rgba(0,0,0,0.55);
+  --rb-shadow-2: 0 22px 70px rgba(0,0,0,0.65);
+
+  /* Neutral focus ring / glow (white/blue-ish), not orange */
+  --rb-ring: 0 0 0 1px rgba(255,255,255,0.08), 0 0 22px rgba(148,163,184,0.12);
+
+  --rb-radius-xl: 22px;
+  --rb-radius-lg: 18px;
+  --rb-radius-md: 14px;
+
+  --rb-border-soft: rgba(255,255,255,0.12);
+  --rb-bg-card-soft: rgba(0,0,0,0.22);
+
+  --rb-font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+}
+
+/* -----------------------
+   1) Page base (se a página usar body default)
+   - Same background feel from dashboard prints:
+     deep dark with subtle neutral blue tint, NO orange glow.
+------------------------ */
+body{
+  font-family: var(--rb-font);
+  color: var(--rb-text-main);
+  background:
+    radial-gradient(900px 520px at 50% 10%, rgba(148,163,184,0.08), rgba(0,0,0,0) 58%),
+    radial-gradient(700px 480px at 15% 35%, rgba(59,130,246,0.05), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, var(--rb-bg-0) 0%, var(--rb-bg-1) 40%, var(--rb-bg-2) 100%);
+  overflow-x: hidden;
+}
+
+/* Subtle noise overlay (bem leve) */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+
+a{ color:inherit; text-decoration:none; }
+
+/* -----------------------
+   2) Main container card
+   - Remove orange lighting
+   - Keep subtle highlight + depth like dashboard cards
+------------------------ */
+.wk-container-edit{
+  max-width: 960px;
+  margin: 32px auto 48px;
+  padding: 24px 20px 32px;
+
+  border-radius: var(--rb-radius-xl);
+  background:
+    radial-gradient(720px 260px at 20% 8%, rgba(255,255,255,0.06), rgba(0,0,0,0) 62%),
+    radial-gradient(520px 240px at 80% 0%, rgba(148,163,184,0.06), rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--rb-shadow-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.wk-container-edit::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.wk-container-edit::before{
+  content:"";
+  position:absolute;
+  left:-10%;
+  right:-10%;
+  bottom:-40%;
+  height:75%;
+  background: radial-gradient(circle at 50% 0%, rgba(0,0,0,0.0), rgba(0,0,0,0.55) 65%);
+  pointer-events:none;
+  opacity:.9;
+}
+
+.wk-container-edit > *{
+  position: relative;
+  z-index: 1;
+}
+
+/* -----------------------
+   3) Header / Title area
+------------------------ */
+.wk-edit-header{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+  margin-bottom: 18px;
+}
+
+.wk-title{
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: rgba(255,255,255,0.95);
+}
+
+.wk-edit-subtitle{
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--rb-text-muted);
+  max-width: 720px;
+}
+
+.wk-edit-meta{
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.70);
+  display:flex;
+  flex-wrap:wrap;
+  gap: 12px;
+}
+
+.wk-edit-meta strong{
+  color: rgba(255,255,255,0.92);
+}
+
+/* Neutral trace line (same “traço” vibe, but NOT orange glow) */
+.wk-edit-header::after{
+  content:"";
+  margin-top: 10px;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255,255,255,0), rgba(255,255,255,0.18), rgba(255,255,255,0));
+  opacity: .9;
+}
+
+/* -----------------------
+   4) Alerts
+------------------------ */
+.wk-alert-success,
+.wk-alert-error{
+  border-radius: 14px;
+  padding: 12px 14px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset;
+}
+
+.wk-alert-success{
+  background: rgba(34,197,94,0.10);
+  border: 1px solid rgba(34,197,94,0.35);
+  color: #bbf7d0;
+}
+
+.wk-alert-error{
+  background: rgba(248,113,113,0.10);
+  border: 1px solid rgba(248,113,113,0.35);
+  color: #fecaca;
+}
+
+/* -----------------------
+   5) Session nickname field
+------------------------ */
+.wk-edit-sessionname{
+  margin: 14px 0 16px;
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+}
+
+.wk-edit-sessionname label{
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+
+.wk-edit-sessionname-input{
+  max-width: 360px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.92);
+  font-size: 14px;
+  outline: none;
+  transition: 160ms ease;
+}
+
+.wk-edit-sessionname-input:focus{
+  border-color: rgba(255,255,255,0.22);
+  box-shadow: var(--rb-ring);
+}
+
+.wk-edit-sessionname-hint{
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255,255,255,0.52);
+}
+
+/* -----------------------
+   6) Table
+------------------------ */
+.wk-ex-table{
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+.wk-ex-table thead th{
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align:left;
+  color: rgba(255,255,255,0.60);
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.wk-ex-table tbody td{
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.wk-ex-row{
+  transition: background 150ms ease;
+}
+
+.wk-ex-row:hover{
+  background: rgba(255,255,255,0.03);
+}
+
+/* Make inputs align nicely inside cells */
+.wk-ex-name-cell{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+
+/* Inputs */
+.wk-ex-name-input{
+  width:100%;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.92);
+  font-size: 14px;
+  outline:none;
+  transition: 160ms ease;
+}
+
+.wk-ex-small-input{
+  width: 92px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.92);
+  font-size: 13px;
+  outline:none;
+  transition: 160ms ease;
+}
+
+.wk-ex-name-input:focus,
+.wk-ex-small-input:focus{
+  border-color: rgba(255,255,255,0.22);
+  box-shadow: var(--rb-ring);
+}
+
+.wk-ex-small-input::placeholder,
+.wk-ex-name-input::placeholder{
+  color: rgba(255,255,255,0.40);
+}
+
+/* Action column */
+.tw-ex-actions-col{
+  width: 34px;
+  text-align:center;
+}
+
+/* Info / delete buttons */
+.wk-ex-info-btn{
+  border:none;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  cursor:pointer;
+  padding: 0 6px;
+  font-size: 16px;
+  transition: 140ms ease;
+}
+
+.wk-ex-info-btn:hover{
+  color: rgba(255,255,255,0.92);
+  filter: drop-shadow(0 0 10px rgba(255,255,255,0.10));
+}
+
+.wk-ex-delete-btn{
+  border:none;
+  background: transparent;
+  color: rgba(255,255,255,0.55);
+  cursor:pointer;
+  font-size: 16px;
+  transition: 140ms ease;
+}
+
+.wk-ex-delete-btn:hover{
+  color: #f97373;
+  filter: drop-shadow(0 0 10px rgba(248,113,113,0.20));
+}
+
+/* -----------------------
+   7) Buttons (primary/secondary)
+   - No glow
+   - Primary uses subtle orange border only (not lighting)
+------------------------ */
+.wk-btn-secondary,
+.wk-btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  cursor:pointer;
+  border-radius: 999px;
+  padding: 11px 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: 170ms ease;
+  user-select:none;
+  text-decoration:none;
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Secondary: neutral */
+.wk-btn-secondary{
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.86);
+}
+
+.wk-btn-secondary:hover{
+  border-color: rgba(255,255,255,0.22);
+  background: rgba(255,255,255,0.04);
+  color:#fff;
+  box-shadow: none;
+}
+
+/* Primary: clean, premium, orange as accent only */
+.wk-btn-primary{
+  border-color: rgba(255,138,0,0.45);
+  background: rgba(255,138,0,0.08);
+  color: #fff;
+  box-shadow: none;
+}
+
+.wk-btn-primary:hover{
+  background: rgba(255,138,0,0.12);
+  border-color: rgba(255,138,0,0.60);
+}
+
+/* Specific button rows */
+.wk-ex-add-row{
+  margin-top: 12px;
+  display:flex;
+  justify-content:flex-start;
+}
+
+.wk-ex-add-btn{
+  padding: 10px 14px;
+}
+
+.wk-ex-secondary-actions{
+  margin-top: 10px;
+  display:flex;
+  justify-content:flex-start;
+}
+
+.wk-ex-create-btn{
+  padding: 10px 14px;
+  margin-left: 8px;
+}
+
+.wk-form-actions{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  margin-top: 22px;
+  gap: 10px;
+}
+
+/* -----------------------
+   8) Modal (same vibe)
+   - No orange radial background
+------------------------ */
+.wk-ex-modal-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index: 2000;
+}
+
+.wk-ex-modal{
+  width: 100%;
+  max-width: 560px;
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+
+  background:
+    radial-gradient(720px 260px at 20% 8%, rgba(255,255,255,0.06), rgba(0,0,0,0) 62%),
+    radial-gradient(520px 240px at 85% 0%, rgba(148,163,184,0.06), rgba(0,0,0,0) 62%),
+    linear-gradient(180deg, rgba(255,255,255,0.045), rgba(255,255,255,0.012));
+
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: var(--rb-shadow-2);
+  position: relative;
+  overflow: hidden;
+}
+
+.wk-ex-modal::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.wk-ex-modal-header{
+  display:flex;
+  justify-content: space-between;
+  align-items:center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.wk-ex-modal-title{
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+}
+
+.wk-ex-modal-close{
+  border:none;
+  background: transparent;
+  color: rgba(255,255,255,0.62);
+  cursor:pointer;
+  font-size: 18px;
+  padding: 4px 6px;
+  border-radius: 10px;
+  transition: 140ms ease;
+}
+
+.wk-ex-modal-close:hover{
+  color:#fff;
+  background: rgba(255,255,255,0.05);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.06) inset;
+}
+
+.wk-ex-modal-body{
+  font-size: 14px;
+  color: rgba(255,255,255,0.84);
+  display:flex;
+  flex-direction:column;
+  gap: 10px;
+}
+
+.wk-ex-tagline{
+  font-size: 12px;
+  color: rgba(255,255,255,0.62);
+}
+
+.wk-ex-modal-video{
+  margin-top: 8px;
+  border-radius: 14px;
+  overflow:hidden;
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.03) inset;
+}
+
+.wk-ex-modal-video iframe{
+  width: 100%;
+  aspect-ratio: 16/9;
+  border:none;
+}
+
+/* -----------------------
+   9) Datalist (autocomplete hint)
+------------------------ */
+datalist option{
+  color: #111827;
+}
+
+/* -----------------------
+   10) Responsive improvements
+------------------------ */
+@media (max-width: 900px){
+  .wk-ex-small-input{ width: 82px; }
+}
+
+@media (max-width: 768px){
+  .wk-container-edit{
+    margin: 16px auto 32px;
+    padding: 16px 12px 24px;
+  }
+
+  .wk-title{
+    font-size: 22px;
+  }
+
+  .wk-form-actions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .wk-form-actions .wk-btn-secondary,
+  .wk-form-actions .wk-btn-primary{
+    width: 100%;
+  }
+
+  .wk-ex-table thead{
+    display:none; /* mobile simplificado */
+  }
+
+  .wk-ex-table,
+  .wk-ex-table tbody,
+  .wk-ex-table tr,
+  .wk-ex-table td{
+    display:block;
+    width:100%;
+  }
+
+  .wk-ex-row{
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .wk-ex-table tbody td{
+    border-bottom:none;
+    padding: 8px 2px;
+  }
+
+  .tw-ex-actions-col{
+    width: 100%;
+    text-align: right;
+    padding-top: 2px;
+  }
+
+  .wk-ex-small-input{
+    width: 100%;
+  }
+}

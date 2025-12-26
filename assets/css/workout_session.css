@@ -1,0 +1,641 @@
+/* =========================================================
+   workout_session.css
+   Padr達o: Dark / Orange Glow / Cards / Traces (igual dashboard)
+   ========================================================= */
+
+/* -----------------------
+   1) Theme tokens (fallback)
+------------------------ */
+:root{
+  --bg-0:#06070a;
+  --bg-1:#0a0b10;
+  --bg-2:#0d0f16;
+
+  --card: rgba(16,18,26,.72);
+  --card-2: rgba(18,20,30,.62);
+
+  --line: rgba(255,255,255,.08);
+  --line-2: rgba(255,255,255,.12);
+
+  --txt: rgba(255,255,255,.92);
+  --muted: rgba(255,255,255,.62);
+  --muted-2: rgba(255,255,255,.45);
+
+  --accent:#ff8a00;
+  --accent-2:#ff6a00;
+  --accent-soft: rgba(255,138,0,.20);
+  --accent-soft-2: rgba(255,106,0,.14);
+
+  --shadow-1: 0 14px 40px rgba(0,0,0,.55);
+  --shadow-2: 0 22px 70px rgba(0,0,0,.65);
+  --glow: 0 0 0 1px rgba(255,138,0,.10), 0 0 40px rgba(255,138,0,.10);
+
+  --r-xl: 22px;
+  --r-lg: 18px;
+  --r-md: 14px;
+  --r-sm: 12px;
+
+  --pad: 22px;
+  --gap: 18px;
+
+  --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* -----------------------
+   2) Page base (scoped)
+------------------------ */
+.wk-container{
+  width: min(1100px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 34px;
+  color: var(--txt);
+  font-family: var(--font);
+}
+
+.wk-container *{
+  box-sizing: border-box;
+}
+
+/* Optional: consistent background if global.css isn't applying it */
+body{
+  background: radial-gradient(1200px 600px at 50% 20%, rgba(255, 138, 0, 0.14), rgba(0, 0, 0, 0) 55%),
+              radial-gradient(900px 480px at 20% 40%, rgba(100, 120, 255, 0.06), rgba(0, 0, 0, 0) 55%),
+              linear-gradient(180deg, var(--bg-0) 0%, var(--bg-1) 35%, var(--bg-2) 100%);
+}
+
+/* -----------------------
+   3) Shared card style (reusable)
+------------------------ */
+.wk-card{
+  border-radius: var(--r-xl);
+  padding: var(--pad);
+  background:
+    radial-gradient(560px 220px at 20% 12%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.wk-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.wk-card::before{
+  content:"";
+  position:absolute;
+  left:-10%;
+  right:-10%;
+  bottom:-40%;
+  height:75%;
+  background: radial-gradient(circle at 50% 0%, rgba(0,0,0,0.0), rgba(0,0,0,0.55) 65%);
+  pointer-events:none;
+  opacity:.9;
+}
+
+.wk-card > *{ position:relative; z-index:1; }
+
+.wk-trace{
+  height:1px;
+  width:100%;
+  background: linear-gradient(90deg, rgba(255,138,0,0), rgba(255,138,0,0.35), rgba(255,138,0,0));
+  margin: 14px 0;
+}
+
+/* -----------------------
+   4) User header (top)
+------------------------ */
+.wk-user-header{
+  display:flex;
+  align-items:center;
+  gap: 14px;
+  padding: 18px 18px;
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(700px 240px at 35% 20%, rgba(255,138,0,0.12), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow-2);
+}
+
+.wk-user-header img{
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: var(--shadow-1), 0 0 0 6px rgba(255,138,0,0.04);
+  background: rgba(0,0,0,0.25);
+}
+
+.wk-user-info{
+  display:flex;
+  flex-direction:column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.wk-user-name{
+  font-size: 18px;
+  font-weight: 650;
+  color: rgba(255,255,255,0.95);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.wk-user-subtitle{
+  font-size: 11px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--muted-2);
+}
+
+/* -----------------------
+   5) Session header (title + meta + action)
+------------------------ */
+.wk-session-header{
+  margin-top: 18px;
+  border-radius: var(--r-xl);
+  padding: 20px 20px;
+  background:
+    radial-gradient(560px 220px at 20% 12%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow-1);
+  display:flex;
+  align-items:flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.wk-plan-detail-title{
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.94);
+}
+
+.wk-plan-detail-meta{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.wk-plan-detail-meta span{
+  display:inline-flex;
+  align-items:center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.22);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+/* -----------------------
+   6) Notes box
+------------------------ */
+.wk-session-notes-box{
+  margin-top: 14px;
+  border-radius: var(--r-xl);
+  padding: 18px 18px;
+  background: rgba(255,138,0,0.06);
+  border: 1px solid rgba(255,138,0,0.22);
+  box-shadow: var(--glow);
+  color: rgba(255,255,255,0.86);
+  line-height: 1.6;
+  font-size: 13px;
+}
+
+/* -----------------------
+   7) Exercise list
+------------------------ */
+.wk-exercise-list{
+  margin-top: 18px;
+  display:grid;
+  gap: 12px;
+}
+
+.wk-empty{
+  margin: 0;
+  padding: 18px;
+  border-radius: var(--r-xl);
+  background: rgba(0,0,0,0.18);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--muted);
+  box-shadow: var(--shadow-1);
+}
+
+.wk-exercise-row{
+  border-radius: var(--r-xl);
+  padding: 16px 18px;
+  background:
+    radial-gradient(520px 200px at 18% 10%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.wk-exercise-row::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.wk-exercise-main{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+
+/* Exercise name as button (clickable) */
+.wk-exercise-name{
+  width: fit-content;
+  max-width: 100%;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.92);
+  transition: 160ms ease;
+}
+
+.wk-exercise-name:hover{
+  color: #fff;
+  text-shadow: 0 0 20px rgba(255,138,0,0.22);
+}
+
+.wk-exercise-name:focus-visible{
+  outline: 2px solid rgba(255,138,0,0.40);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.wk-exercise-meta{
+  font-size: 12px;
+  color: rgba(255,255,255,0.62);
+  letter-spacing: 0.02em;
+}
+
+/* -----------------------
+   8) Form (check-in)
+------------------------ */
+.wk-complete-form{
+  margin-top: 18px;
+  border-radius: var(--r-xl);
+  padding: var(--pad);
+  background:
+    radial-gradient(560px 220px at 20% 12%, rgba(255,255,255,0.06), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: var(--shadow-1);
+  position: relative;
+  overflow: hidden;
+}
+
+.wk-complete-form::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius: inherit;
+  pointer-events:none;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.wk-complete-form > *{
+  position: relative;
+  z-index: 1;
+}
+
+.wk-field-row{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 900px){
+  .wk-field-row{ grid-template-columns: 1fr; }
+  .wk-session-header{ flex-direction: column; }
+  .wk-plan-detail-actions{ width: 100%; }
+}
+
+.wk-field{
+  display:flex;
+  flex-direction:column;
+  gap: 8px;
+}
+
+.wk-label{
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.60);
+}
+
+.wk-input,
+.wk-select,
+.wk-textarea{
+  width: 100%;
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.22);
+  color: rgba(255,255,255,0.88);
+  padding: 12px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: 160ms ease;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.02) inset;
+}
+
+.wk-textarea{
+  resize: vertical;
+  min-height: 92px;
+  line-height: 1.55;
+}
+
+.wk-input::placeholder,
+.wk-textarea::placeholder{
+  color: rgba(255,255,255,0.35);
+}
+
+.wk-input:focus,
+.wk-select:focus,
+.wk-textarea:focus{
+  border-color: rgba(255,138,0,0.35);
+  background: rgba(255,138,0,0.06);
+  box-shadow: var(--glow);
+}
+
+.wk-select{
+  appearance: none;
+  -webkit-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(255,255,255,0.65) 50%),
+    linear-gradient(135deg, rgba(255,255,255,0.65) 50%, transparent 50%);
+  background-position:
+    calc(100% - 18px) calc(50% - 2px),
+    calc(100% - 12px) calc(50% - 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 40px;
+}
+
+/* -----------------------
+   9) Buttons (secondary/primary)
+------------------------ */
+.wk-plan-detail-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap: 10px;
+}
+
+.wk-btn-secondary,
+.wk-btn-primary{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  cursor:pointer;
+  text-decoration:none;
+  border-radius: 999px;
+  padding: 11px 14px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: 170ms ease;
+  user-select:none;
+  white-space: nowrap;
+}
+
+.wk-btn-secondary{
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.25);
+  color: rgba(255,255,255,0.86);
+}
+
+.wk-btn-secondary:hover{
+  border-color: rgba(255,138,0,0.35);
+  background: rgba(255,138,0,0.06);
+  color: #fff;
+  box-shadow: var(--glow);
+}
+
+.wk-btn-primary{
+  border: 1px solid rgba(255,138,0,0.35);
+  background: rgba(255,138,0,0.10);
+  color: #fff;
+  box-shadow: var(--glow);
+}
+
+.wk-btn-primary:hover{
+  background: rgba(255,138,0,0.14);
+}
+
+.wk-form-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap: 12px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+/* -----------------------
+   10) Modal (exercise details)
+------------------------ */
+.wk-ex-modal-backdrop{
+  position: fixed;
+  inset: 0;
+  display: none;              /* JS muda para flex */
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0,0,0,0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 999;
+}
+
+.wk-ex-modal{
+  width: min(720px, 100%);
+  border-radius: var(--r-xl);
+  background:
+    radial-gradient(700px 240px at 35% 18%, rgba(255,138,0,0.12), rgba(0,0,0,0) 60%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.10);
+  box-shadow: var(--shadow-2), var(--glow);
+  overflow: hidden;
+  position: relative;
+}
+
+.wk-ex-modal::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  border-radius: inherit;
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.04) inset;
+}
+
+.wk-ex-modal-header{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.wk-ex-modal-title{
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  font-weight: 750;
+}
+
+.wk-ex-modal-close{
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(0,0,0,0.20);
+  color: rgba(255,255,255,0.86);
+  border-radius: 999px;
+  width: 36px;
+  height: 36px;
+  display:grid;
+  place-items:center;
+  cursor: pointer;
+  transition: 160ms ease;
+}
+
+.wk-ex-modal-close:hover{
+  border-color: rgba(255,138,0,0.35);
+  background: rgba(255,138,0,0.06);
+  color: #fff;
+  box-shadow: var(--glow);
+}
+
+.wk-ex-modal-body{
+  padding: 18px;
+  color: rgba(255,255,255,0.86);
+  line-height: 1.65;
+}
+
+.wk-ex-tagline{
+  margin-bottom: 12px;
+  font-size: 12px;
+  color: rgba(255,138,0,0.90);
+  letter-spacing: 0.06em;
+}
+
+#wk-ex-modal-description,
+#ex-modal-description{
+  color: rgba(255,255,255,0.78);
+  font-size: 14px;
+}
+
+/* video container */
+.wk-ex-modal-video{
+  margin-top: 14px;
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(0,0,0,0.25);
+  box-shadow: var(--shadow-1);
+}
+
+.wk-ex-modal-video iframe{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+  display:block;
+}
+
+/* -----------------------
+   11) Tiny polish
+------------------------ */
+.wk-session-header,
+.wk-user-header,
+.wk-session-notes-box,
+.wk-exercise-row,
+.wk-complete-form{
+  transform: translateZ(0);
+}
+
+@media (prefers-reduced-motion: no-preference){
+  .wk-exercise-row,
+  .wk-user-header,
+  .wk-session-header,
+  .wk-complete-form{
+    transition: transform 180ms ease, box-shadow 180ms ease;
+  }
+  .wk-exercise-row:hover{
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-2);
+  }
+}
+/* =========================================================
+   PATCH: SELECT/OPTIONS visíveis (dark theme)
+   - Corrige dropdown nativo (options em branco)
+   - Mantém look dark/orange
+   ========================================================= */
+
+/* O próprio select (campo fechado) */
+.wk-select{
+  background-color: rgba(0,0,0,0.35) !important;
+  color: rgba(255,255,255,0.92) !important;
+  border-color: rgba(255,255,255,0.14) !important;
+}
+
+/* Foco no select */
+.wk-select:focus{
+  background-color: rgba(0,0,0,0.42) !important;
+  color: rgba(255,255,255,0.95) !important;
+  border-color: rgba(255,138,0,0.55) !important;
+}
+
+/* Dropdown (lista) – a maioria dos browsers respeita */
+.wk-select option,
+.wk-select optgroup{
+  background-color: #0b0d12 !important;
+  color: rgba(255,255,255,0.92) !important;
+}
+
+/* Quando o usuário seleciona/realça uma opção (onde suportado) */
+.wk-select option:checked{
+  background-color: rgba(255,138,0,0.22) !important;
+  color: #ffffff !important;
+}
+
+/* Firefox costuma respeitar isso melhor */
+.wk-select:focus-visible{
+  outline: 2px solid rgba(255,138,0,0.45);
+  outline-offset: 2px;
+}
+
+/* Para inputs também (consistência) */
+.wk-input,
+.wk-textarea{
+  background-color: rgba(0,0,0,0.28);
+  color: rgba(255,255,255,0.90);
+}

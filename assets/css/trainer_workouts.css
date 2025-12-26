@@ -1,0 +1,330 @@
+/* ============================================
+   RB Trainer - Coach Workout Hub
+   Página: trainer_workouts.php
+   Visual alinhado ao Coach Professional Profile
+   (tons de preto, mesmo estilo de cards/labels)
+   ============================================ */
+
+/* Força o mesmo background global do profile
+   (mata o degradê azulado do global.css) */
+body {
+  background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%) !important;
+  color: #f5f5f5;
+}
+
+/* =========================================
+   ESPAÇO ENTRE HEADER E CARD PRINCIPAL
+   (método que realmente funciona: padding no body)
+   ========================================= */
+body {
+  padding-top: 84px; /* ajuste fino: 72px / 84px / 96px */
+}
+
+/* ----------------------
+   CONTAINER PRINCIPAL
+   ---------------------- */
+
+.wk-container.coach-workouts {
+  max-width: 1180px;
+
+  /* antes: margin: 64px auto 56px;
+     agora: margin-top menor porque o espaçamento vem do body */
+  margin: 0 auto 56px;
+
+  /* mesmo clima de fundo dos cards premium */
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 24px 40px rgba(0, 0, 0, 0.85);
+}
+
+.coach-workouts {
+  padding: 40px 32px 48px;
+}
+
+/* Título / subtítulo */
+.coach-workouts .wk-title {
+  margin: 0 0 8px;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.coach-workouts .wk-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #d4d4e0;
+}
+
+/* ===========================
+   CARDS DE MÉTRICA
+   =========================== */
+
+.coach-workouts .wk-header-row {
+  margin-bottom: 32px;
+}
+
+.coach-workouts .wk-summary-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 18px;
+  margin-bottom: 32px;
+}
+
+/* Card de métrica = mesmo card dos painéis */
+.coach-workouts .wk-summary-card {
+  flex: 1 1 180px;
+  background: linear-gradient(145deg, #17171f, #101018);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 18px 32px rgba(0, 0, 0, 0.70);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 76px;
+}
+
+.coach-workouts .wk-summary-label {
+  margin: 0 0 4px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #9fa4b5;
+  opacity: 0.9;
+}
+
+/* garante que não apareça nenhum trilho estranho */
+.coach-workouts .wk-summary-label::before,
+.coach-workouts .wk-summary-label::after {
+  content: none !important;
+}
+
+.coach-workouts .wk-summary-value {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #f5f5ff;
+}
+
+/* ===========================
+   FILTROS (CLIENT / SEARCH / STATUS)
+   =========================== */
+
+.tw-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-end;
+  margin-top: 4px;
+  margin-bottom: 32px;
+}
+
+.tw-filter-block {
+  flex: 1 1 220px;
+  min-width: 210px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* label igual aos labels do profile */
+.tw-field-label {
+  margin: 0;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: #e5e5f5;
+}
+
+/* sem linha / trilho */
+.tw-field-label::before,
+.tw-field-label::after {
+  content: none !important;
+}
+
+/* Inputs / selects – mesma pegada dos forms premium */
+.tw-input,
+.tw-select {
+  width: 100%;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(15, 15, 20, 0.96);
+  color: #f5f5ff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.tw-input::placeholder {
+  color: #777a88;
+}
+
+/* seta laranja no select */
+.tw-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #ff7a00 50%),
+    linear-gradient(135deg, #ff7a00 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) calc(50% - 3px),
+    calc(100% - 11px) calc(50% - 3px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+.tw-input:focus,
+.tw-select:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.5);
+  background: rgba(18, 18, 26, 0.98);
+}
+
+/* área dos botões */
+.tw-filter-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tw-filter-button {
+  margin: 0;
+}
+
+.tw-link-reset {
+  font-size: 11px;
+  color: #9fa0b2;
+  text-decoration: underline;
+}
+
+.tw-link-reset:hover {
+  color: #ffffff;
+}
+
+/* ===========================
+   AUTOCOMPLETE DE CLIENTE
+   =========================== */
+
+.msg-recipient-search {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+.msg-recipient-search input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(15, 15, 20, 0.96);
+  color: #f5f5ff;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background 0.16s ease;
+}
+
+.msg-recipient-search input::placeholder {
+  color: #777a88;
+}
+
+.msg-recipient-search input:focus {
+  border-color: #ff7a00;
+  box-shadow: 0 0 0 1px rgba(255, 122, 0, 0.5);
+  background: rgba(18, 18, 26, 0.98);
+}
+
+.msg-recipient-suggestions {
+  margin-top: 4px;
+  background: #111118;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+  max-height: 220px;
+  overflow-y: auto;
+  display: none;
+}
+
+.msg-recipient-suggestions-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #d4d4e0;
+}
+
+.msg-recipient-suggestions-item:hover {
+  background: #181820;
+}
+
+/* ===========================
+   LISTA DE PLANOS
+   =========================== */
+
+.tw-plans-section {
+  margin-top: 16px;
+}
+
+.coach-workouts .wk-plan-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* borda leve nos cards de plano (mantém wk-* original) */
+.tw-plan-card-coach {
+  border: 1px solid rgba(148, 163, 184, 0.3);
+}
+
+.tw-plan-actions-coach {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.coach-workouts .wk-empty {
+  margin-top: 20px;
+}
+
+/* ===========================
+   RESPONSIVO
+   =========================== */
+
+@media (max-width: 900px) {
+  /* mantém respiro do header também no mobile */
+  body {
+    padding-top: 76px; /* ajuste fino: 64px / 76px / 88px */
+  }
+
+  .wk-container.coach-workouts {
+    /* antes: margin: 48px 16px 40px; */
+    margin: 0 16px 40px;
+  }
+
+  .coach-workouts {
+    padding: 24px 16px 32px;
+  }
+
+  .tw-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .tw-filter-block {
+    flex: 1 1 auto;
+    min-width: 100%;
+  }
+
+  .tw-filter-actions {
+    justify-content: flex-start;
+  }
+
+  .coach-workouts .wk-summary-row {
+    flex-direction: column;
+  }
+
+  .coach-workouts .wk-plan-grid {
+    flex-direction: column;
+  }
+}

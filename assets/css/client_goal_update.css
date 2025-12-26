@@ -1,0 +1,738 @@
+/* ==========================================================
+   RB PERSONAL TRAINER – GOALS PAGE (SEM MODAIS)
+   Reescrito do zero, com formulários sempre visíveis
+   ========================================================== */
+
+/* --------------------------
+   BASE DA PÁGINA
+   -------------------------- */
+body.client-dashboard {
+    font-family: "Inter", sans-serif;
+    background: radial-gradient(circle at top, #0f0f15 0%, #0b0c11 40%, #06070a 100%);
+    color: #e5e5e5;
+    min-height: 100vh;
+}
+
+.client-main {
+    padding: 40px 50px;
+    max-width: 1450px;
+    margin: 0 auto;
+}
+
+/* NENHUM LINK SUBLINHADO */
+a,
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
+/* --------------------------
+   HEADER PRINCIPAL (usado em outros blocos)
+   -------------------------- */
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 42px;
+}
+
+.section-title {
+    font-size: 34px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.section-subtitle {
+    color: #c7c7c7;
+    margin-top: 8px;
+    font-size: 15px;
+}
+
+/* --------------------------
+   BOTÕES BASE
+   -------------------------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+    text-decoration: none;
+    border: none;
+}
+
+.btn-primary {
+    padding: 10px 26px;
+    border-radius: 25px;
+    border: none;
+    background: #ff8a00;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.15);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    padding: 10px 24px;
+    border-radius: 25px;
+    border: 1px solid #ffffff;
+    background: transparent;
+    color: #ffffff;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.btn-secondary:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Garantir que <a class="btn ...> não sublinhe */
+a.btn-primary,
+a.btn-secondary,
+.edit-goals-btn {
+    text-decoration: none;
+}
+
+/* Wrapper do botão "Edit Goals" */
+.edit-goals-wrapper {
+    margin-top: 16px;
+}
+
+/* --------------------------
+   LISTA DE GOALS (legacy, ainda útil em baixo)
+   -------------------------- */
+.goals-block {
+    margin-bottom: 40px;
+}
+
+.goals-block-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.goals-block-title {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+}
+
+.goals-block-count {
+    font-size: 13px;
+    color: #b3b3b3;
+}
+
+.goals-empty {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-size: 14px;
+    color: #d1d1d1;
+}
+
+/* --------------------------
+   TITULOS USADOS NOS CARDS
+   -------------------------- */
+.goals-summary-title,
+.goals-history-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: #fff;
+    margin-bottom: 18px;
+}
+
+.goals-summary-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.goals-summary-list li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    padding: 6px 0;
+    color: #ddd;
+}
+
+/* --------------------------
+   FORMULÁRIOS (CREATE / ADD PROGRESS)
+   -------------------------- */
+.goal-modal {
+    margin-top: 40px;
+}
+
+.goal-modal-dialog {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 26px 30px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.6);
+}
+
+/* Header do bloco do formulário */
+.goal-modal-header {
+    position: relative;
+}
+
+.goal-modal-header h2 {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: #fff;
+}
+
+/* X do modal (não usamos) */
+.goal-modal-close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    background: rgba(255,255,255,0.08);
+    cursor: pointer;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    border: none;
+    color: #fff;
+}
+
+/* Se tiver algum X fora do header, esconde */
+.goal-modal-dialog > .goal-modal-close {
+    display: none !important;
+}
+
+/* --------------------------
+   GRID DO FORM
+   -------------------------- */
+.goal-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+}
+
+.goal-form-group--full {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #c5c5c5;
+}
+
+/* --------------------------
+   INPUTS / SELECTS / TEXTAREA
+   -------------------------- */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 12px;
+    background: #0e0f14;
+    border: 1px solid #262833;
+    color: #eaeaea;
+    font-size: 15px;
+    transition: .20s;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: #ff8a00;
+    box-shadow: 0 0 0 2px rgba(255,138,0,0.25);
+}
+
+/* PLACEHOLDER */
+::placeholder {
+    color: #7d7d7d;
+}
+
+/* Ícone do calendário branco */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    opacity: 0.9;
+}
+
+/* --------------------------
+   CHECKBOXES
+   -------------------------- */
+.goal-visibility-options {
+    display: flex;
+    gap: 14px 28px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #d5d5d5;
+}
+
+/* --------------------------
+   BOTÕES DO FORM
+   -------------------------- */
+.goal-form-actions {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+}
+
+/* --------------------------
+   ÁREA DE HISTÓRICO (SCROLL)
+   -------------------------- */
+.goal-history-wrapper {
+    max-height: 420px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+/* Lista "full" de histórico (bloco GOAL HISTORY) */
+.history-list-full {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* ESTILO GERAL DOS ITENS DE HISTÓRICO (sidebar + bloco) */
+.goals-history-item {
+    padding: 10px 0;
+}
+
+.goals-history-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.goals-history-goal {
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.goals-history-date {
+    font-size: 13px;
+    color: #bcbcbc;
+}
+
+.goals-history-extra {
+    margin-top: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.goals-history-value {
+    font-size: 13px;
+    color: #ffbd66;
+    font-weight: 600;
+}
+
+.goals-history-note {
+    font-size: 13px;
+    color: #d5d5d5;
+    margin: 0;
+}
+
+/* --------------------------
+   SCROLLBAR
+   -------------------------- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3c3f49;
+    border-radius: 8px;
+}
+
+/* --------------------------
+   RESPONSIVO BÁSICO
+   -------------------------- */
+@media (max-width: 680px) {
+    .goal-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Espaçamento entre Overview e Recent History (se usados em baixo) */
+.goals-summary-card {
+    margin-bottom: 22px;
+}
+
+/* =======================================
+   MOBILE LAYOUT — FIX (blocos gerais)
+   ======================================= */
+@media (max-width: 768px) {
+
+    .client-section--goals {
+        display: block !important;
+        gap: 24px !important;
+    }
+
+    .goals-block {
+        margin-bottom: 30px !important;
+    }
+
+    .goals-empty {
+        padding: 18px 20px !important;
+    }
+
+    .section-header {
+        display: block !important;
+        margin: 20px 0 10px 0 !important;
+        text-align: left;
+    }
+
+    .section-header h1 {
+        font-size: 32px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .section-header p {
+        max-width: 90% !important;
+        font-size: 15px !important;
+        line-height: 1.4;
+    }
+}
+
+/* =======================================================
+   GOAL STATUS HEADER (DENTRO DO CARD ESQUERDO)
+   ======================================================= */
+
+.goal-status-header {
+    margin-top: 10px;
+}
+
+.goal-status-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 6px 0;
+    color: #fff;
+}
+
+.goal-status-latest {
+    font-size: 15px;
+    margin: 0;
+    color: #cfcfcf;
+}
+
+.goal-status-latest strong {
+    color: #fff;
+}
+
+/* bloco principal do card (título + último) */
+.goal-status-main {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* grid das infos extras (total, main, secondary) */
+.goal-status-extra {
+    display: grid;
+    row-gap: 6px;
+    font-size: 13px;
+    color: #dddddd;
+}
+
+.goal-status-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* compact style (linha separando do texto acima) */
+.goal-status-header.goal-status-header--compact {
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+}
+
+/* =======================================================
+   GOAL HISTORY (BOTTOM CARD COM TOP 5 GOALS)
+   ======================================================= */
+.goals-history-full-section {
+    margin-top: 40px;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 22px 26px 24px 26px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.55);
+}
+
+.goals-history-full-section .goals-history-title {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: .14em;
+    color: #fff;
+    margin: 0 0 18px 0;
+}
+
+/* Remove linha/borda dos itens nessa lista específica */
+.goals-history-full-section .history-list-full li {
+    border-bottom: none !important;
+    padding: 10px 0;
+}
+
+/* Ajusta o wrapper para não ter scroll aqui (é só 5 itens) */
+.goals-history-full-section .goal-history-wrapper {
+    max-height: none;
+    padding-right: 0;
+}
+
+/* CTA "View more" alinhado à direita */
+.goals-history-full-section .goal-form-actions {
+    margin-top: 18px;
+    justify-content: flex-end;
+}
+
+.goals-history-full-section .goal-form-actions .btn-primary {
+    margin-left: auto;
+    text-decoration: none;
+}
+
+/* ==============================
+   Ajuste de espaçamento no UPDATE
+   ============================== */
+
+.client-section--goals {
+    margin-bottom: 10px !important;
+}
+
+.goal-modal {
+    margin-top: 18px !important; /* era 40px */
+}
+
+/* No desktop, garante topo um pouco mais próximo */
+@media (min-width: 981px) {
+    .client-main.client-main--goals {
+        padding-top: 32px !important;
+    }
+}
+
+/* ============================
+   MOBILE — Centralizar botão
+   ============================ */
+@media (max-width: 980px) {
+    .edit-goals-wrapper {
+        display: flex;
+        justify-content: center !important;
+    }
+}
+
+/* Remove qualquer botão X dos formulários */
+.goal-modal-header .goal-modal-close,
+.goal-modal-close {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* ==========================================
+   MINI-CARDS ESTATÍSTICOS DO TOPO
+   (dentro do card .goals-card--metrics)
+   ========================================== */
+
+.goals-mini-cards {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+.mini-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 18px 22px;
+    border-radius: 14px;
+    flex: 1 1 140px;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(4px);
+}
+
+.mini-card-title {
+    font-size: 13px;
+    opacity: 0.65;
+    margin-bottom: 6px;
+}
+
+.mini-card-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+/* ==========================================
+   GRID 4 CARDS TOPO (DESKTOP)
+   ========================================== */
+
+.goals-top {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* esquerda um pouco maior */
+    gap: 28px;
+    margin-top: 10px;
+}
+
+.goals-top-column {
+    display: grid;
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+/* estilo base para TODOS os 4 cards */
+.goals-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 22px 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ajustes específicos da esquerda */
+.goals-card--status .section-title {
+    font-size: 26px;
+    margin: 0 0 6px 0;
+}
+
+.goals-card--status .section-subtitle {
+    font-size: 14px;
+    margin-bottom: 12px;
+    color: #c7c7c7;
+}
+
+/* MINI CARDS continuam dentro de um card normal */
+.goals-card--metrics .goals-mini-cards {
+    margin-left: 0;
+    margin-top: 0;
+}
+
+/* ==========================================
+   MOBILE: cada coluna vira um CARROSSEL
+   ========================================== */
+
+@media (max-width: 980px) {
+
+    .goals-top {
+        display: block; /* empilha colunas */
+    }
+
+    .goals-top-column {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        padding: 4px 4px 12px 4px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .goals-top-column::-webkit-scrollbar {
+        height: 6px;
+    }
+    .goals-top-column::-webkit-scrollbar-thumb {
+        background: #3c3f49;
+        border-radius: 999px;
+    }
+
+    .goals-card {
+        flex: 0 0 85%;      /* largura de cada card no carrossel */
+        scroll-snap-align: start;
+        min-height: 190px;
+    }
+}
+/* ==========================================================
+   CTA PADRÃO — OUTLINE LARANJA
+   Aplica a TODOS os botões da página de Goals
+   ========================================================== */
+
+.client-main.client-main--goals .btn,
+.client-main.client-main--goals .btn-primary,
+.client-main.client-main--goals .btn-secondary {
+    background: transparent !important;
+    color: #ff8a00 !important;
+    border: 1px solid #ff8a00 !important;
+    border-radius: 999px;
+    font-weight: 600;
+    transition:
+        background .2s ease,
+        color .2s ease,
+        box-shadow .2s ease,
+        transform .15s ease;
+}
+
+/* Hover — destaque elegante */
+.client-main.client-main--goals .btn:hover,
+.client-main.client-main--goals .btn-primary:hover,
+.client-main.client-main--goals .btn-secondary:hover {
+    background: rgba(255, 138, 0, 0.08);
+    box-shadow: 0 0 0 2px rgba(255, 138, 0, 0.25);
+    transform: translateY(-1px);
+}
+
+/* Active / Click */
+.client-main.client-main--goals .btn:active,
+.client-main.client-main--goals .btn-primary:active,
+.client-main.client-main--goals .btn-secondary:active {
+    transform: translateY(0);
+    box-shadow: 0 0 0 1px rgba(255, 138, 0, 0.4);
+}
+
+/* Focus (acessibilidade) */
+.client-main.client-main--goals .btn:focus-visible,
+.client-main.client-main--goals .btn-primary:focus-visible,
+.client-main.client-main--goals .btn-secondary:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 138, 0, 0.35);
+}
+
+/* Garantir que <a> com CTA fique igual a botão */
+.client-main.client-main--goals a.btn,
+.client-main.client-main--goals a.btn-primary,
+.client-main.client-main--goals a.btn-secondary {
+    text-decoration: none !important;
+}
+
+/* ==========================================================
+   CTA "VIEW MORE" — mantém identidade e destaque
+   ========================================================== */
+
+.client-main.client-main--goals
+.goals-history-full-section
+.goal-form-actions
+.btn {
+    margin-left: auto;
+}
+
+/* Mobile: CTA ocupa largura total */
+@media (max-width: 980px) {
+    .client-main.client-main--goals
+    .goals-history-full-section
+    .goal-form-actions
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+}

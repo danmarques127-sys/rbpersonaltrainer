@@ -1,0 +1,1825 @@
+/* =========================================================
+   ABOUT PAGE (MAIN) — MATCH RB HOME STYLE
+   - Uses same visual language as index (dark + orange accent)
+   - Designed to load AFTER global.css
+========================================================= */
+
+/* ---------- Tokens (same palette from Home) ---------- */
+:root {
+  --rb-black: #000;
+  --rb-bg: #050505;
+  --rb-bg2: #111;
+  --rb-panel: #151515;
+  --rb-panel2: #1c2120;
+
+  --rb-white: #ffffff;
+  --rb-white-90: rgba(255, 255, 255, 0.9);
+  --rb-white-80: rgba(255, 255, 255, 0.8);
+  --rb-white-75: rgba(255, 255, 255, 0.75);
+  --rb-white-70: rgba(255, 255, 255, 0.7);
+  --rb-white-65: rgba(255, 255, 255, 0.65);
+  --rb-line: rgba(255, 255, 255, 0.12);
+  --rb-line2: rgba(255, 255, 255, 0.14);
+
+  --rb-orange: #ff7a00;
+  --rb-orange2: #ffb86c;
+
+  --rb-radius: 16px;
+  --rb-radius-lg: 22px;
+
+  --rb-container: 1180px;
+  --rb-pad: 24px;
+
+  --rb-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  --rb-glow: 0 0 26px rgba(255, 122, 0, 0.45);
+}
+
+/* =========================================================
+   Base / helpers
+========================================================= */
+
+#main-content {
+  background: var(--rb-bg);
+  color: var(--rb-white);
+}
+
+#main-content .container {
+  max-width: var(--rb-container);
+  margin: 0 auto;
+  padding: 0 var(--rb-pad);
+}
+
+#main-content section {
+  padding: 72px 0 64px;
+  background: var(--rb-bg);
+}
+
+/* Eyebrow and headings — match Home feel */
+#main-content .eyebrow,
+#main-content .section-eyebrow {
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin: 0 0 10px 0;
+  color: var(--rb-white-80);
+}
+
+#main-content h1,
+#main-content h2 {
+  margin: 0;
+  color: var(--rb-white);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+#main-content h1 {
+  font-size: clamp(2.1rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.12;
+}
+
+#main-content h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+#main-content .section-intro,
+#main-content .subheadline,
+#main-content .lead {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  margin: 0;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* CTA row */
+#main-content .cta-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+
+/* =========================================================
+   Buttons — reuse Home button language
+========================================================= */
+
+/* Outline button (same vibe as "SEE ALL SERVICES") */
+#main-content .btn,
+#main-content .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  color: var(--rb-white);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: none;
+  background: transparent;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+  white-space: nowrap;
+}
+
+#main-content .btn:hover,
+#main-content .btn-outline:hover {
+  background: var(--rb-white);
+  color: #000;
+  box-shadow: 0 0 22px rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+/* Secondary button: keep it outline too (your Home uses outlines often) */
+#main-content .btn-secondary {
+  border-color: rgba(255, 255, 255, 0.55);
+  opacity: 0.95;
+}
+
+/* Ghost button (for team card secondary) */
+#main-content .btn-ghost {
+  border-color: rgba(255, 255, 255, 0.25);
+  opacity: 0.85;
+}
+#main-content .btn-ghost:hover {
+  opacity: 1;
+}
+
+/* =========================================================
+   Premium divider (same as Home)
+========================================================= */
+#main-content .section-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 122, 0, 0),
+    rgba(255, 122, 0, 0.85),
+    rgba(255, 122, 0, 0)
+  );
+  margin: 0;
+  opacity: 1;
+}
+
+/* =========================================================
+   Grid helpers
+========================================================= */
+#main-content .grid {
+  display: grid;
+  gap: 1.2rem;
+}
+
+#main-content .grid.two-col {
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+#main-content .grid.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#main-content .grid.cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#main-content .grid.team-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+#main-content .grid.video-cards {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  #main-content section {
+    padding: 62px 0 56px;
+  }
+
+  #main-content .grid.two-col {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  #main-content .grid.cards,
+  #main-content .grid.team-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  #main-content .grid.video-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  #main-content .grid.three-col,
+  #main-content .grid.cards,
+  #main-content .grid.team-cards,
+  #main-content .grid.video-cards {
+    grid-template-columns: 1fr;
+  }
+
+  #main-content .cta-row {
+    justify-content: flex-start;
+  }
+}
+
+/* =========================================================
+   Card base (match WHY TRAIN cards)
+========================================================= */
+#main-content .card,
+#main-content .pill-card,
+#main-content .team-card,
+#main-content .video-card,
+#main-content .timeline-step {
+  background: var(--rb-panel);
+  border: 1px solid var(--rb-line);
+  border-radius: var(--rb-radius);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+
+#main-content .card:hover,
+#main-content .pill-card:hover,
+#main-content .team-card:hover,
+#main-content .video-card:hover,
+#main-content .timeline-step:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(255, 122, 0, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+#main-content .card,
+#main-content .pill-card {
+  padding: 32px;
+}
+
+#main-content .card h3,
+#main-content .pill-card h3 {
+  font-size: 1.1rem;
+  margin: 0 0 12px;
+  color: var(--rb-orange);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+#main-content .card p,
+#main-content .pill-card p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  text-align: justify;
+  text-justify: inter-word;
+  color: var(--rb-white-90);
+}
+
+/* =========================================================
+   HERO (About) — premium card feeling like Home blocks
+========================================================= */
+#main-content .about-hero {
+  background: var(--rb-panel2);
+  padding-top: 56px;
+}
+
+#main-content .about-hero .container {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.2rem;
+  align-items: stretch;
+}
+
+#main-content .about-hero .section-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#main-content .about-hero .subheadline {
+  max-width: 620px;
+  margin-top: 12px;
+}
+
+#main-content .hero-media {
+  border-radius: var(--rb-radius-lg);
+  border: 1px solid var(--rb-line2);
+  background: radial-gradient(circle at top left, #181818 0, #050505 50%, #000 100%);
+  overflow: hidden;
+  box-shadow: var(--rb-shadow);
+  min-height: 360px;
+}
+
+#main-content .hero-media img,
+#main-content .hero-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  #main-content .about-hero .container {
+    grid-template-columns: 1fr;
+  }
+  #main-content .hero-media {
+    min-height: 240px;
+  }
+}
+/* =========================================================
+   ABOUT HERO — FULL WIDTH GRAY BACKGROUND (HOME STYLE)
+========================================================= */
+
+/* Fundo cinza full-bleed */
+#about-hero {
+  background: #1c2120;               /* mesmo cinza do Our Story */
+  border-bottom: 2px solid #ff7a00;  /* linha laranja sutil (opcional, combina com Home) */
+  padding: 72px 0 64px;
+}
+
+/* Remove qualquer fundo interno que esteja "quebrando" */
+#about-hero .container {
+  background: transparent;
+}
+
+/* Garante que nada herde preto */
+#about-hero .section-header,
+#about-hero .hero-media {
+  background: transparent;
+}
+#about-hero {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+/* =========================================================
+   ABOUT HERO — subtle premium zoom on hover (desktop only)
+========================================================= */
+
+#main-content .hero-media img,
+#main-content .hero-media video {
+  transform: scale(1.03);
+  transition: transform .6s cubic-bezier(.22,.61,.36,1);
+}
+
+@media (hover: hover) {
+  #main-content .hero-media:hover img,
+  #main-content .hero-media:hover video {
+    transform: scale(1.08);
+  }
+}
+
+/* =========================================================
+   OUR STORY — Premium metrics (Image LEFT / Text RIGHT)
+   Perfect top + bottom visual alignment
+========================================================= */
+
+#main-content .about-story{
+  background: var(--rb-panel2);
+  padding: 72px 0 64px;
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+#main-content .about-story .container{
+  background: transparent;
+}
+
+/* Grid: LEFT (media) | RIGHT (text) */
+#main-content .about-story .grid.two-col{
+  display: grid;
+  grid-template-columns: 0.95fr 1.05fr;
+  gap: 2.2rem;
+
+  /* 🔑 topo perfeitamente alinhado */
+  align-items: start;
+}
+
+/* =========================
+   LEFT: media + checklist
+========================= */
+#main-content .about-story .story-aside{
+  display: flex;
+  flex-direction: column;
+
+  /* 🔑 checklist no fundo, imagem cresce */
+  justify-content: space-between;
+
+  /* garante que o card não “encolha” estranho */
+  min-height: 100%;
+}
+
+/* Card da imagem */
+#main-content .about-story .media-frame{
+  position: relative;
+  width: 100%;
+
+  /* 🔑 ocupa todo o espaço disponível acima da checklist */
+  flex: 1;
+
+  /* mantém a estética premium e evita ficar baixo demais */
+  min-height: 320px;
+
+  border-radius: var(--rb-radius-lg);
+  border: 1px solid var(--rb-line2);
+  overflow: hidden;
+  background: radial-gradient(circle at top left, #181818 0, #050505 50%, #000 100%);
+  box-shadow: var(--rb-shadow);
+}
+
+#main-content .about-story .media-frame img{
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.03);
+  transition: transform .6s cubic-bezier(.22,.61,.36,1);
+}
+
+@media (hover:hover){
+  #main-content .about-story .media-frame:hover img{
+    transform: scale(1.08);
+  }
+}
+
+/* Checklist: colada embaixo, com espaçamento controlado */
+#main-content .about-story .check-list{
+  list-style: none;
+  margin: 16px 0 0 0;
+  padding: 0;
+  display: grid;
+  gap: .8rem;
+}
+
+#main-content .about-story .check-list li{
+  position: relative;
+  padding-left: 22px;
+  color: var(--rb-white-90);
+  opacity: .9;
+  font-size: .92rem;
+  line-height: 1.55;
+}
+
+#main-content .about-story .check-list li::before{
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--rb-orange);
+  font-weight: 700;
+}
+
+/* =========================
+   RIGHT: header + story text
+========================= */
+#main-content .about-story .story-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  /* 🔑 micro-ajuste: deixa a “linha do topo” igual ao card */
+  padding-top: 2px;
+}
+
+/* Header sem “respiro invisível” */
+#main-content .about-story .story-text .section-header{
+  margin: 0 0 18px 0;
+  padding: 0;
+}
+
+#main-content .about-story .story-text .section-header h2{
+  margin: 0 0 10px 0;
+}
+
+#main-content .about-story .story-text .section-intro{
+  margin: 0;
+  opacity: .85;
+}
+
+/* Texto: um tiquinho mais “cheio” (premium) */
+#main-content .about-story .story-text p{
+  margin: 0 0 1.1rem 0;
+  font-size: .97rem;
+  line-height: 1.72;
+  opacity: .9;
+  text-align: justify;
+  hyphens: auto;
+}
+
+/* =========================
+   Responsive
+========================= */
+@media (max-width: 900px){
+  #main-content .about-story{
+    padding: 62px 0 56px;
+  }
+
+  #main-content .about-story .grid.two-col{
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  #main-content .about-story .media-frame{
+    min-height: 240px;
+  }
+
+  #main-content .about-story .story-text{
+    padding-top: 0;
+  }
+
+  #main-content .about-story .story-text p{
+    hyphens: none;
+  }
+}
+
+/* 4) Coluna direita vira "stack"
+
+
+/* =========================================================
+   METHOD (Timeline)
+========================================================= */
+#main-content .timeline {
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+#main-content .timeline-step {
+  padding: 18px 18px;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+#main-content .step-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 2px solid var(--rb-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--rb-white);
+  font-weight: 700;
+}
+
+#main-content .step-content h3 {
+  margin: 0 0 6px;
+  font-size: 1.04rem;
+  color: var(--rb-orange);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+#main-content .step-content p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  text-align: justify;
+}
+
+@media (max-width: 520px) {
+  #main-content .timeline-step {
+    grid-template-columns: 48px 1fr;
+  }
+  #main-content .step-badge {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* =========================================================
+   CREDENTIALS & APPROACH — EDITORIAL (NO CARDS)
+========================================================= */
+
+#credentials-approach {
+  background: var(--rb-bg);
+  padding: 86px 0 84px;
+}
+
+/* Header spacing */
+#credentials-approach .cred-head {
+  margin-bottom: 28px;
+}
+
+/* Two-column editorial layout */
+#credentials-approach .cred-editorial {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 2.4rem;
+  align-items: start;
+}
+
+/* Minimal headings */
+#credentials-approach .cred-h3 {
+  margin: 0 0 14px;
+  font-size: 0.95rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.92);
+}
+
+#credentials-approach .cred-h4 {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.88);
+}
+
+/* Thin rules (premium / metric) */
+#credentials-approach .cred-col {
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 18px;
+}
+
+/* ===== SPEC SHEET (DL) — PERFECT ALIGNMENT ===== */
+#credentials-approach .cred-spec {
+  margin: 0;
+  padding: 0;
+  display: grid;
+
+  /* left label column fixed width + right content */
+  grid-template-columns: 140px 1fr;
+  column-gap: 18px;
+  row-gap: 12px;
+
+  /* subtle baseline rhythm */
+  align-items: start;
+}
+
+#credentials-approach .cred-spec dt {
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.65);
+
+  /* aligns labels to the same baseline */
+  line-height: 1.6;
+}
+
+#credentials-approach .cred-spec dd {
+  margin: 0;
+  padding: 0;
+
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.88);
+  text-align: left;
+}
+
+/* Small muted helper */
+#credentials-approach .muted {
+  color: rgba(255,255,255,0.62);
+  opacity: 0.95;
+}
+
+/* Note line */
+#credentials-approach .cred-note {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+#credentials-approach .cred-note .rule {
+  height: 1px;
+  width: 100%;
+  background: rgba(255,255,255,0.12);
+}
+
+#credentials-approach .cred-note p {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+/* ===== RIGHT SIDE: two blocks side by side ===== */
+#credentials-approach .cred-2up {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.4rem;
+}
+
+/* No cards: just clean separation */
+#credentials-approach .cred-block {
+  border-left: 1px solid rgba(255,255,255,0.10);
+  padding-left: 14px;
+}
+
+/* Lists: aligned, no bullets, metric symbols */
+#credentials-approach .cred-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 10px;
+}
+
+#credentials-approach .cred-list li {
+  position: relative;
+  padding-left: 18px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.86);
+}
+
+/* plus/minus markers (B/W vibe) */
+#credentials-approach .cred-list-plus li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(255,255,255,0.72);
+  font-weight: 700;
+}
+
+#credentials-approach .cred-list-minus li::before {
+  content: "—";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: rgba(255,255,255,0.55);
+  font-weight: 700;
+}
+
+/* Mini metrics block (aligned rows) */
+#credentials-approach .cred-mini {
+  margin-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+#credentials-approach .mini-row {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  column-gap: 16px;
+  align-items: baseline;
+}
+
+#credentials-approach .mini-k {
+  font-size: 0.78rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.62);
+}
+
+#credentials-approach .mini-v {
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: rgba(255,255,255,0.86);
+}
+
+/* Keep strong subtle (you already set global orange strong; if you want B/W only here, override below) */
+/* Uncomment if you want strong in WHITE only in this section */
+/*
+#credentials-approach strong {
+  color: rgba(255,255,255,0.96);
+  font-weight: 700;
+  text-shadow: none;
+}
+*/
+
+/* Responsive */
+@media (max-width: 900px) {
+  #credentials-approach {
+    padding: 72px 0 70px;
+  }
+
+  #credentials-approach .cred-editorial {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+
+  #credentials-approach .cred-2up {
+    grid-template-columns: 1fr;
+  }
+
+  #credentials-approach .cred-spec {
+    grid-template-columns: 120px 1fr;
+  }
+
+  #credentials-approach .mini-row {
+    grid-template-columns: 98px 1fr;
+  }
+}
+
+/* =========================================================
+   SOCIAL PROOF (VIDEOS) — Section background + cards style
+   - Desktop: grid normal
+   - Mobile: carousel (car style) via suas classes is-active/is-prev/is-next
+========================================================= */
+
+/* ===== Section background (diagonal bands: orange + gray + black) ===== */
+#main-content .about-social-proof {
+  position: relative;
+  overflow: hidden;
+  padding: 78px 0 72px;
+
+  /* ✅ Divider igual à seção Our Story */
+  border-top: 2px solid var(--rb-orange);
+  border-bottom: 2px solid var(--rb-orange);
+}
+
+/* Diagonal bands */
+#main-content .about-social-proof::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+
+  background: linear-gradient(
+    135deg,
+    rgba(255, 122, 0, 0.95) 0%,
+    rgba(255, 122, 0, 0.95) 33%,
+    rgba(28, 33, 32, 0.95) 33%,
+    rgba(28, 33, 32, 0.95) 66%,
+    rgba(0, 0, 0, 0.95) 66%,
+    rgba(0, 0, 0, 0.95) 100%
+  );
+}
+
+/* Premium overlay (subtle depth) */
+#main-content .about-social-proof::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+
+  background:
+    radial-gradient(circle at 18% 22%, rgba(0,0,0,0.25), transparent 55%),
+    radial-gradient(circle at 82% 38%, rgba(0,0,0,0.18), transparent 60%);
+}
+
+/* Keep content above bands */
+#main-content .about-social-proof > .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   Social Proof (Videos) — match services tiles style
+========================================================= */
+#main-content .video-card {
+  overflow: hidden;
+  padding: 0;
+  background: var(--rb-panel);
+}
+
+#main-content .video-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  height: 100%;
+}
+
+#main-content .video-thumb {
+  position: relative;
+  height: 220px;
+  overflow: hidden;
+  background: #000;
+}
+
+#main-content .video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.06);
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+#main-content .video-thumb::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.55) 40%,
+    rgba(0, 0, 0, 0.85) 100%
+  );
+  pointer-events: none;
+}
+
+#main-content .video-card:hover .video-thumb img {
+  transform: scale(1.1);
+}
+
+#main-content .play-badge {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  border: 2px solid var(--rb-orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: var(--rb-white);
+  font-weight: 900;
+  z-index: 2;
+}
+
+#main-content .video-link h3 {
+  margin: 0;
+  padding: 14px 16px 0;
+  font-size: 1.05rem;
+  color: var(--rb-white);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+#main-content .video-card .meta {
+  margin: 0;
+  padding: 8px 16px 0;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.78;
+  color: var(--rb-white-80);
+}
+
+#main-content .video-card .snippet {
+  margin: 0;
+  padding: 10px 16px 18px;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--rb-white-90);
+  opacity: 0.9;
+  text-align: justify;
+}
+
+/* =========================================================
+   Social Proof — Mobile Carousel (car style + dots + arrows)
+========================================================= */
+@media (max-width: 900px) {
+
+  #main-content .about-social-proof {
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-bottom: 78px;
+  }
+
+  #main-content .about-social-proof .grid.video-cards {
+    position: relative;
+    height: 320px;
+    margin: 42px auto 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+
+    grid-template-columns: none;
+  }
+
+  #main-content .about-social-proof .video-card {
+    position: absolute;
+    width: 86%;
+    max-width: 360px;
+
+    transition:
+      transform 0.45s cubic-bezier(.22,.61,.36,1),
+      opacity 0.45s ease;
+
+    opacity: 0;
+    pointer-events: none;
+    height: 290px;
+    overflow: hidden;
+  }
+
+  #main-content .about-social-proof .video-card.is-active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  #main-content .about-social-proof .video-card.is-prev {
+    transform: translateX(-65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  #main-content .about-social-proof .video-card.is-next {
+    transform: translateX(65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  #main-content .about-social-proof .video-thumb {
+    height: 160px;
+  }
+
+  #main-content .about-social-proof .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 12px;
+    position: relative;
+    z-index: 5;
+  }
+
+  #main-content .about-social-proof .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,122,0,.30);
+    border: 1px solid rgba(255,122,0,.55);
+  }
+
+  #main-content .about-social-proof .carousel-dot.is-active {
+    background: var(--rb-orange);
+    box-shadow: 0 0 10px rgba(255,122,0,.55);
+    transform: scale(1.2);
+  }
+}
+
+/* Desktop: esconder dots/arrows */
+@media (min-width: 901px) {
+  #main-content .about-social-proof .carousel-dots,
+  #main-content .about-social-proof .carousel-arrows {
+    display: none !important;
+  }
+}
+/* =========================================================
+   SOCIAL PROOF — Arrows iguais aos carrosseis anteriores
+========================================================= */
+@media (max-width: 900px) {
+
+  /* wrapper das setas (criado pelo JS depois dos dots) */
+  #main-content #social-proof .carousel-arrows {
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 220px;
+    margin: -2px auto 0;
+    position: relative;
+    top: -18px;
+
+    z-index: 6;
+    pointer-events: auto;
+  }
+
+  /* botões das setas (mesmo padrão RB) */
+  #main-content #social-proof .carousel-arrows .carousel-arrow {
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid var(--rb-orange) !important;
+
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75) !important;
+    color: var(--rb-orange) !important;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+
+    padding: 0 !important;
+    cursor: pointer;
+
+    box-shadow: none;
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  #main-content #social-proof .carousel-arrows .carousel-arrow:hover,
+  #main-content #social-proof .carousel-arrows .carousel-arrow:active {
+    background: rgba(255, 122, 0, 0.12) !important;
+    box-shadow: 0 0 14px rgba(255, 122, 0, 0.45);
+    transform: scale(1.05);
+  }
+
+  #main-content #social-proof .carousel-arrows .carousel-arrow:focus {
+    outline: none;
+  }
+}
+/* =========================================================
+   FIX — Social Proof cards/video
+   - video colado no topo
+   - sem "fake jump" no hover
+   - sem zoom/transform no video
+========================================================= */
+
+/* 1) NÃO deixar o video-card dar translate/shift no hover (o seu global faz isso) */
+#main-content .about-social-proof .video-card,
+#main-content .about-social-proof .video-card:hover {
+  transform: none !important;
+}
+
+/* Mantém um destaque sem mexer na posição (opcional, mas fica premium) */
+#main-content .about-social-proof .video-card:hover {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55) !important;
+  border-color: rgba(255, 255, 255, 0.18) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+}
+
+/* 2) Garantir que a thumb seja o TOPO real do card e o vídeo encaixe perfeito */
+#main-content .about-social-proof .video-thumb {
+  position: relative;
+  width: 100%;
+  height: 220px;            /* desktop */
+  overflow: hidden;
+  background: #000;
+  border-top-left-radius: var(--rb-radius);
+  border-top-right-radius: var(--rb-radius);
+}
+
+/* 3) Video preenchendo como imagem, sem zoom e sem "pulo" */
+#main-content .about-social-proof .video-thumb video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;        /* igual imagem */
+  transform: none !important;
+  transition: none !important;
+  background: #000;
+}
+
+/* Se você ainda tiver CSS antigo mirando IMG, não deixa afetar o VIDEO */
+#main-content .about-social-proof .video-card:hover .video-thumb video {
+  transform: none !important;
+}
+
+/* 4) No mobile (carrossel) mantém proporção bonita e sem corte feio */
+@media (max-width: 900px) {
+  #main-content .about-social-proof .video-thumb {
+    height: 160px;          /* igual seu carrossel */
+  }
+}
+
+/* 5) Opcional: melhora performance/estabilidade no carrossel (reduz "tremido") */
+#main-content .about-social-proof .video-card {
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+
+/* =========================================================
+   FAQ — match Home FAQ behavior but using <details>
+========================================================= */
+#main-content .about-faq {
+  background: var(--rb-bg);
+  padding: 80px 0 90px;
+}
+
+#main-content .faq-list {
+  max-width: 860px;
+  margin: 32px auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Desktop: 2 cols (like Home) */
+@media (min-width: 900px) {
+  #main-content .faq-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2.4rem;
+    row-gap: 10px;
+    max-width: 1180px;
+  }
+}
+
+#main-content .faq-item {
+  position: relative;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px 0 10px;
+  background: transparent;
+}
+
+/* orange speed line when open */
+#main-content .faq-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--rb-orange), var(--rb-orange2));
+  transition: width 0.25s ease;
+}
+
+#main-content .faq-item[open]::before {
+  width: 80px;
+}
+
+/* Summary styled like question button */
+#main-content .faq-item summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 6px 32px 6px 0;
+
+  font-size: 1.04rem;
+  color: var(--rb-white);
+  letter-spacing: 0.02em;
+  transition: color 0.25s ease;
+}
+
+#main-content .faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+#main-content .faq-item summary:hover {
+  color: var(--rb-orange);
+}
+
+/* plus -> x when open (same as Home) */
+#main-content .faq-item summary::after {
+  content: "+";
+  font-size: 1.1rem;
+  color: var(--rb-orange);
+  transition: transform 0.25s ease;
+}
+
+#main-content .faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+/* Answer */
+#main-content .faq-answer {
+  padding-right: 32px;
+}
+
+#main-content .faq-answer p {
+  margin: 8px 0 0 0;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* =========================================================
+   Small mobile polishing
+========================================================= */
+@media (max-width: 768px) {
+  #main-content .container {
+    padding: 0 18px;
+  }
+
+  /* story block: keep comfortable */
+  #main-content .about-story .story-text p {
+    hyphens: none;
+  }
+
+  /* video thumbs */
+  #main-content .video-thumb {
+    height: 210px;
+  }
+}
+
+@media (max-width: 540px) {
+  #main-content section {
+    padding: 58px 0 52px;
+  }
+
+  #main-content h2 {
+    font-size: 1.65rem;
+  }
+}
+/* =========================================================
+   STRONG WORDS — GLOBAL HIGHLIGHT (RB STYLE)
+   Matches Home visual language
+========================================================= */
+
+#main-content strong,
+#main-content b {
+  color: #ff7a00;
+  font-weight: 600;
+}
+
+/* Evita strong exagerado dentro de títulos grandes */
+#main-content h1 strong,
+#main-content h2 strong,
+#main-content h3 strong {
+  font-weight: 700;
+}
+
+/* Opcional: leve brilho em hover (desktop only) */
+@media (hover: hover) {
+  #main-content strong:hover {
+    text-shadow: 0 0 6px rgba(255, 122, 0, 0.35);
+  }
+}
+/* =========================================================
+   STRONG WORDS — GLOBAL HIGHLIGHT (RB STYLE)
+   Matches Home visual language
+========================================================= */
+
+#main-content strong,
+#main-content b {
+  color: #ff7a00;
+  font-weight: 600;
+}
+
+/* Evita strong exagerado dentro de títulos grandes */
+#main-content h1 strong,
+#main-content h2 strong,
+#main-content h3 strong {
+  font-weight: 700;
+}
+
+/* Opcional: leve brilho em hover (desktop only) */
+@media (hover: hover) {
+  #main-content strong:hover {
+    text-shadow: 0 0 6px rgba(255, 122, 0, 0.35);
+  }
+}
+/* =========================================================
+   STRONG WORDS — GLOBAL HIGHLIGHT (RB STYLE)
+   Matches Home visual language
+========================================================= */
+
+#main-content strong,
+#main-content b {
+  color: #ff7a00;
+  font-weight: 600;
+}
+
+/* Evita strong exagerado dentro de títulos grandes */
+#main-content h1 strong,
+#main-content h2 strong,
+#main-content h3 strong {
+  font-weight: 700;
+}
+
+/* Opcional: leve brilho em hover (desktop only) */
+@media (hover: hover) {
+  #main-content strong:hover {
+    text-shadow: 0 0 6px rgba(255, 122, 0, 0.35);
+  }
+}
+/* =========================================================
+   Mission & Values — REAL carousel (car style)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* dá respiro real para não cortar e não colar na próxima section */
+  #main-content .about-values {
+    overflow-x: hidden;
+    overflow-y: visible;     /* 🔑 não corta sombra/parte de baixo */
+    padding-bottom: 70px;    /* 🔑 espaço antes da próxima section */
+  }
+
+  /* TRACK (precisa ter altura fixa pra não cortar embaixo) */
+  #main-content .about-values .grid.cards {
+    position: relative;
+
+    /* 🔑 isso evita o “corte embaixo” */
+    height: 260px;
+
+    /* 🔑 desce os cards para não ficar por cima do título */
+    margin: 42px auto 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+  }
+
+  #main-content .about-values .card {
+    position: absolute;
+
+    width: 82%;
+    max-width: 320px;
+
+    padding: 28px 26px;
+
+    transition:
+      transform 0.45s cubic-bezier(.22,.61,.36,1),
+      opacity 0.45s ease,
+      filter 0.45s ease;
+
+    opacity: 0;
+    pointer-events: none;
+
+    /* 🔑 altura uniforme e suficiente */
+    height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* CARD ATIVO (centro) */
+  #main-content .about-values .card.is-active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  /* CARD ANTERIOR (esquerda) */
+  #main-content .about-values .card.is-prev {
+    transform: translateX(-65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  /* CARD PRÓXIMO (direita) */
+  #main-content .about-values .card.is-next {
+    transform: translateX(65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  /* TEXTO BEM CENTRALIZADO */
+  #main-content .about-values .card h3 {
+    margin-bottom: 12px;
+  }
+
+  #main-content .about-values .card p {
+    margin: 0;
+  }
+
+  /* DOTS */
+  #main-content .about-values .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    /* 🔑 dots mais perto e sem “cortar” */
+    margin-top: 12px;
+
+    position: relative;
+    z-index: 5;
+  }
+
+  #main-content .about-values .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,122,0,.3);
+    border: 1px solid rgba(255,122,0,.5);
+    cursor: pointer;
+  }
+
+  #main-content .about-values .carousel-dot.is-active {
+    background: #ff7a00;
+    box-shadow: 0 0 10px rgba(255,122,0,.5);
+    transform: scale(1.2);
+  }
+}
+/* =========================================================
+   Mission & Values — Arrows patch (mobile only)
+   Positions arrows on each side of dots (RB style)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* Wrapper das setas (criado pelo JS) */
+  #main-content .about-values .carousel-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* mesma largura visual do grupo de dots */
+    width: 160px;
+    margin: 14px auto 0;
+
+    position: relative;
+    z-index: 6;
+    pointer-events: auto;
+  }
+
+  /* Botões das setas */
+  #main-content .about-values .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid var(--rb-orange);
+    color: var(--rb-orange);
+
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  /* Hover / tap feedback */
+  #main-content .about-values .carousel-arrow:hover,
+  #main-content .about-values .carousel-arrow:active {
+    background: rgba(255, 122, 0, 0.12);
+    box-shadow: 0 0 14px rgba(255, 122, 0, 0.45);
+    transform: scale(1.05);
+  }
+
+  /* Remove qualquer outline feio no mobile */
+  #main-content .about-values .carousel-arrow:focus {
+    outline: none;
+  }
+}
+/* =========================================================
+   Mission & Values — Arrow fine alignment (FINAL POLISH)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* Wrapper das setas + dots (linha única visual) */
+  #main-content .about-values .carousel-arrows {
+    width: 220px;                 /* 🔑 mais largo → setas mais laterais */
+    margin: -2px auto 0;           /* 🔑 sobe o conjunto */
+    position: relative;
+    top: -18px;                    /* 🔑 micro subida extra */
+  }
+
+  /* Setas individuais */
+  #main-content .about-values .carousel-arrow {
+    width: 34px;
+    height: 34px;
+
+    font-size: 1.15rem;
+
+    /* 🔑 garante alinhamento perfeito vertical */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Ajuste fino para alinhar exatamente com as bolinhas */
+  #main-content .about-values .carousel-dots {
+    margin-top: 6px;              /* 🔑 aproxima dots das setas */
+  }
+}
+/* =========================================================
+   Who We Help — CAROUSEL (mobile) + GRID (desktop)
+   Same premium RB pattern as Mission & Values
+========================================================= */
+
+/* Desktop / geral: mantém o grid normal */
+#main-content .about-audience .grid.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* =========================================================
+   Mobile: car style carousel (1 center + 2 behind)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* respiro pra não cortar e não colar na próxima section */
+  #main-content .about-audience {
+    overflow-x: hidden;
+    overflow-y: visible;
+    padding-bottom: 70px;
+  }
+
+  /* TRACK: vira “palco” do carrossel */
+  #main-content .about-audience .grid.three-col {
+    position: relative;
+    height: 245px;          /* 🔑 evita corte do card */
+    margin: 42px auto 10px; /* 🔑 desce os cards (não invade título) */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+
+    /* IMPORTANTE: ignora grid no mobile */
+    grid-template-columns: none;
+  }
+
+  /* Cards viram “stack” absoluto */
+  #main-content .about-audience .pill-card {
+    position: absolute;
+
+    width: 84%;
+    max-width: 340px;
+
+    padding: 28px 26px;
+
+    transition:
+      transform 0.45s cubic-bezier(.22,.61,.36,1),
+      opacity 0.45s ease,
+      filter 0.45s ease;
+
+    opacity: 0;
+    pointer-events: none;
+
+    height: 210px; /* 🔑 altura uniforme e bonita */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* Centro */
+  #main-content .about-audience .pill-card.is-active {
+    transform: translateX(0) scale(1);
+    opacity: 1;
+    z-index: 3;
+    pointer-events: auto;
+  }
+
+  /* Anterior (esq) */
+  #main-content .about-audience .pill-card.is-prev {
+    transform: translateX(-65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  /* Próximo (dir) */
+  #main-content .about-audience .pill-card.is-next {
+    transform: translateX(65%) scale(0.88);
+    opacity: 0.45;
+    z-index: 2;
+  }
+
+  /* texto bem alinhado */
+  #main-content .about-audience .pill-card h3 {
+    margin-bottom: 12px;
+  }
+  #main-content .about-audience .pill-card p {
+    margin: 0;
+  }
+
+  /* DOTS (mesmo padrão RB) */
+  #main-content .about-audience .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 12px;
+
+    position: relative;
+    z-index: 5;
+  }
+
+  #main-content .about-audience .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255,122,0,.3);
+    border: 1px solid rgba(255,122,0,.5);
+    cursor: pointer;
+  }
+
+  #main-content .about-audience .carousel-dot.is-active {
+    background: var(--rb-orange);
+    box-shadow: 0 0 10px rgba(255,122,0,.5);
+    transform: scale(1.2);
+  }
+
+  /* Arrows (mesma linguagem RB) */
+  #main-content .about-audience .carousel-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 220px;
+    margin: -2px auto 0;
+    position: relative;
+    top: -18px;
+
+    z-index: 6;
+    pointer-events: auto;
+  }
+
+  #main-content .about-audience .carousel-arrow {
+    width: 34px;
+    height: 34px;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(0, 0, 0, 0.75);
+    border: 2px solid var(--rb-orange);
+    color: var(--rb-orange);
+
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  #main-content .about-audience .carousel-arrow:hover,
+  #main-content .about-audience .carousel-arrow:active {
+    background: rgba(255, 122, 0, 0.12);
+    box-shadow: 0 0 14px rgba(255, 122, 0, 0.45);
+    transform: scale(1.05);
+  }
+
+  #main-content .about-audience .carousel-arrow:focus {
+    outline: none;
+  }
+}
+
+/* =========================================================
+   Desktop: esconder dots/arrows (igual você pediu)
+========================================================= */
+@media (min-width: 901px) {
+  #main-content .about-audience .carousel-dots,
+  #main-content .about-audience .carousel-arrows {
+    display: none !important;
+  }
+}
+/* =========================================================
+   FIX DEFINITIVO — PLANS carousel: sem fade ao tocar (mobile)
+========================================================= */
+@media (max-width: 900px) {
+
+  /* 1) Mata o "hover sticky" do mobile só nos Plans */
+  .services-main #plans .svc-plan:hover,
+  .services-main #plans .svc-plan:active,
+  .services-main #plans .svc-plan:focus {
+    transform: none !important;
+    box-shadow: none !important;
+    background: var(--rb-panel) !important;
+    border-color: var(--rb-line) !important;
+  }
+
+  /* 2) Remove transição de opacity (isso causa fade na sensação do toque) */
+  .services-main #plans .svc-plan {
+    transition: transform 0.45s cubic-bezier(.22,.61,.36,1) !important;
+  }
+
+  /* 3) Prev/Next sólidos (sem opacidade e sem scale) */
+  .services-main #plans .svc-plan.is-prev,
+  .services-main #plans .svc-plan.is-next {
+    opacity: 1 !important;
+    filter: none !important;
+  }
+
+  .services-main #plans .svc-plan.is-prev {
+    transform: translateX(-65%) !important;
+  }
+
+  .services-main #plans .svc-plan.is-next {
+    transform: translateX(65%) !important;
+  }
+
+  .services-main #plans .svc-plan.is-active {
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+  }
+}

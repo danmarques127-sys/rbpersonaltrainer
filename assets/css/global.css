@@ -1,0 +1,66 @@
+/* ================== RESET GLOBAL ================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow-x: hidden;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+/* ===== CUSTOM SCROLLBAR ELEGANTE (GLOBAL) ===== */
+::-webkit-scrollbar {
+  width: 9px;          /* largura da barra */
+}
+
+::-webkit-scrollbar-track {
+  background: #111;    /* fundo da trilha */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff7a00, #d95d00);
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ffa35a, #ff7a00);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ff7a00 #111;  /* thumb + track */
+}
+/* escondido no desktop */
+.mobile-only {
+    display: none;
+}
+
+/* aparece apenas no mobile */
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+
+    .rb-mobile-logout {
+        display: block;
+        padding: 12px 16px;
+        color: #ff8a00;
+        font-weight: 600;
+        font-size: 16px;
+        text-decoration: none;
+    }
+
+    .rb-mobile-logout:hover {
+        color: #ffa94c;
+    }
+}

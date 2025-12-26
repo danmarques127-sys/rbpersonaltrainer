@@ -1,0 +1,524 @@
+/* ============================================
+   RB Trainer - Coach Clients Page
+   Premium Dark Theme (matching Profile/Workouts/Messages)
+   ============================================ */
+
+:root {
+    --rb-bg-main: #050506;
+    --rb-bg-card: #17171f;
+    --rb-bg-card-soft: #101018;
+    --rb-border-soft: rgba(255, 255, 255, 0.06);
+
+    --rb-text-main: #f9fafb;
+    --rb-text-muted: #9ca3af;
+    --rb-text-label: #a3a6b7;
+
+    --rb-accent: #ff7a00;
+    --rb-accent-strong: #ffb86c;
+
+    --rb-radius-lg: 22px;
+    --rb-radius-md: 14px;
+
+    --rb-shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.85);
+    --rb-shadow-mid: 0 14px 30px rgba(0, 0, 0, 0.75);
+    --rb-shadow-subtle: 0 10px 24px rgba(0, 0, 0, 0.75);
+}
+
+/* BACKGROUND GLOBAL (igual Messages) */
+body {
+    background: linear-gradient(180deg, #111118 0%, #060609 45%, #050506 100%);
+    color: var(--rb-text-main);
+}
+
+/* MAIN WRAPPER (card central) */
+.tc-container {
+    max-width: 1160px;
+    margin: 40px auto 56px;
+}
+
+/* Garante texto claro dentro do módulo */
+.tc-container,
+.tc-container p,
+.tc-container small,
+.tc-container span {
+    color: var(--rb-text-main);
+}
+
+/* HEADER */
+.tc-header-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    align-items: flex-start;
+    margin-bottom: 22px;
+}
+
+.tc-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--rb-text-main);
+    margin: 0 0 4px;
+}
+
+.tc-subtitle {
+    font-size: 13px;
+    color: var(--rb-text-muted);
+    margin: 0;
+}
+
+.tc-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.tc-summary-pill {
+    min-width: 90px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--rb-border-soft);
+    background: linear-gradient(145deg, #17171f, #101018);
+    box-shadow: var(--rb-shadow-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.tc-pill-label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--rb-text-label);
+}
+
+.tc-pill-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--rb-text-main);
+}
+
+/* ============================
+   INVITE CARD
+   ============================ */
+
+.tc-invite-card {
+    margin-top: 8px;
+    margin-bottom: 22px;
+    padding: 20px 22px;
+    border-radius: var(--rb-radius-lg);
+    background: linear-gradient(145deg, #17171f, #101018);
+    border: 1px solid var(--rb-border-soft);
+    box-shadow: var(--rb-shadow-mid);
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    gap: 24px;
+}
+
+.tc-invite-main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tc-invite-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--rb-text-main);
+    margin: 0;
+}
+
+.tc-invite-text {
+    font-size: 12px;
+    color: var(--rb-text-muted);
+    margin: 0 0 6px;
+}
+
+.tc-field-label {
+    font-size: 11px;
+    color: var(--rb-text-label);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.tc-invite-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.tc-input {
+    flex: 1 1 auto;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--rb-border-soft);
+    background: var(--rb-bg-card-soft);
+    color: var(--rb-text-main);
+    font-size: 13px;
+    outline: none;
+}
+
+.tc-input::placeholder {
+    color: var(--rb-text-muted);
+}
+
+/* CTA BUTTON (Same as Footer CTA) */
+.tc-invite-button {
+    padding: 9px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--rb-accent);
+    background: transparent;
+    color: var(--rb-accent);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.15s ease-out;
+}
+
+.tc-invite-button:hover {
+    background: rgba(255, 122, 0, 0.10);
+    border-color: var(--rb-accent-strong);
+    color: var(--rb-accent-strong);
+}
+
+/* Alerts */
+.tc-alert {
+    font-size: 12px;
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 6px;
+}
+
+.tc-alert-error {
+    background: rgba(248, 113, 113, 0.12);
+    border: 1px solid rgba(248, 113, 113, 0.6);
+    color: rgb(252, 165, 165);
+}
+
+.tc-alert-success {
+    background: rgba(22, 163, 74, 0.12);
+    border: 1px solid rgba(22, 163, 74, 0.6);
+    color: rgb(190, 242, 100);
+}
+
+.tc-invite-link-box {
+    margin-top: 8px;
+}
+
+.tc-invite-link-input {
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 10px;
+    border: 1px dashed rgba(255, 255, 255, 0.35);
+    background: #111118;
+    color: var(--rb-text-main);
+    font-size: 12px;
+}
+
+.tc-invite-link-hint {
+    margin-top: 4px;
+    font-size: 11px;
+    color: var(--rb-text-muted);
+}
+
+/* Invite List Right Side */
+.tc-invite-list {
+    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    padding-left: 18px;
+}
+
+.tc-invite-subtitle {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--rb-text-main);
+    margin-bottom: 6px;
+}
+
+.tc-invite-empty {
+    font-size: 12px;
+    color: var(--rb-text-muted);
+}
+
+.tc-invite-items {
+    list-style: none;
+    margin: 8px 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tc-invite-item {
+    padding: 8px 10px;
+    border-radius: 12px;
+    background: var(--rb-bg-card-soft);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.tc-invite-item-email {
+    font-size: 12px;
+    color: var(--rb-text-main);
+}
+
+.tc-invite-item-meta {
+    margin-top: 4px;
+    font-size: 11px;
+    display: flex;
+    justify-content: space-between;
+    color: var(--rb-text-muted);
+}
+
+.tc-invite-status {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.tc-invite-status-active {
+    background: rgba(22, 163, 74, 0.15);
+    color: #4ade80;
+}
+
+.tc-invite-status-used {
+    background: rgba(148, 163, 184, 0.20);
+    color: #e5e7eb;
+}
+
+/* ======================
+   CLIENT CARDS
+   ====================== */
+
+.tc-clients-section {
+    margin-top: 22px;
+}
+
+.tc-section-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--rb-text-main);
+    margin-bottom: 4px;
+}
+
+.tc-section-sub {
+    font-size: 12px;
+    color: var(--rb-text-muted);
+    margin-bottom: 12px;
+}
+
+.tc-clients-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+
+.tc-client-card {
+    padding: 14px 16px;
+    border-radius: var(--rb-radius-md);
+    background: linear-gradient(145deg, #17171f, #101018);
+    border: 1px solid var(--rb-border-soft);
+    box-shadow: var(--rb-shadow-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 120px;
+}
+
+.tc-client-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.tc-client-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    object-fit: cover;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.tc-client-name {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--rb-text-main);
+}
+
+.tc-client-email {
+    font-size: 11px;
+    color: var(--rb-text-muted);
+    max-width: 180px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tc-client-meta {
+    font-size: 12px;
+    color: var(--rb-text-muted);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ACTION BUTTONS */
+.tc-client-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tc-client-btn {
+    font-size: 12px;
+    padding: 6px 12px;
+}
+
+.wk-btn-primary {
+    border-radius: 999px;
+    border: 1px solid var(--rb-accent);
+    background: transparent;
+    color: var(--rb-accent);
+    transition: 0.15s;
+}
+
+.wk-btn-primary:hover {
+    background: rgba(255, 122, 0, 0.10);
+    border-color: var(--rb-accent-strong);
+    color: var(--rb-accent-strong);
+}
+
+.wk-btn-secondary {
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: transparent;
+    color: var(--rb-text-main);
+    transition: 0.15s;
+}
+
+.wk-btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+/* ======================
+   RESPONSIVO
+   ====================== */
+
+@media (max-width: 900px) {
+    .tc-header-row {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tc-summary {
+        justify-content: flex-start;
+    }
+
+    .tc-invite-card {
+        grid-template-columns: 1fr;
+        padding: 16px;
+    }
+
+    .tc-invite-list {
+        border-left: none;
+        padding-left: 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        padding-top: 12px;
+    }
+
+    .tc-invite-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .tc-invite-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ============================================
+   OVERRIDES – CARD PRINCIPAL PREMIUM
+   ============================================ */
+
+.coach-dashboard .wk-container.tc-container {
+    background: linear-gradient(145deg, #17171f, #101018) !important;
+    border-radius: 22px !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+    box-shadow: var(--rb-shadow-soft) !important;
+    padding: 24px 26px 24px !important;
+}
+
+/* Cards internos harmonizados */
+.tc-client-card,
+.tc-invite-card,
+.tc-summary-pill,
+.tc-invite-item {
+    background: linear-gradient(145deg, #17171f, #101018) !important;
+    border: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+.tc-client-avatar {
+    border: 1px solid rgba(255, 255, 255, 0.50) !important;
+}
+
+/* ============================================
+   OVERRIDE CTA PADRÃO RB PREMIUM
+   (só para a página de CLIENTS)
+   ============================================ */
+
+/* Botão de convite (Generate invite link) */
+.tc-invite-card .tc-invite-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 18px !important;
+    border-radius: 999px !important;
+    border: 1px solid #ff7a00 !important;      /* contorno laranja */
+    background: transparent !important;        /* sem fill */
+    color: #ff7a00 !important;                 /* texto laranja */
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;               /* sem glow */
+    cursor: pointer;
+    transition:
+        background 0.15s ease-out,
+        border-color 0.15s ease-out,
+        color 0.15s ease-out;
+}
+
+/* Hover do botão de convite */
+.tc-invite-card .tc-invite-button:hover {
+    background: rgba(255, 122, 0, 0.10) !important;
+    border-color: #ffb86c !important;
+    color: #ffb86c !important;
+}
+
+/* Botões primários dos cards de cliente (View workouts) */
+.tc-clients-section .tc-client-actions .wk-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 12px !important;
+    border-radius: 999px !important;
+    border: 1px solid #ff7a00 !important;
+    background: transparent !important;
+    color: #ff7a00 !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    transition:
+        background 0.15s ease-out,
+        border-color 0.15s ease-out,
+        color 0.15s ease-out;
+}
+
+.tc-clients-section .tc-client-actions .wk-btn-primary:hover {
+    background: rgba(255, 122, 0, 0.10) !important;
+    border-color: #ffb86c !important;
+    color: #ffb86c !important;
+}
