@@ -60,7 +60,6 @@ The system supports:
 
 ## 🧩 EXPERIENCE FLOW (HIGH-LEVEL)
 
-```text
 Visitor → Account → Role Assignment
         ↓
      Dashboard
