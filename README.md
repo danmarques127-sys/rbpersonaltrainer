@@ -1,136 +1,144 @@
-# RB Personal Trainer — SaaS Platform
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F0F0F,50:FFD700,100:0F0F0F&height=260&section=header&text=RB%20Personal%20Trainer&fontSize=48&fontColor=ffffff&animation=fadeIn&fontAlignY=38" />
+</p>
 
-RB Personal Trainer is a **production-ready SaaS platform** built with **PHP and MySQL**, designed to manage **clients, personal trainers, goals, workouts, and communication** within a single, secure system.
+<h3 align="center">
+  Production-Ready SaaS Platform • Multi-Role System • Secure PHP Architecture
+</h3>
 
-This project was developed as a **real-world SaaS product**, with focus on **security, scalability, and clean separation of concerns**, covering the full lifecycle from authentication to role-based dashboards and email workflows.
+<p align="center">
+  A real SaaS product built to manage fitness professionals, clients, and results — at scale.
+</p>
+
+<p align="center">
+  <a href="https://www.rbpersonaltrainer.com">
+    <img src="https://img.shields.io/badge/Production-Online-black?style=for-the-badge">
+  </a>
+  <a href="https://danmarques127-sys.github.io/rbpersonaltrainer/">
+    <img src="https://img.shields.io/badge/UI%20Preview-Static%20Demo-FFD700?style=for-the-badge">
+  </a>
+</p>
 
 ---
 
-## 🌐 Platform Access
+## 🧠 Product Overview
 
-🔗 **Production Website**  
-https://www.rbpersonaltrainer.com
+**RB Personal Trainer** is a **production-ready SaaS platform** built with **PHP and MySQL**, designed to centralize the management of **clients, personal trainers, goals, workouts, and communication** inside a single, secure system.
 
-🔗 **Static Preview (UI demo)**  
-https://danmarques127-sys.github.io/rbpersonaltrainer/
+This project was developed as a **real-world commercial SaaS product**, with strong focus on:
+
+- Security and access control  
+- Scalable multi-role architecture  
+- Clean separation of concerns  
+- Long-term maintainability and extensibility  
+
+This is **not a prototype or academic project**.  
+It is an **end-to-end SaaS platform**, actively running in production.
 
 ---
 
 ## 🎯 Product Vision
 
-The goal of RB Personal Trainer is to provide a **centralized platform for fitness professionals** to manage clients efficiently, while giving clients a clear view of their **goals, progress, and communication** with trainers.
+The vision behind RB Personal Trainer is to give **fitness professionals full control over their business**, while providing clients with a clear, structured, and motivating experience.
 
 The platform was designed to support:
+
 - Real client–trainer workflows
-- Secure multi-role access
-- Scalable SaaS-style architecture
-- Long-term feature expansion
+- Secure role-based dashboards
+- SaaS-style onboarding and permissions
+- Growth into APIs, mobile apps, and integrations
+
+RB Personal Trainer treats **fitness management as a system**, not a collection of pages.
 
 ---
 
-## 🚀 Features
+## 🚀 Core Features
 
-### Public Website
+### 🌐 Public Website
 - Responsive marketing pages
-- Services, testimonials, and contact sections
+- Service descriptions and testimonials
 - SEO-ready structure
-- Optimized assets and icons
+- Optimized static assets and icons
 
 ---
 
-### Authentication & Roles
+### 🔐 Authentication & Roles
 - Secure login system
 - Role-based access control:
   - Client
   - Personal Trainer
   - Admin
-- Password reset via email
-- Session protection and access guards
+- Password recovery via email
+- Session hardening and access guards
+- Environment-based configuration
 
 ---
 
-### Client Dashboard
+### 👤 Client Dashboard
 - Profile management
-- Goal tracking and progress history
+- Goal tracking with progress history
 - Workout plans
 - Progress photo gallery
-- Messaging with assigned trainer
+- Direct messaging with assigned trainer
 
 ---
 
-### Trainer Dashboard
-- Client management
-- Workout plan creation
-- Goal assignment and updates
-- Client progress monitoring
+### 🏋️ Trainer Dashboard
+- Client list and profile access
+- Workout plan creation and updates
+- Goal assignment and monitoring
+- Client progress tracking
 - Internal messaging system
 
 ---
 
-### Admin Dashboard
-- User management
+### 🛠️ Admin Dashboard
+- User and role management
 - Invitation-based onboarding
-- Platform-level control features
+- Platform-level administrative controls
+- System configuration features
 
 ---
 
 ## 🛠️ Tech Stack
 
-- **Backend:** PHP (custom architecture, no framework)
-- **Database:** MySQL (PDO, prepared statements)
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Authentication:** Sessions with role-based guards
-- **Email:** SMTP (Mailtrap / Brevo supported)
-- **Security:** Environment variables, access control, input validation
-- **Version Control:** Git & GitHub
+### Backend
+- **PHP** (custom architecture, no framework)
+- **MySQL** (PDO, prepared statements)
+- Session-based authentication
+- Role guards and access control
+
+### Frontend
+- HTML5
+- CSS3
+- JavaScript (vanilla)
+
+### Infrastructure & Security
+- Environment variables (`.env`)
+- Input validation and sanitization
+- SMTP email support (Mailtrap / Brevo)
+- Centralized bootstrap and config loading
+
+### Tooling
+- Git & GitHub
+- Production and staging environments
 
 ---
 
 ## 🧱 Architecture Overview
 
-- Clean separation between core logic and presentation
-- Centralized authentication and role guards
-- Modular dashboard structure per role
-- Environment-based configuration (`.env`)
-- Prepared for future API and mobile integration
+RB Personal Trainer follows a **modular SaaS-oriented architecture**:
+
+- Centralized authentication and authorization layer
+- Role-specific dashboard modules
+- Shared core services (auth, config, helpers)
+- Environment-driven configuration
+- Prepared for future REST API exposure
+
+This architecture allows **new features and roles** to be added without breaking existing functionality.
 
 ---
 
 ## 📂 Project Structure
 
-/
-├── core/ # Core system (auth, config, bootstrap)
-├── dashboards/ # Role-based dashboards
-├── assets/ # CSS, JS, images
-├── images/ # Static images and media
-├── cron/ # Scheduled tasks
-├── phpmailer/ # Email handling
-├── index.php # Public entry point
-├── login.php
-├── .env.example # Environment template
 
-
----
-
-## 🧪 Demo & Preview
-
-- **Static UI Preview:**  
-  https://danmarques127-sys.github.io/rbpersonaltrainer/
-
-(The static demo showcases layout and structure. Core SaaS functionality runs on the production environment.)
-
----
-
-## 👤 Author
-
-**Dangelo Marques**  
-Full-Stack Developer — SaaS platforms, dashboards, and PHP systems
-
-Responsible for **architecture, backend, frontend, authentication, role management, security, and deployment**.
-
----
-
-## 📄 License
-
-This is a **real commercial SaaS project**.  
-Source code is published for **demonstration and evaluation purposes only**.
