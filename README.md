@@ -1,166 +1,231 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:0F0F0F,100:4FA3D1&height=180&section=header&text=Lupa%20Services&fontSize=42&fontColor=ffffff&animation=fadeIn" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F0F0F,50:FFD700,100:0F0F0F&height=240&section=header&text=RB%20Personal%20Trainer&fontSize=46&fontColor=ffffff&animation=fadeIn&fontAlignY=38" />
+</p>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=FFD700&center=true&vCenter=true&width=800&lines=SaaS+Platform+for+Personal+Trainers;Multi-Role+Dashboards+%26+Secure+Auth;Built+with+PHP+%26+MySQL;Designed+to+Scale+as+a+Product" />
 </p>
 
 <h3 align="center">
-  Cleaning & Painting Business Website • SEO-Structured • Production-Ready
+  Production-Ready SaaS Platform • Multi-Role • Secure • Scalable
 </h3>
 
 <p align="center">
-  Built for a real company. Designed to scale.
+  Built as a real product — not a demo.
 </p>
 
 <p align="center">
-  <a href="https://danmarques127-sys.github.io/lupa-services/">
-    <img src="https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-4FA3D1?style=for-the-badge">
+  <a href="https://www.rbpersonaltrainer.com">
+    <img src="https://img.shields.io/badge/Production-Online-FFD700?style=for-the-badge">
   </a>
-  <a href="https://lupaservices.com">
-    <img src="https://img.shields.io/badge/Production%20Site-Online-black?style=for-the-badge">
+  <a href="https://danmarques127-sys.github.io/rbpersonaltrainer/">
+    <img src="https://img.shields.io/badge/UI%20Preview-Static%20Demo-black?style=for-the-badge">
   </a>
 </p>
 
 ---
 
-## 🧠 Project Overview
+## 🧠 What is RB Personal Trainer?
 
-This repository contains the **official production website** for **Lupa Services**, a professional company offering **cleaning and painting services** for residential and commercial clients.
+**RB Personal Trainer** is a **full SaaS platform** built with **PHP and MySQL**, designed to manage **clients, personal trainers, goals, workouts, progress, and communication** within a single secure system.
 
-The project was designed to **clearly separate service categories**, showcase real work, and establish **strong SEO foundations**, improving usability, discoverability, and long-term scalability.
+The platform was developed as a **real-world SaaS product**, focusing on:
 
-This is a **real-world client project**, actively used in production — **not a template, clone, or demo**.
+- Security and access control  
+- Clean architecture and separation of concerns  
+- Role-based workflows  
+- Long-term scalability and maintainability  
 
----
-
-## 🎯 Goals & Strategy
-
-- Clearly distinguish cleaning and painting services
-- Improve local SEO structure and indexing
-- Present services in a professional, conversion-focused layout
-- Support future content expansion (blog, service hubs, landing pages)
-- Deliver a fast, mobile-first user experience
-
-All decisions were made with **clarity, performance, and maintainability** as first-class concerns.
+This is **not a template or tutorial project**.  
+It is a **commercial-grade system**, designed to evolve as a product.
 
 ---
 
-## 🖥️ Preview
+## 🌐 Platform Access
 
-The website is fully responsive and optimized for:
+🔗 **Production Website**  
+https://www.rbpersonaltrainer.com  
 
-- 📱 Mobile
-- 💻 Desktop
-- 📟 Tablet
+🔗 **Static UI Preview (layout & structure)**  
+https://danmarques127-sys.github.io/rbpersonaltrainer/
 
-📸 **Screenshots**
-> Desktop and mobile previews will be added here.
-
-Key elements include:
-- Service-specific landing pages
-- Separate sections for cleaning and painting
-- Blog and inspiration pages
-- Quote and contact flows
-- Policy and legal pages
+> The static preview showcases the UI and layout.  
+> Core SaaS functionality runs in the secured production environment.
 
 ---
 
-## 🚀 Key Features
+## 🎯 Product Vision
 
-- Mobile-first, responsive layout
-- Clear visual and structural separation of service categories
-- Multiple service-specific landing pages
-- Optimized static assets
-- SEO-first site architecture
-- Production-ready static deployment
+RB Personal Trainer was designed to be a **central operating system for fitness professionals**.
+
+### For Trainers
+- Manage clients in one place
+- Track goals, workouts, and progress
+- Communicate efficiently
+- Scale their business without spreadsheets or scattered tools
+
+### For Clients
+- Clearly see goals and progress
+- Access workout plans
+- Communicate directly with their trainer
+- Stay engaged and accountable
+
+The architecture supports:
+- Real client–trainer workflows
+- Multi-role SaaS usage
+- Incremental feature expansion
+- Future mobile and API integrations
+
+---
+
+## 🚀 Core Features
+
+### 🌍 Public Website
+- Marketing pages
+- Services and testimonials
+- Contact and onboarding flows
+- SEO-ready structure
+- Optimized assets and icons
+
+---
+
+### 🔐 Authentication & Roles
+- Secure login system
+- Role-based access control:
+  - **Client**
+  - **Personal Trainer**
+  - **Admin**
+- Password reset via email
+- Session hardening and access guards
+
+---
+
+### 👤 Client Dashboard
+- Profile management
+- Goal tracking with progress history
+- Workout plans
+- Progress photo gallery
+- Direct messaging with assigned trainer
+
+---
+
+### 🧑‍🏫 Trainer Dashboard
+- Client management
+- Workout plan creation
+- Goal assignment and updates
+- Progress monitoring
+- Internal messaging system
+
+---
+
+### 🛠️ Admin Dashboard
+- User and role management
+- Invitation-based onboarding
+- Platform-level controls
+- System supervision features
 
 ---
 
 ## 🛠️ Tech Stack
 
+### Backend
+- **PHP** (custom architecture, no framework)
+- Clean, explicit logic
+- Centralized auth and guards
+
+### Database
+- **MySQL**
+- PDO with prepared statements
+- Relational modeling focused on integrity
+
 ### Frontend
-<p>
-  <img src="https://skillicons.dev/icons?i=html,css,js" />
-</p>
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
 
-### Tooling & Deployment
-<p>
-  <img src="https://skillicons.dev/icons?i=git,github" />
-</p>
+### Infrastructure & Security
+- Session-based authentication
+- Role-based access enforcement
+- Environment variables (`.env`)
+- Input validation and controlled access
+- SMTP email support (Mailtrap / Brevo)
 
-- **HTML5** — semantic, accessible, SEO-friendly markup  
-- **CSS3** — modular stylesheets per service category  
-- **JavaScript (Vanilla)** — lightweight interactivity  
-- **GitHub Pages** — live demo hosting  
-- **Custom Domain** — production deployment  
+### Tooling
+- Git & GitHub
+- Structured project organization
 
 ---
 
-## 🔍 SEO & Optimization
+## 🧱 Architecture Overview
 
-This project includes **advanced SEO structure** for a static business website:
+The system follows a **modular SaaS architecture**:
 
-- `robots.txt`
-- Sitemap index with multiple sitemaps:
-  - `sitemap-cleaning.xml`
-  - `sitemap-painting.xml`
-  - `sitemap-hub.xml`
-  - `sitemap_index.xml`
-- Google Search Console verification
-- Clean URLs and semantic HTML hierarchy
-- Structured content hubs for service expansion
+- Clear separation between **core system logic** and **presentation**
+- Centralized authentication and role enforcement
+- Independent dashboards per role
+- Environment-based configuration
+- Designed for future API exposure
 
-The architecture supports **long-term SEO growth and scalability**.
+This structure allows the platform to grow **without architectural rewrites**.
 
 ---
 
 ## 📂 Project Structure
 
 /
-├── index.html
-├── style-cleaning.css
-├── style-painting.css
-├── script.js
-├── images/
-├── icons/
-├── robots.txt
-├── site.webmanifest
-├── sitemap-cleaning.xml
-├── sitemap-painting.xml
-├── sitemap-hub.xml
-├── sitemap_index.xml
-└── *.html (service, blog, and content pages)
+├── core/ # Core system (auth, config, bootstrap)
+├── dashboards/ # Role-based dashboards (client, trainer, admin)
+├── assets/ # CSS, JavaScript, shared UI assets
+├── images/ # Static images and media
+├── cron/ # Scheduled/background tasks
+├── phpmailer/ # Email handling
+├── index.php # Public entry point
+├── login.php
+├── .env.example # Environment configuration template
 
 
 ---
 
-## ▶️ Running Locally
+## 🧪 Demo & Preview
 
-This is a static website — no build step required.
+- **Static UI Preview:**  
+  https://danmarques127-sys.github.io/rbpersonaltrainer/
 
-git clone https://github.com/danmarques127-sys/lupa-services.git
-cd lupa-services
-open index.html
+The preview demonstrates:
+- Layout
+- Navigation
+- Component structure
+
+The production system handles:
+- Authentication
+- Roles
+- Data persistence
+- Messaging
+- Business logic
+
+---
 
 ## 🗺️ Roadmap
 
-Planned and possible improvements:
+Planned evolution of the platform:
 
-- [ ] Add Lighthouse performance audit
-- [ ] Improve accessibility (ARIA, contrast, keyboard navigation)
-- [ ] Add Schema.org `LocalBusiness` structured data
-- [ ] Expand service hubs with SEO-focused content
-- [ ] Add analytics and conversion tracking
+- [ ] REST API for mobile and external integrations
+- [ ] Advanced analytics and reporting
+- [ ] Notification system (email / in-app)
+- [ ] Subscription & billing layer
+- [ ] Mobile app integration
+- [ ] AI-assisted insights for trainers
 
 ---
 
 ## 📜 License & Usage
 
-This is a **real production website** built for an active business.
+This is a **real commercial SaaS product**.
 
-- Website content, branding, and business assets belong to the respective business owner.
-- Source code is authored by **Deangelo Marques** and published for **professional reference**.
+- Business logic, system architecture, and platform concept are proprietary.
+- Source code is published **for professional evaluation and demonstration only**.
 
-✅ Viewing and learning from this repository is allowed.  
-❌ Copying, reselling, or deploying this website (or its branding/content) without permission is not allowed.
+❌ Redistribution, resale, or deployment without permission is not allowed.
 
 ---
 
@@ -169,12 +234,18 @@ This is a **real production website** built for an active business.
 **Deangelo Marques**  
 Product-Driven Full-Stack Developer  
 
-This project demonstrates my ability to deliver **client-ready, production websites**, with strong emphasis on **structure, SEO, performance, and deployment**.
+Responsible for:
+- Product architecture
+- Backend and frontend development
+- Authentication and role systems
+- Security design
+- Deployment and environment setup
 
 <p align="center">
-  <i>Built to scale — not just to launch.</i>
+  <i>Built as a product. Designed to scale.</i>
 </p>
 
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&color=0:4FA3D1,100:0F0F0F&height=100&section=footer" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:FFD700,100:0F0F0F&height=120&section=footer" />
 </p>
+
