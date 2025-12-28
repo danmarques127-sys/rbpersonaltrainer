@@ -102,3 +102,34 @@ Author: DaNgelo Marques (GitHub: danmarques127-sys)
 ├── index.html
 └── *.html
 
+---
+
+## 🚀 Deployment
+
+### GitHub Pages (Preview)
+1. Repo → **Settings** → **Pages**
+2. Source: **Deploy from a branch**
+3. Branch: `main` • Folder: `/ (root)`
+4. Save → use the generated Pages URL
+
+---
+
+## 🗄️ Cache Policy (2 lines)
+- Static assets (CSS/JS/images/icons) are cached aggressively for repeat visits.  
+- HTML is cached shorter to avoid stale pages after content updates.
+
+---
+
+## 📄 License (conscious choice)
+**All Rights Reserved** — This repository represents a real client-grade production website.  
+No reuse, redistribution, or modification is allowed without explicit permission.
+
+---
+
+## 👤 Author
+**Dangelo Marques**  
+GitHub: https://github.com/danmarques127-sys
+
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0B0F19,60:F97316,100:0B0F19&height=120&section=footer" />
+</p>
