@@ -119,7 +119,7 @@ $avatarUrl = (string)($_SESSION['avatar_url'] ?? 'images/default-avatar.png');
   <header id="rb-static-header" class="rbf1-header">
     <div class="rbf1-topbar">
       <a href="/" class="rbf1-logo">
-        <img src="images/logo.svg" alt="RB Personal Trainer Logo">
+        <img src="../assets/images/logo.svg" alt="RB Personal Trainer Logo">
       </a>
 
       <nav class="rbf1-nav" id="rbf1-nav">
@@ -384,7 +384,7 @@ $avatarUrl = (string)($_SESSION['avatar_url'] ?? 'images/default-avatar.png');
     <div class="footer-main">
       <div class="footer-col footer-brand">
         <a href="/" class="footer-logo">
-          <img src="images/logo.svg" alt="RB Personal Trainer Logo">
+          <img src="../assets/images/logo.svg" alt="RB Personal Trainer Logo">
         </a>
         <p class="footer-text">
           RB Personal Trainer offers complete online coaching with customized
@@ -445,13 +445,13 @@ $avatarUrl = (string)($_SESSION['avatar_url'] ?? 'images/default-avatar.png');
               <span class="footer-contact-label">Social:</span>
               <div class="footer-social-icons">
                 <a class="social-icon" href="https://www.instagram.com/rbpersonaltrainer" target="_blank" rel="noopener">
-                  <img src="images/instagram.png" alt="Instagram Logo">
+                  <img src="../assets/images/instagram.png" alt="Instagram Logo">
                 </a>
                 <a class="social-icon" href="https://www.facebook.com/rbpersonaltrainer" target="_blank" rel="noopener">
-                  <img src="images/facebook.png" alt="Facebook Logo">
+                  <img src="../assets/images/facebook.png" alt="Facebook Logo">
                 </a>
                 <a class="social-icon" href="https://www.linkedin.com" target="_blank" rel="noopener">
-                  <img src="images/linkedin.png" alt="LinkedIn Logo">
+                  <img src="../assets/images/linkedin.png" alt="LinkedIn Logo">
                 </a>
               </div>
             </li>
