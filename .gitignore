@@ -1,23 +1,28 @@
-﻿# --- Secrets / env ---
-.env
-.env.*
-core/.env
-trainer/.env
-
-# --- Logs ---
-*.log
-error_log
-*.pid
-
-# --- OS / Editor ---
+﻿# OS / Editor
 .DS_Store
 Thumbs.db
-.vscode/
+*.swp
+*.swo
 .idea/
+.vscode/
 
-# --- Dependency dirs (se tiver) ---
-vendor/
+# Archives / packages
+*.zip
+*.7z
+*.rar
+*.tar
+*.gz
+
+# Node (if ever added later)
 node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# --- Uploads (se existir pasta de uploads) ---
-uploads/
+# Logs
+*.log
+
+# Local tooling
+.cache/
+dist/
+build/
