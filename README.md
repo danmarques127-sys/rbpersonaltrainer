@@ -55,21 +55,17 @@ Author: DaNgelo Marques (GitHub: danmarques127-sys)
 
 ---
 
-## 🧰 Tech Stack
+#### 🧰 Tech Stack
 
+<!-- GRID 1 — Core Technologies -->
 <p align="center">
-  <!-- Core Web -->
-  <img src="https://skillicons.dev/icons?i=html,css,js,php,mysql" />
+  <img src="https://skillicons.dev/icons?i=html,css,js,php,mysql,apache,git,github" />
 </p>
 
+<!-- GRID 2 — Infrastructure / Security -->
 <p align="center">
-  <!-- Infra / Tooling -->
-  <img src="https://skillicons.dev/icons?i=apache,git,github" />
-</p>
-
-<p align="center">
-  <!-- Security / Hosting -->
-  <img src="https://img.shields.io/badge/HTTPS-SSL%20Enabled-22C55E?style=for-the-badge&logo=letsencrypt&logoColor=white" />
+  <img src="https://img.shields.io/badge/HTTPS-Secure-22C55E?style=for-the-badge&logo=letsencrypt&logoColor=white" />
+  <img src="https://img.shields.io/badge/SSL-Enabled-16A34A?style=for-the-badge" />
   <img src="https://img.shields.io/badge/phpMyAdmin-Database%20Admin-0B0F19?style=for-the-badge&logo=phpmyadmin&logoColor=F97316" />
 </p>
 
@@ -79,10 +75,8 @@ Author: DaNgelo Marques (GitHub: danmarques127-sys)
 - **PHP** — server-side logic, form handling, and dynamic content rendering  
 - **MySQL** — relational database for application data (users, forms, content)  
 - **Apache (.htaccess)** — caching strategy, routing rules, and security headers  
-- **Git** — source control and professional versioning workflow  
-- **GitHub** — repository hosting, releases, and CI automation  
+- **Git + GitHub** — professional versioning, releases, and CI workflows  
 - **HTTPS (SSL)** — encrypted traffic and production-grade security  
-
 
 ---
 
