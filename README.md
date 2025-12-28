@@ -36,7 +36,7 @@ Author: DaNgelo Marques (GitHub: danmarques127-sys)
 ## 🏋️ Title + One-liner
 **RB Personal Trainer** — a production-ready static website for a **gym / personal training / health lifestyle** brand, built with an **SEO-first**, **performance-focused**, and **accessibility-aware** mindset.
 
-> Built and maintained by **DaNgelo Marques** (GitHub: https://github.com/danmarques127-sys)
+> Built and maintained by **Dangelo Marques** (GitHub: https://github.com/danmarques127-sys)
 
 ---
 
@@ -56,16 +56,33 @@ Author: DaNgelo Marques (GitHub: danmarques127-sys)
 ---
 
 ## 🧰 Tech Stack
+
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=html,css,js,git,github,apache" />
+  <!-- Core Web -->
+  <img src="https://skillicons.dev/icons?i=html,css,js,php,mysql" />
+</p>
+
+<p align="center">
+  <!-- Infra / Tooling -->
+  <img src="https://skillicons.dev/icons?i=apache,git,github" />
+</p>
+
+<p align="center">
+  <!-- Security / Hosting -->
+  <img src="https://img.shields.io/badge/HTTPS-SSL%20Enabled-22C55E?style=for-the-badge&logo=letsencrypt&logoColor=white" />
+  <img src="https://img.shields.io/badge/phpMyAdmin-Database%20Admin-0B0F19?style=for-the-badge&logo=phpmyadmin&logoColor=F97316" />
 </p>
 
 - **HTML5** — semantic structure for SEO & accessibility  
-- **CSS3** — responsive UI, components, and brand styling (orange/black theme)  
-- **Vanilla JavaScript** — lightweight interactions/animations only (no frameworks)  
-- **Apache (.htaccess)** — caching, security headers, and static hosting behavior  
-- **Git + GitHub** — versioning, releases, and CI checks  
-- **HTTPS (SSL)** — secure transport on production hosting
+- **CSS3** — responsive UI, components, and brand styling (orange & black theme)  
+- **Vanilla JavaScript** — lightweight interactions and UI animations (no frameworks)  
+- **PHP** — server-side logic, form handling, and dynamic content rendering  
+- **MySQL** — relational database for application data (users, forms, content)  
+- **Apache (.htaccess)** — caching strategy, routing rules, and security headers  
+- **Git** — source control and professional versioning workflow  
+- **GitHub** — repository hosting, releases, and CI automation  
+- **HTTPS (SSL)** — encrypted traffic and production-grade security  
+
 
 ---
 
