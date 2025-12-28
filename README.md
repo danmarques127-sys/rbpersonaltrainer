@@ -111,16 +111,26 @@ Author: DaNgelo Marques (GitHub: danmarques127-sys)
 2. Source: **Deploy from a branch**
 3. Branch: `main` • Folder: `/ (root)`
 4. Save → use the generated Pages URL
+5. 
+### Production Deployment 
+
+The website is deployed on an Apache server with support for `.htaccess`
+rules for caching, routing, and security headers.
+
+Production environment considerations:
+- Server must allow `.htaccess` overrides
+- SEO assets (robots.txt, sitemap.xml) are publicly accessible
+- All internal links and assets are validated post-deployment 
 
 ---
 
-## 🗄️ Cache Policy (2 lines)
+## 🗄️ Cache Policy 
 - Static assets (CSS/JS/images/icons) are cached aggressively for repeat visits.  
 - HTML is cached shorter to avoid stale pages after content updates.
 
 ---
 
-## 📄 License (conscious choice)
+## 📄 License 
 **All Rights Reserved** — This repository represents a real client-grade production website.  
 No reuse, redistribution, or modification is allowed without explicit permission.
 
@@ -128,6 +138,7 @@ No reuse, redistribution, or modification is allowed without explicit permission
 
 ## 👤 Author
 **Dangelo Marques**  
+Software Engineer • Web Architecture • SEO-driven Systems 
 GitHub: https://github.com/danmarques127-sys
 
 <p align="center">
